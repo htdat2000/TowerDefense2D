@@ -2141,7 +2141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Custume
 --- !u!222 &880512526
 CanvasRenderer:
   m_ObjectHideFlags: 0
