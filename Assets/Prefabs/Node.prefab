@@ -125,9 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0, g: 1, b: 0.21226406, a: 1}
   notEnoughMoneyColor: {r: 0.9622642, g: 0.049928807, b: 0.049928807, a: 1}
-  positionOffset: {x: 0, y: 0, z: 0}
-  turret: {fileID: 0}
-  turretBlueprint:
+  offset: {x: 0, y: 0, z: -0.1}
+  tower: {fileID: 0}
+  towerBlueprint:
     prefab: {fileID: 0}
     cost: 0
     upgradePrefab: {fileID: 0}
