@@ -232,3 +232,11 @@ Received Import Request.
 Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Square.png using Guid(48e93eef0688c4a259cb0eddcd8661f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '846f8e02d3315151ee1632098f52a2e3') in 0.146148 seconds 
   Import took 0.152548 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 57.005692 seconds.
+  path: Assets/Sprites/Node.png
+  artifactKey: Guid(54af35a65962e034ea431bd7e46fb010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Node.png using Guid(54af35a65962e034ea431bd7e46fb010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83de5872072271a9d745f6299ff5c7a9') in 0.031618 seconds 
+  Import took 0.037565 seconds .
+
