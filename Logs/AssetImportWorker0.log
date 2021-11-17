@@ -224,3 +224,11 @@ Received Import Request.
 Start importing Assets/Prefabs/TowerPrefab/ArcherTower.prefab using Guid(2be7f878cf49c7a4d9cf27188f761c09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aeed17ce25b85e94e12c67c4e05efe6') in 0.054894 seconds 
   Import took 0.062707 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 584.774341 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Square.png
+  artifactKey: Guid(48e93eef0688c4a259cb0eddcd8661f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/ObjectMenuCreation/DefaultAssets/Textures/Square.png using Guid(48e93eef0688c4a259cb0eddcd8661f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '846f8e02d3315151ee1632098f52a2e3') in 0.146148 seconds 
+  Import took 0.152548 seconds .
+
