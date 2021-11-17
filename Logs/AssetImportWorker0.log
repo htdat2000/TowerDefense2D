@@ -240,3 +240,67 @@ Received Import Request.
 Start importing Assets/Sprites/Node.png using Guid(54af35a65962e034ea431bd7e46fb010) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83de5872072271a9d745f6299ff5c7a9') in 0.031618 seconds 
   Import took 0.037565 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 342.833275 seconds.
+  path: Assets/Prefabs/Node.prefab
+  artifactKey: Guid(e9cf87a63310ebe4ab0192a532095d96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Node.prefab using Guid(e9cf87a63310ebe4ab0192a532095d96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '291785e442f57456adb35f6519b79abe') in 0.042355 seconds 
+  Import took 0.048933 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.892828 seconds.
+  path: Assets/Sprites/Tower.png
+  artifactKey: Guid(56461653a414cca4c97f5e0c1b31c7af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tower.png using Guid(56461653a414cca4c97f5e0c1b31c7af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c6a894b9459c40ac4b999987ed4b053') in 0.032178 seconds 
+  Import took 0.038016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.758249 seconds.
+  path: Assets/Prefabs/TowerPrefab/FireTower.prefab
+  artifactKey: Guid(6f1a6b4fe7260ff4fb705150da16c42f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TowerPrefab/FireTower.prefab using Guid(6f1a6b4fe7260ff4fb705150da16c42f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dccd79d026fdf6e723657a96b5caf14') in 0.020119 seconds 
+  Import took 0.025790 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.236831 seconds.
+  path: Assets/Prefabs/TowerPrefab/IceTower.prefab
+  artifactKey: Guid(0ff0fb1d7184ee34da6f138267c89196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TowerPrefab/IceTower.prefab using Guid(0ff0fb1d7184ee34da6f138267c89196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dd1f074513d06daa3b9caa8bf0d71f6') in 0.029888 seconds 
+  Import took 0.034871 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.112577 seconds.
+  path: Assets/Prefabs/TowerPrefab/LightningTower.prefab
+  artifactKey: Guid(2afe01232b15bb04e907c44f8d32e981) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TowerPrefab/LightningTower.prefab using Guid(2afe01232b15bb04e907c44f8d32e981) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '071e46f445677ab9a2d79d88a1c57eb3') in 0.019819 seconds 
+  Import took 0.025566 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.049349 seconds.
+  path: Assets/Prefabs/TowerPrefab/PoisonTower.prefab
+  artifactKey: Guid(fcbe5c0af732c4f40907d384d9f171c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TowerPrefab/PoisonTower.prefab using Guid(fcbe5c0af732c4f40907d384d9f171c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c738673ea4e77cd8afd42c2dd52df45') in 0.023495 seconds 
+  Import took 0.029404 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 357.120529 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(b2e9fa97caf7cda45887c418d2fb05d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(b2e9fa97caf7cda45887c418d2fb05d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc4737b72ecb8a67c090d3a9d0003109') in 0.063282 seconds 
+  Import took 0.070256 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.876514 seconds.
+  path: Assets/Scenes/BeginningRoom.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/BeginningRoom.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ad1a1e6cd7848a01d852880e748c4a4') in 0.011924 seconds 
+  Import took 0.017363 seconds .
+

@@ -51,6 +51,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 56461653a414cca4c97f5e0c1b31c7af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -164,6 +165,7 @@ MonoBehaviour:
   damage: 0
   range: 0
   fireRate: 0
+  slowValue: 0
   enemyTag: Enemy
   bulletPrefab: {fileID: 921048900163402302, guid: 436ee36eb8bf3664bae80d7dfde79f8c,
     type: 3}
