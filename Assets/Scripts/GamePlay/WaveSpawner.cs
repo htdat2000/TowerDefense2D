@@ -23,6 +23,9 @@ public class WaveSpawner : MonoBehaviour
     void Awake()
     {
         sceneStats = GetComponent<SceneStats>();
+
+        EasyModeSpawner easyMode = GetComponent<EasyModeSpawner>();
+        easyMode.enabled = true;
     }
 
     private void Start()
