@@ -9,6 +9,9 @@ public class ModePageController : MonoBehaviour
     void Start()
     {
         SetUnlockMap();
+
+        easyMode = false;
+        normalMode = false;
     }
 
     public void AddMapButton(MapButton button)
@@ -34,5 +37,18 @@ public class ModePageController : MonoBehaviour
                 mapButtons[i].AddUnlockMapFunction(mapIndex);              
             }
         }
+    }
+
+    public static bool easyMode;
+    public static bool normalMode;
+
+    void ChooseEasyMode()
+    {
+        easyMode = true;
+    }
+
+    void ChooseNormalMode()
+    {
+        normalMode = true;
     }
 }
