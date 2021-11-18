@@ -11,6 +11,8 @@ public class Node : MonoBehaviour
 
     private SpriteRenderer rend;
 
+    public Vector3 offset;
+
     [HideInInspector]
     public GameObject tower;
     [HideInInspector]
@@ -63,7 +65,7 @@ public class Node : MonoBehaviour
 
     public Vector3 GetBuildPosition()
     {
-        return transform.position;
+        return transform.position + offset;
     }
 
     void BuildTower(TowerBlueprint blueprint)

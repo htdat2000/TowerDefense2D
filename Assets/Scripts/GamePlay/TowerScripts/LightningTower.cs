@@ -94,5 +94,9 @@ public class LightningTower : MonoBehaviour
     void OnMouseDown()
     {
         buildManager.SelectNode(this.gameObject.GetComponentInParent<Node>());
+
+        NodeUI.towerDamage = damage;
+        NodeUI.towerRange = range;
+        NodeUI.towerFireRate = fireRate;
     }
 }
