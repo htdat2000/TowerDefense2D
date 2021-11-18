@@ -10,7 +10,7 @@ public class NodeImage : MonoBehaviour
 
     void SetSprite()
     {
-        int num = (int)Random.Range(0f, 5f);
+        int num = (int)Random.Range(0f, (float)newSprite.Length);
         spriteRenderer.sprite = newSprite[num]; 
     }
 
