@@ -6227,8 +6227,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1907690140}
-  ui: {fileID: 0}
-  shopUI: {fileID: 433124615}
+  headerUi: {fileID: 1089304988}
+  bottomUI: {fileID: 885866204}
 --- !u!114 &1621789224
 MonoBehaviour:
   m_ObjectHideFlags: 0

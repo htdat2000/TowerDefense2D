@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseUI;
-    public GameObject ui;
-    public GameObject shopUI;
+    public GameObject headerUi; 
+    public GameObject bottomUI;
 
     public void Toggle()
     {
@@ -20,8 +20,8 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        shopUI.SetActive(!pauseUI.activeSelf);
-        ui.SetActive(!pauseUI.activeSelf);
+        bottomUI.SetActive(!pauseUI.activeSelf);
+        headerUi.SetActive(!pauseUI.activeSelf);
     }
 
     public void GoToStartScene()
