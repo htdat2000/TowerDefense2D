@@ -2187,7 +2187,7 @@ MonoBehaviour:
   startMoney: 400
   moneyText: {fileID: 12238019}
   startLives: 10
-  liveText: {fileID: 1234720081}
+  liveText: {fileID: 973422181}
   startWavesNumber: 0
 --- !u!114 &600871742
 MonoBehaviour:
@@ -6171,14 +6171,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1621789219}
   - component: {fileID: 1621789218}
-  - component: {fileID: 1621789221}
   - component: {fileID: 1621789220}
   - component: {fileID: 1621789223}
-<<<<<<< HEAD
-  - component: {fileID: 1621789224}
-=======
   - component: {fileID: 1621789222}
->>>>>>> datclone
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -6227,23 +6222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 0}
---- !u!114 &1621789221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621789217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b73788f086bc4d54fbc16468ec11224d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startMoney: 1000000
-  moneyText: {fileID: 12238019}
-  startLives: 10
-  liveText: {fileID: 973422181}
-  startWavesNumber: 0
 --- !u!114 &1621789222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6301,48 +6279,6 @@ MonoBehaviour:
   pauseUI: {fileID: 1907690140}
   ui: {fileID: 0}
   shopUI: {fileID: 433124615}
---- !u!114 &1621789224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621789217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8701db623d57364389f253f507ab7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gem: 0
-  diamond: 0
-  archerTowerStar: 0
-  archerTowerDamage: 0
-  archerTowerRange: 0
-  archerTowerRate: 0
-  archerTowerUpgradeCost: 0
-  fireTowerStar: 0
-  fireTowerDamage: 0
-  fireTowerRange: 0
-  fireTowerRate: 0
-  fireTowerUpgradeCost: 0
-  iceTowerStar: 0
-  iceTowerDamage: 0
-  iceTowerRange: 0
-  iceTowerRate: 0
-  slowValue: 0
-  iceTowerUpgradeCost: 0
-  lightningTowerStar: 0
-  lightningTowerDamage: 0
-  lightningTowerRange: 0
-  lightningTowerRate: 0
-  lightningTowerUpgradeCost: 0
-  poisonTowerStar: 0
-  poisonTowerDamage: 0
-  poisonTowerRange: 0
-  poisonTowerRate: 0
-  poisonValue: 0
-  poisonTowerUpgradeCost: 0
-  map: 0
 --- !u!1001 &1625821049
 PrefabInstance:
   m_ObjectHideFlags: 0

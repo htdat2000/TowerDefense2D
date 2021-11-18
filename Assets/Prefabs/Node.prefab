@@ -229,10 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0, g: 1, b: 0.21226406, a: 1}
   notEnoughMoneyColor: {r: 0.9622642, g: 0.049928807, b: 0.049928807, a: 1}
-<<<<<<< HEAD
-=======
   offset: {x: 0, y: 0, z: -0.1}
->>>>>>> datclone
   tower: {fileID: 0}
   towerBlueprint:
     prefab: {fileID: 0}
