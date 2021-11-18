@@ -18,6 +18,8 @@ public class MapButton : MonoBehaviour
         btn = GetComponent<Button>();
 
         instance = PlayerStats.playerStats;
+
+        controller.SetUnlockMap();
     }
 
     public void AddMapToGo(int _mapIndex)

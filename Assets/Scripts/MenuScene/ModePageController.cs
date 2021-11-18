@@ -10,8 +10,6 @@ public class ModePageController : MonoBehaviour
 
     void Start()
     {
-        SetUnlockMap();
-
         easyMode = false;
         normalMode = false;
     }
@@ -25,7 +23,7 @@ public class ModePageController : MonoBehaviour
         mapButtons.Add(button);
     }
 
-    void SetUnlockMap()
+    public void SetUnlockMap()
     {     
         for (int i = 0; i < mapButtons.Count; i++) //Button 0 == map index 2 (Build Setting option)
         {
