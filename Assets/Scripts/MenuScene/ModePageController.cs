@@ -6,6 +6,8 @@ public class ModePageController : MonoBehaviour
 {
     public List<MapButton> mapButtons;
 
+    public GameObject mapPanel;
+
     void Start()
     {
         SetUnlockMap();
@@ -42,13 +44,15 @@ public class ModePageController : MonoBehaviour
     public static bool easyMode;
     public static bool normalMode;
 
-    void ChooseEasyMode()
+    public void ChooseEasyMode()
     {
         easyMode = true;
+        mapPanel.SetActive(true);
     }
 
-    void ChooseNormalMode()
+    public void ChooseNormalMode()
     {
         normalMode = true;
+        mapPanel.SetActive(true);
     }
 }

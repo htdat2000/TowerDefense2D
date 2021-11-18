@@ -18,14 +18,22 @@ public class WaveSpawner : MonoBehaviour
     private int wayNumber = 0;
     private int enemyIndex;
 
+    private int maxWaves;
+    private int maxEnemyTypes;
+    private int maxBossTypes;
+
     SceneStats sceneStats;
 
     void Awake()
     {
         sceneStats = GetComponent<SceneStats>();
 
-        EasyModeSpawner easyMode = GetComponent<EasyModeSpawner>();
-        easyMode.enabled = true;
+        if(ModePageController.easyMode == true)
+        {
+            maxWaves = 30;
+            maxEnemyTypes = 3;
+            maxBossTypes = 1;
+        }
     }
 
     private void Start()
@@ -59,12 +67,12 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        /*if (enemyIndex == 2)
+        if (enemyIndex == (maxEnemyTypes - 1))
         {
             enemyIndex = 0;
         }
         else
-            enemyIndex++;*/
+            enemyIndex++;
 
         SceneStats.wavesNumber++;
         sceneStats.HealthEquation();
@@ -75,15 +83,15 @@ public class WaveSpawner : MonoBehaviour
         Instantiate(enemyPrefabs[enemyIndex], spawnPoint.position + offset, spawnPoint.rotation);
     }
 
-    private int wavesEnemyIndex = 0;
+    private int wavesCycleIndex = 0; //every 10 waves is a cycle 
 
-    void ChooseEnemyToSpawn()
+    void ChooseEnemyToSpawn() //choose between boss and normal monster
     {
-        switch(wavesEnemyIndex)
+        switch(wavesCycleIndex)
         {         
             case 9:
-                SpawnBoss();
-                wavesEnemyIndex = 0;
+                SpawnBoss(); //a boss will be spawn at the end of a cycle 
+                wavesCycleIndex = 0;
                 break;
             default:
                 StartCoroutine(SpawnWave());
@@ -93,6 +101,11 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnBoss()
     {
-        Debug.Log("Boss has been spawned");
+        Debug.Log("Boss has been spawned"); //boss list will be created later
+
+        /*if(bossIndex == (maxBossTypes - 1))
+        {
+            enemyIndex = 0;
+        }*/
     }
 }
