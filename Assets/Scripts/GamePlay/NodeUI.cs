@@ -10,6 +10,10 @@ public class NodeUI : MonoBehaviour
     public Text rangeText;
     public Text rateText;
 
+    public static int towerDamage;
+    public static float towerRange;
+    public static float towerFireRate;
+
     public Button upgradeButton;
 
     void Update()
@@ -59,8 +63,8 @@ public class NodeUI : MonoBehaviour
 
     void SetTextInfo()
     {
-        damageText.text = target.tower.GetComponent<FireTower>().damage.ToString();
-        rangeText.text = target.tower.GetComponent<FireTower>().range.ToString();
-        rateText.text = target.tower.GetComponent<FireTower>().fireRate.ToString();
+        damageText.text = towerDamage.ToString();
+        rangeText.text = towerRange.ToString();
+        rateText.text = towerFireRate.ToString();
     }
 }
