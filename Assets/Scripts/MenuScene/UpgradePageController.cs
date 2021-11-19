@@ -17,6 +17,7 @@ public class UpgradePageController : MonoBehaviour
         instance = PlayerStats.playerStats;
     }
 
+    #region TowerTabs
     public void ArcherTowerUpgradeTab()
     {
         towerDamage.text = instance.archerTowerDamage.ToString();
@@ -122,11 +123,48 @@ public class UpgradePageController : MonoBehaviour
         btn.onClick.AddListener(UpgradeButton);
     }
 
+    public void TestTowerUpgradeTab()  
+    {
+        towerDamage.text = instance.testTowerDamage.ToString();
+        towerRange.text = instance.testTowerRange.ToString();
+        towerFireRate.text = instance.testTowerRate.ToString();
+        specialEffect.text = null;
+
+        towerStar = instance.testTowerStar;
+        towerUpgradeCost = instance.testTowerUpgradeCost;
+
+        towerStarString = "testTowerStar";
+        tabName = "TestTower";
+
+        if (btn.gameObject.activeSelf != true)
+        {
+            btn.gameObject.SetActive(true);
+        }
+        
+        CheckTowerStatus("testTowerStatus");
+        
+    }
+    #endregion
+
     private int towerStar;
     private int towerUpgradeCost;
 
     private string towerStarString;
     private string tabName;
+    private string towerStatusString;
+
+    void CheckTowerStatus(string _towerStatusString)
+    {
+        if(PlayerPrefs.GetString(_towerStatusString) == "false")
+        {
+            towerStarString = _towerStatusString;
+            btn.onClick.AddListener(UnlockButton);
+        }
+        else
+        {
+            btn.onClick.AddListener(UpgradeButton);
+        }
+    }
 
     public void UpgradeButton()
     {
@@ -166,20 +204,23 @@ public class UpgradePageController : MonoBehaviour
             case "FireTower":
                 FireTowerUpgradeTab();
                 break;
+            case "TestTower":
+                TestTowerUpgradeTab();
+                break;
         }
     }
 
-    /*public void VisibleTower() Idea code use to unlock tower
+    public void UnlockButton()
     {
-    Display tower attributes...
+        if ((instance.gem - towerUpgradeCost) >= 0)
+        {            
+            PlayerPrefs.SetString(towerStatusString, "true");
 
-        if(PlayPref.Getstring("VisibleTowerStatus") == false)
-        {
-        btn.onclick.Addlistener(UnlockTower);
+            instance.gem -= 4000; //unlock cost
+            PlayerPrefs.SetInt("Gem", instance.gem);
+        
+            instance.GetAllTowersStats();
+            ResetUpgradeTab();
         }
-        else
-        {
-        btn.onclick.Addlistener(UpgradeButton);
-        }
-    }*/
+    }
 }
