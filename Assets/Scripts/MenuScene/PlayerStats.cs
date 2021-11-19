@@ -143,7 +143,7 @@ public class PlayerStats : MonoBehaviour
     #endregion
 
     [Header("Map")]
-    public int map;
+    public int map; //this var is used to keep the header
 
     void SetMapDefaultCondition()
     {
