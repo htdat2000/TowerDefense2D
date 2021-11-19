@@ -6213,6 +6213,12 @@ MonoBehaviour:
   poisonTowerRate: 0
   poisonValue: 0
   poisonTowerUpgradeCost: 0
+  testTowerStatus: 
+  testTowerStar: 0
+  testTowerDamage: 0
+  testTowerRange: 0
+  testTowerRate: 0
+  testTowerUpgradeCost: 0
   map: 0
 --- !u!114 &1621789223
 MonoBehaviour:

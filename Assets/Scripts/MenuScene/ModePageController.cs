@@ -14,7 +14,7 @@ public class ModePageController : MonoBehaviour
         normalMode = false;
     }
 
-    public void AddMapButton(MapButton button)
+    public void AddMapButton(MapButton button) //Add map button to list
     {
         if(mapButtons == null)
         {
@@ -23,12 +23,12 @@ public class ModePageController : MonoBehaviour
         mapButtons.Add(button);
     }
 
-    public void SetUnlockMap()
+    public void SetUnlockMap() 
     {     
         for (int i = 0; i < mapButtons.Count; i++) //Button 0 == map index 2 (Build Setting option)
         {
             int mapIndex = i + 2;            
-            if (PlayerPrefs.GetString(mapIndex.ToString()) == "true")
+            if (PlayerPrefs.GetString(mapIndex.ToString()) == "true") 
             {
                 mapButtons[i].AddMapToGo(mapIndex);
             }
@@ -39,6 +39,7 @@ public class ModePageController : MonoBehaviour
         }
     }
 
+    [Header("Mode Option")]
     public static bool easyMode;
     public static bool normalMode;
 

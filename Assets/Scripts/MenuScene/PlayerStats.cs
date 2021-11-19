@@ -35,6 +35,7 @@ public class PlayerStats : MonoBehaviour
         IceTowerStats();
         LightningTowerStats();
         PoisonTowerStats();
+        TestTowerStats();
     }
 
     [Header("ArcherTower")]
@@ -140,10 +141,33 @@ public class PlayerStats : MonoBehaviour
 
         poisonTowerUpgradeCost = 500 + poisonTowerStar * 1000 + poisonTowerStar * 500;
     }
+
+    [Header("TestTower")]           //this tower is used for testing unlock function
+    public string testTowerStatus;
+    public int testTowerStar;
+
+    public int testTowerDamage;
+    public float testTowerRange;
+    public float testTowerRate;
+
+    public int testTowerUpgradeCost;
+
+    void TestTowerStats()
+    {   
+        testTowerStatus = PlayerPrefs.GetString("testTowerStatus","false");
+        testTowerStar = PlayerPrefs.GetInt("testTowerStar", 0);
+
+        testTowerDamage = 1 + testTowerStar;
+        testTowerRange = 1.5f + testTowerStar * 0.1f;
+        testTowerRate = 0.6f + testTowerStar * 0.1f;
+        
+        testTowerUpgradeCost = 500 + testTowerStar * 1000 + testTowerStar * 500;
+    }
+
     #endregion
 
     [Header("Map")]
-    public int map;
+    public int map; //this var is used to keep the header
 
     void SetMapDefaultCondition()
     {
