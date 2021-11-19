@@ -5,10 +5,8 @@ using UnityEngine;
 public class WalkingAi : MonoBehaviour
 {
     //for test
-    public Transform currentPosition; //Vị trí hiện tại
-    public GameObject currentKnot; // Knot hiện tại 
-    public Transform endPosition; // Vị trí endpoint
-    public GameObject[] KnotPath; // Lưu danh sách các knot cần phải qua để đến được endpoint
+    public GameObject nextKnot;
+    public GameObject firstKnot;
     
     //KnotArray
     //Ý tưởng:
