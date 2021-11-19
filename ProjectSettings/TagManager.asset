@@ -9,6 +9,8 @@ TagManager:
   - NavSurface
   - Tower
   - EndPoint
+  - Ai
+  - KnotsManager
   layers:
   - Default
   - TransparentFX
