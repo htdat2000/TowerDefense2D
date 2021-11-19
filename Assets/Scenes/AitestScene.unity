@@ -3455,6 +3455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnotsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4635592339329301065, guid: f560443893d9c2a4f8da75f73c3b4ac4,
+        type: 3}
+      propertyPath: m_TagString
+      value: KnotsManager
+      objectReference: {fileID: 0}
     - target: {fileID: 4635592339329301067, guid: f560443893d9c2a4f8da75f73c3b4ac4,
         type: 3}
       propertyPath: m_RootOrder

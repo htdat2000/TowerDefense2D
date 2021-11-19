@@ -35,6 +35,8 @@ public class Knot : MonoBehaviour
     void SendSignalToAi(string signal)
     {
         GameObject[] allEnemy = GameObject.FindGameObjectsWithTag(aiTag);
+        GameObject knotsManager = GameObject.FindGameObjectWithTag("KnotsManager");
+        knotsManager.SendMessage(signal);
         for(int i = 0; i < allEnemy.Length; i++)
         {
             allEnemy[i].SendMessage(signal);
