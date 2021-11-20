@@ -18,7 +18,7 @@ public class WalkingAi : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        currentKnot = KnotsManager.KnotArray[4,4];
+        currentKnot = KnotsManager.KnotArray[8,8];
         UpdateNextKnot();
     }
     void Update()
@@ -55,5 +55,9 @@ public class WalkingAi : MonoBehaviour
         int xOfNextKnot = currentKnot.GetComponent<Knot>().nextXindex;
         int yOfNextKnot = currentKnot.GetComponent<Knot>().nextYindex;
         nextKnot = KnotsManager.KnotArray[xOfNextKnot,yOfNextKnot];
+    }
+    public void SetCurrentKnot(GameObject setKnot)
+    {
+        nextKnot = setKnot;
     }
 }
