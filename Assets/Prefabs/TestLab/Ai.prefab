@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 7138119221888600560}
   - component: {fileID: 7138119221888600561}
   - component: {fileID: 7138119221888600574}
+  - component: {fileID: 5089770732567376336}
   - component: {fileID: 7138119221888600563}
   m_Layer: 0
   m_Name: Ai
-  m_TagString: Ai
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +100,23 @@ MonoBehaviour:
   speed: 10
   nextKnot: {fileID: 0}
   currentKnot: {fileID: 0}
+--- !u!114 &5089770732567376336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7138119221888600575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64fdb25431670241b4760bd0af3645d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRatio: 0
+  health: 0
+  value: 100
+  startSpeed: 10
+  healthBar: {fileID: 0}
 --- !u!61 &7138119221888600563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +127,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0035356283, y: -0.056591153}

@@ -17,13 +17,13 @@ public class ArcherTower : MonoBehaviour
     private float fireCountdown = 0f;
 
     PlayerStats instance;
-    BuildManager buildManager;
+    // BuildManager buildManager;
 
     void Awake()
     {
         instance = PlayerStats.playerStats;
         GetStats();
-        buildManager = BuildManager.instance;
+        // buildManager = BuildManager.instance;
     }
 
     void Start()
@@ -91,12 +91,12 @@ public class ArcherTower : MonoBehaviour
         range = instance.archerTowerRange;
     }
 
-    void OnMouseDown()
-    {
-        buildManager.SelectNode(this.gameObject.GetComponentInParent<Node>());
+    // void OnMouseDown()
+    // {
+    //     buildManager.SelectNode(this.gameObject.GetComponentInParent<Node>());
 
-        NodeUI.towerDamage = damage;
-        NodeUI.towerRange = range;
-        NodeUI.towerFireRate = fireRate;
-    }
+    //     NodeUI.towerDamage = damage;
+    //     NodeUI.towerRange = range;
+    //     NodeUI.towerFireRate = fireRate;
+    // }
 }

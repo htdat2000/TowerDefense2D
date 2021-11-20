@@ -18,17 +18,13 @@ public class WalkingAi : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        speed = GetComponent<Enemy>().startSpeed;
         currentKnot = KnotsManager.KnotArray[8,8];
         UpdateNextKnot();
     }
     void Update()
     {
         Walk();
-    }
-
-    //Chạy mỗi khi map update
-    public void UpdateMap(){
-        Debug.Log("I known it");
     }
 
     void OnMouseDown()

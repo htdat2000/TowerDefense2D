@@ -25,7 +25,6 @@ public class WaveSystem : MonoBehaviour
         if (countdown <= 0f)                 //Create enemy
         {
             ChooseEnemyToSpawn();
-            Debug.Log("Spawn");
             countdown = timeBetweenWaves;
         }
         countdown -= Time.deltaTime;

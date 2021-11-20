@@ -20,26 +20,28 @@ public class Knot : MonoBehaviour
     {
         if(status == "Normal")
         {
-            status = "Can't walk throught";
+            status = "Has Tower";
             GetComponent<SpriteRenderer>().color = Color.black;
+            BuildTower();
             knotValue = 10;
         }    
-        else
+        else if (status == "Has Tower")
         {
-            status = "Normal";
-            GetComponent<SpriteRenderer>().color = Color.white;
-            knotValue = 1;
+            SelectTower();
         }    
         SendSignalToAi("UpdateMap");
     }
     void SendSignalToAi(string signal)
     {
-        GameObject[] allEnemy = GameObject.FindGameObjectsWithTag(aiTag);
         GameObject knotsManager = GameObject.FindGameObjectWithTag("KnotsManager");
         knotsManager.SendMessage(signal);
-        for(int i = 0; i < allEnemy.Length; i++)
-        {
-            allEnemy[i].SendMessage(signal);
-        }
+    }
+    void BuildTower()
+    {
+        Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+    }
+    void SelectTower()
+    {
+
     }
 }
