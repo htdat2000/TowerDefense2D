@@ -5,13 +5,22 @@ public class GameManager : MonoBehaviour
     public static bool gameOver;
     public GameObject gameOverUI;
 
+    public static bool gameWin;
+    public GameObject gameWinUI;
+
     void Start()
     {
         gameOver = false;
+        gameWin = false;
     }
 
     void Update()
     {
+        if(gameWin)
+        {
+            Win();
+        }
+
         if (gameOver)
             return;
 
@@ -24,7 +33,13 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         gameOver = true;
-        gameObject.SetActive(true);
         Time.timeScale = 0f;
+        gameOverUI.SetActive(true);       
+    }
+
+    void Win()
+    {
+        Time.timeScale = 0f;
+        gameWinUI.SetActive(true);       
     }
 }

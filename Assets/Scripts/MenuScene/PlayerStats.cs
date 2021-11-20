@@ -52,7 +52,7 @@ public class PlayerStats : MonoBehaviour
         archerTowerStar = PlayerPrefs.GetInt("archerTowerStar", 0);
 
         archerTowerDamage = 12 + archerTowerStar;
-        archerTowerRange = 1.2;
+        archerTowerRange = 1.2f;
         archerTowerRate = 1.2f + archerTowerStar * 0.1f;
 
         archerTowerUpgradeCost = 500 + archerTowerStar * 1000 + archerTowerStar * 500;
@@ -73,7 +73,7 @@ public class PlayerStats : MonoBehaviour
 
         fireTowerDamage = 20 + fireTowerStar;
         fireTowerRange = 1.5f;
-        fireTowerRate = Mathf.Round(0.5f + fireTowerStar * 0.05f,1);
+        fireTowerRate = 0.5f + fireTowerStar * 0.05f;
 
         fireTowerUpgradeCost = 750 + fireTowerStar * 1250 + fireTowerStar * 600;
     }

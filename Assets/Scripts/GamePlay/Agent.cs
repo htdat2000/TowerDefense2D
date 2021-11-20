@@ -50,6 +50,7 @@ public class Agent : MonoBehaviour
     {
         SceneStats.Lives--;
         Destroy(gameObject);
+        WaveSpawner.enemyAlives--;
     }
 
     public void Slow (float percentage)

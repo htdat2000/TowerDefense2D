@@ -12,6 +12,8 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 10f;
     private float countdown = 2f;
 
+    public static int enemyAlives;
+
     public Text wayCountdownText;
     public Text wavesText;
 
@@ -42,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
         SceneStats.wavesNumber = wayNumber;
 
         sceneStats.HealthEquation();
+        enemyAlives = 0;
     }
 
     void Update()
@@ -54,6 +57,11 @@ public class WaveSpawner : MonoBehaviour
         countdown -= Time.deltaTime;
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         wayCountdownText.text = Mathf.Round(countdown).ToString();
+
+        if(wayNumber == maxWaves && enemyAlives == 0)
+        {
+            GameManager.gameWin = true;
+        }
     }
 
     IEnumerator SpawnWave()
@@ -81,6 +89,7 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefabs[enemyIndex], spawnPoint.position + offset, spawnPoint.rotation);
+        enemyAlives++;
     }
 
     private int wavesCycleIndex = 0; //every 10 waves is a cycle 
