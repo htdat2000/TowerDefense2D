@@ -9,7 +9,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public Vector3 offset;
 
-    public float timeBetweenWaves = 10f;
+    public float timeBetweenWaves = 15f;
     private float countdown = 2f;
 
     public static int enemyAlives;

@@ -12,7 +12,6 @@ public class SceneStats : MonoBehaviour
     public Text liveText;
 
     public static int wavesNumber;
-    public int startWavesNumber = 0;
 
     public static float equationValue;
 
@@ -20,7 +19,7 @@ public class SceneStats : MonoBehaviour
     {
         Money = startMoney;
         Lives = startLives;
-        wavesNumber = startWavesNumber;      
+        wavesNumber = 0;      
     }
 
     void Update()
