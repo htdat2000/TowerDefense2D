@@ -1632,11 +1632,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a339d1a3cd664ad4090cb2cdd7ba1a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  archerTowerPrefab: {fileID: 0}
-  fireTowerPrefab: {fileID: 0}
-  iceTowerPrefab: {fileID: 0}
-  lightningTowerPrefab: {fileID: 0}
-  poisonTowerPrefab: {fileID: 0}
+  archerTowerPrefab:
+    prefab: {fileID: 1841948951767540695, guid: 2be7f878cf49c7a4d9cf27188f761c09,
+      type: 3}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+  fireTowerPrefab:
+    prefab: {fileID: 1841948951767540695, guid: 6f1a6b4fe7260ff4fb705150da16c42f,
+      type: 3}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+  iceTowerPrefab:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+  lightningTowerPrefab:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
+  poisonTowerPrefab:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradePrefab: {fileID: 0}
+    upgradeCost: 0
 --- !u!114 &433124619
 MonoBehaviour:
   m_ObjectHideFlags: 0
