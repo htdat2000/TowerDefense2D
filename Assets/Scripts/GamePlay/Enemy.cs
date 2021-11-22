@@ -38,13 +38,13 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Tower"))
-        {
-            Destroy(collision.gameObject);
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Tower"))
+    //     {
+    //         Destroy(collision.gameObject);
+    //     }
+    // }
 
     public void SetSlowValue(float percentage)
     {

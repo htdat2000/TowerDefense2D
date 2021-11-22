@@ -1,7 +1,7 @@
 using UnityEngine;
 
     [System.Serializable]
-public class TowerBlueprint
+public class TowerBlueprint : MonoBehaviour
 {
     public GameObject prefab;
     public int cost;
@@ -12,5 +12,10 @@ public class TowerBlueprint
     public int GetSellAmount()
     {
         return cost / 2;
+    }
+
+    public void ChooseThisBluePrint()
+    {
+        BuildSystem.instance.selectingBluePrint = this;
     }
 }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class AllBluePrints : MonoBehaviour
 {
-    public TowerBlueprint myBluePrintValue;
+    public GameObject prefab;
+    public int cost;
+    public GameObject upgradePrefab;
+    public int upgradeCost;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,6 @@ public class AllBluePrints : MonoBehaviour
 
     public void ChooseThisBluePrint()
     {
-        BuildSystem.instance.selectingBluePrint = myBluePrintValue;
+        // BuildSystem.instance.selectingBluePrint = this;
     }
 }
