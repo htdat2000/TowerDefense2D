@@ -174,7 +174,7 @@ public class UpgradePageController : MonoBehaviour
             PlayerPrefs.SetInt(towerStarString, towerStar);
 
             instance.gem -= towerUpgradeCost;
-            PlayerPrefs.SetInt("Gem", instance.gem);
+            PlayerPrefs.SetInt("gem", instance.gem);
         
             instance.GetAllTowersStats();
             ResetUpgradeTab();
@@ -217,7 +217,7 @@ public class UpgradePageController : MonoBehaviour
             PlayerPrefs.SetString(towerStatusString, "true");
 
             instance.gem -= 4000; //unlock cost
-            PlayerPrefs.SetInt("Gem", instance.gem);
+            PlayerPrefs.SetInt("gem", instance.gem);
         
             instance.GetAllTowersStats();
             ResetUpgradeTab();

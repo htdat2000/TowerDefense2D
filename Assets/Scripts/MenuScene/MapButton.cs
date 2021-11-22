@@ -44,7 +44,7 @@ public class MapButton : MonoBehaviour
         if(instance.gem - 2000 >= 0)
         {
             instance.gem -= 2000;
-            PlayerPrefs.SetInt("Gem", instance.gem);
+            PlayerPrefs.SetInt("gem", instance.gem);
 
             PlayerPrefs.SetString(mapIndex.ToString(), "true");
         }
