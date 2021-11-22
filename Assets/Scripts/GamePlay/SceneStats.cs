@@ -10,8 +10,10 @@ public class SceneStats : MonoBehaviour
     public static int Lives;
     public int startLives = 10;
     public Text liveText;
+    public Text waveText;
 
-    public static int wavesNumber;
+    public static int wavesNumber; //nhớ xóa static khi xong task nhe Mực
+    public int startWavesNumber = 0;
 
     public static float equationValue;
 
@@ -26,6 +28,7 @@ public class SceneStats : MonoBehaviour
     {
         liveText.text = Lives.ToString();
         moneyText.text = Money.ToString();
+        waveText.text = wavesNumber.ToString();
     }
 
     public void HealthEquation()

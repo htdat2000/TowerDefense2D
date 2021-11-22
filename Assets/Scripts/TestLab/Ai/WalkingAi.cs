@@ -5,8 +5,9 @@ using UnityEngine;
 public class WalkingAi : MonoBehaviour
 {
     //for test
+    public float speed = 1f;
     public GameObject nextKnot;
-    public GameObject firstKnot;
+    public GameObject currentKnot;
     
     //KnotArray
     //Ý tưởng:
@@ -17,28 +18,42 @@ public class WalkingAi : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        UpdateKnotPath();
+        speed = GetComponent<Enemy>().startSpeed;
+        currentKnot = KnotsManager.KnotArray[8,8];
+        UpdateNextKnot();
     }
-    void Start()
+    void Update()
     {
         Walk();
-    }
-
-    //Chạy mỗi khi map update
-    public void UpdateMap(){
-        Debug.Log("I known it");
     }
 
     void OnMouseDown()
     {
         Destroy(gameObject);
     }
-    void UpdateKnotPath()
-    {
-
-    }
     void Walk()
     {
-
+        Vector2 dir = nextKnot.transform.position - transform.position;        
+        transform.Translate(dir.normalized * speed/10 * Time.deltaTime, Space.World);
+        if(Vector2.Distance(transform.position, nextKnot.transform.position) <= 0.1f)
+        {
+            if(Vector2.Distance(transform.position, KnotsManager.KnotArray[0,0].transform.position) <= 0.1f)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            currentKnot = nextKnot;
+            UpdateNextKnot();
+        }
+    }
+    void UpdateNextKnot()
+    {
+        int xOfNextKnot = currentKnot.GetComponent<Knot>().nextXindex;
+        int yOfNextKnot = currentKnot.GetComponent<Knot>().nextYindex;
+        nextKnot = KnotsManager.KnotArray[xOfNextKnot,yOfNextKnot];
+    }
+    public void SetCurrentKnot(GameObject setKnot)
+    {
+        nextKnot = setKnot;
     }
 }

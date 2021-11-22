@@ -3,7 +3,11 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
-
+    public bool CanBuild { get {return towerToBuild != null;} }
+    public bool HasMoney { get { return SceneStats.Money >= towerToBuild.cost; } }
+    private Node selectedNode;
+    public NodeUI nodeUI; 
+    private TowerBlueprint towerToBuild;
     private void Awake()
     {
         if (instance != null)
@@ -14,7 +18,6 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    private TowerBlueprint towerToBuild;
     
     public void SelectTowerToBuild(TowerBlueprint tower)
     {
@@ -24,11 +27,6 @@ public class BuildManager : MonoBehaviour
         nodeUI.Hide();
     }
 
-    public bool CanBuild { get {return towerToBuild != null;} }
-    public bool HasMoney { get { return SceneStats.Money >= towerToBuild.cost; } }
-
-    private Node selectedNode;
-    public NodeUI nodeUI; 
 
     public void SelectNode(Node node)
     {

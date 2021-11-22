@@ -11,6 +11,7 @@ TagManager:
   - EndPoint
   - Ai
   - KnotsManager
+  - StatusUI
   layers:
   - Default
   - TransparentFX
