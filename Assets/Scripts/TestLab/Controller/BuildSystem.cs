@@ -9,6 +9,7 @@ public class BuildSystem : MonoBehaviour
     public TowerBlueprint selectingBluePrint;
     void Awake()
     {
+        selectingBluePrint = null;
         instance = this;
     }
     void Start()

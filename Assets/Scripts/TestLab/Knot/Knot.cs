@@ -38,7 +38,10 @@ public class Knot : MonoBehaviour
     }
     void BuildTower()
     {
-        Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+        if(BuildSystem.instance.selectingBluePrint.prefab == null)
+        {
+            Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+        }
     }
     void SelectTower()
     {

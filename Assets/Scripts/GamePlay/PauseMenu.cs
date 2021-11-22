@@ -20,8 +20,8 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        bottomUI.SetActive(!pauseUI.activeSelf);
-        headerUi.SetActive(!pauseUI.activeSelf);
+        // bottomUI.SetActive(!pauseUI.activeSelf);
+        // headerUi.SetActive(!pauseUI.activeSelf);
     }
 
     public void GoToStartScene()
