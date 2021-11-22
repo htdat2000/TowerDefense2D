@@ -23,8 +23,8 @@ public class PlayerStats : MonoBehaviour
 
     void Currencies()
     {
-        gem = PlayerPrefs.GetInt("Gem", 100000);
-        diamond = PlayerPrefs.GetInt("Diamond", 0);
+        gem = PlayerPrefs.GetInt("gem", 100000);
+        diamond = PlayerPrefs.GetInt("diamond", 0);
     }
 
     #region Towers 
