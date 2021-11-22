@@ -47,7 +47,11 @@ public class Knot : MonoBehaviour
     }
     void SelectTower()
     {
-        Debug.Log("Show status UI");
+        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
+        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+        //GetTowerStats();
+        float[] statsArray = { 0.5f, 0.4f, 0.3f }; 
+        sUI.SendMessage("UpdateStatusUI", statsArray);
     }
     bool checkMoneyIHad()
     {

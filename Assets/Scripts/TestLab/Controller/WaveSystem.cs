@@ -14,6 +14,9 @@ public class WaveSystem : MonoBehaviour
     private float countdown = 2f; //đếm để spawn
     public float timeBetweenWaves = 5f;
     public float timeBetweenSpawn = 0.5f;
+
+    public int waveCount = 0;
+    private bool spawning = false;
     void Start()
     {
        
@@ -24,10 +27,16 @@ public class WaveSystem : MonoBehaviour
     {
         if (countdown <= 0f)                 //Create enemy
         {
+            spawning = true;
             ChooseEnemyToSpawn();
             countdown = timeBetweenWaves;
+            waveCount ++;
+            SceneStats.wavesNumber = waveCount;
         }
-        countdown -= Time.deltaTime;
+        if (!spawning)
+        {
+            countdown -= Time.deltaTime;            
+        }
     }
 
     void ChooseEnemyToSpawn() //choose between boss and normal monster
@@ -56,9 +65,13 @@ public class WaveSystem : MonoBehaviour
         // wayNumber++;
         // wavesText.text = wayNumber.ToString();
 
-        for (int i = 0; i <= 2; i++)
+        for (int i = 0; i <= waveCount; i++)
         {
             SpawnEnemy();
+            if(i == waveCount)
+            {
+                spawning = false;
+            }
             yield return new WaitForSeconds(timeBetweenSpawn);
         }
 
