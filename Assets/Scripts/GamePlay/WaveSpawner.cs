@@ -9,8 +9,10 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public Vector3 offset;
 
-    public float timeBetweenWaves = 10f;
+    public float timeBetweenWaves = 15f;
     private float countdown = 2f;
+
+    public static int enemyAlives;
 
     public Text wayCountdownText;
     public Text wavesText;
@@ -42,30 +44,32 @@ public class WaveSpawner : MonoBehaviour
         SceneStats.wavesNumber = wayNumber;
 
         sceneStats.HealthEquation();
+        enemyAlives = 0;
     }
 
     void Update()
     {
         if (countdown <= 0f)                 //Create enemy
         {
-            ChooseEnemyToSpawn();
+            SpawnWave();
             countdown = timeBetweenWaves;
         }
         countdown -= Time.deltaTime;
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         wayCountdownText.text = Mathf.Round(countdown).ToString();
+
+        if(wayNumber == maxWaves && enemyAlives == 0)
+        {
+            GameManager.gameWin = true;
+        }
     }
 
-    IEnumerator SpawnWave()
+    void SpawnWave()
     {
         wayNumber++;
         wavesText.text = wayNumber.ToString();
 
-        for (int i = 0; i <= 9; i++)
-        {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
-        }
+        StartCoroutine(ChooseEnemyToSpawn());
 
         if (enemyIndex == (maxEnemyTypes - 1))
         {
@@ -81,22 +85,7 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefabs[enemyIndex], spawnPoint.position + offset, spawnPoint.rotation);
-    }
-
-    private int wavesCycleIndex = 0; //every 10 waves is a cycle 
-
-    void ChooseEnemyToSpawn() //choose between boss and normal monster
-    {
-        switch(wavesCycleIndex)
-        {         
-            case 9:
-                SpawnBoss(); //a boss will be spawn at the end of a cycle 
-                wavesCycleIndex = 0;
-                break;
-            default:
-                StartCoroutine(SpawnWave());
-                break;
-        }
+        enemyAlives++;
     }
 
     void SpawnBoss()
@@ -108,4 +97,25 @@ public class WaveSpawner : MonoBehaviour
             enemyIndex = 0;
         }*/
     }
+
+    private int wavesCycleIndex = 0; //every 10 waves is a cycle 
+
+    IEnumerator ChooseEnemyToSpawn() //choose between boss and normal monster
+    {
+        switch(wavesCycleIndex)
+        {         
+            case 9:
+                SpawnBoss(); //a boss will be spawn at the end of a cycle 
+                wavesCycleIndex = 0;
+                break;
+
+            default:
+                for(int i = 0; i <= 9; i++)
+                {
+                    SpawnEnemy();
+                    yield return new WaitForSeconds(0.5f);
+                }              
+                break;
+        }
+    }   
 }

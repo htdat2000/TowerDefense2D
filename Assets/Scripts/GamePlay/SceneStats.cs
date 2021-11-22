@@ -10,7 +10,6 @@ public class SceneStats : MonoBehaviour
     public static int Lives;
     public int startLives = 10;
     public Text liveText;
-
     public Text waveText;
 
     public static int wavesNumber; //nhớ xóa static khi xong task nhe Mực
@@ -22,7 +21,7 @@ public class SceneStats : MonoBehaviour
     {
         Money = startMoney;
         Lives = startLives;
-        wavesNumber = startWavesNumber;      
+        wavesNumber = 0;      
     }
 
     void Update()

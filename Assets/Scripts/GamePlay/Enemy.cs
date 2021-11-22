@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     {
         SceneStats.Money += value; 
         Destroy(gameObject);
+        WaveSpawner.enemyAlives--;
     }
 
     // void OnTriggerEnter2D(Collider2D collision)

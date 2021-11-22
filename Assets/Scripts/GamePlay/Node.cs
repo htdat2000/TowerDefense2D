@@ -32,15 +32,24 @@ public class Node : MonoBehaviour
     void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
-            return;      
+           {
+                Debug.Log("IsPointerOverGameObject");
+                return;
+            }     
 
         if(tower != null)
-            return;
+            {
+                Debug.Log("tower null");
+                return;
+            }
         
 
         if (!buildManager.CanBuild)
-            return;
-
+            {
+                Debug.Log("Cant build");
+                return;
+            }
+        Debug.Log("Build");
         BuildTower(buildManager.GetTowerToBuild());
     }
 

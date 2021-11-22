@@ -32,8 +32,8 @@ public class PlayerStats : MonoBehaviour
 
     void Currencies()
     {
-        gem = PlayerPrefs.GetInt("Gem", 100000);
-        diamond = PlayerPrefs.GetInt("Diamond", 0);
+        gem = PlayerPrefs.GetInt("gem", 100000);
+        diamond = PlayerPrefs.GetInt("diamond", 0);
     }
 
     #region Towers 
@@ -60,9 +60,9 @@ public class PlayerStats : MonoBehaviour
     {
         archerTowerStar = PlayerPrefs.GetInt("archerTowerStar", 0);
 
-        archerTowerDamage = 10 + archerTowerStar;
-        archerTowerRange = 1.5f + archerTowerStar * 0.1f;
-        archerTowerRate = 1f + archerTowerStar * 0.1f;
+        archerTowerDamage = 12 + archerTowerStar;
+        archerTowerRange = 1.2f;
+        archerTowerRate = 1.2f + archerTowerStar * 0.1f;
 
         archerTowerUpgradeCost = 500 + archerTowerStar * 1000 + archerTowerStar * 500;
     }
@@ -80,11 +80,11 @@ public class PlayerStats : MonoBehaviour
     {
         fireTowerStar = PlayerPrefs.GetInt("fireTowerStar", 0);
 
-        fireTowerDamage = 10 + fireTowerStar;
-        fireTowerRange = 1.5f + fireTowerStar * 0.1f;
-        fireTowerRate = 0.6f + fireTowerStar * 0.1f;
+        fireTowerDamage = 20 + fireTowerStar;
+        fireTowerRange = 1.5f;
+        fireTowerRate = 0.5f + fireTowerStar * 0.05f;
 
-        fireTowerUpgradeCost = 500 + fireTowerStar * 1000 + fireTowerStar * 500;
+        fireTowerUpgradeCost = 750 + fireTowerStar * 1250 + fireTowerStar * 600;
     }
 
     [Header("IceTower")]
