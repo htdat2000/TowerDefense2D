@@ -17,5 +17,6 @@ public class TowerBlueprint : MonoBehaviour
     public void ChooseThisBluePrint()
     {
         BuildSystem.instance.selectingBluePrint = this;
+        BuildSystem.instance.hasBluePrint = true;
     }
 }

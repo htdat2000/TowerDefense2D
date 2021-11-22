@@ -7,6 +7,7 @@ public class BuildSystem : MonoBehaviour
     public static BuildSystem instance;
 
     public TowerBlueprint selectingBluePrint;
+    public bool hasBluePrint = false;
     void Awake()
     {
         selectingBluePrint = null;

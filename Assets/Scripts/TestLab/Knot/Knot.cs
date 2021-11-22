@@ -18,7 +18,7 @@ public class Knot : MonoBehaviour
     public bool isAccept = false;
     void OnMouseDown()
     {
-        if(status == "Normal")
+        if(status == "Normal" && BuildSystem.instance.hasBluePrint == true && checkMoneyIHad())
         {
             status = "Has Tower";
             GetComponent<SpriteRenderer>().color = Color.black;
@@ -38,13 +38,19 @@ public class Knot : MonoBehaviour
     }
     void BuildTower()
     {
-        if(BuildSystem.instance.selectingBluePrint.prefab == null)
+        if(BuildSystem.instance.hasBluePrint == true)
         {
             Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+            BuildSystem.instance.selectingBluePrint = null;
+            BuildSystem.instance.hasBluePrint = false;
         }
     }
     void SelectTower()
     {
-
+        Debug.Log("Show status UI");
+    }
+    bool checkMoneyIHad()
+    {
+        return true;
     }
 }
