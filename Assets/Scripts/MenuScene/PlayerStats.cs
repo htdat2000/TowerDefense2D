@@ -3,6 +3,12 @@
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStats;
+    [Header("TowerStat")]
+    public int[] towerStar;
+    public int[] towerDamage;
+    public float[] towerRange;
+    public float[] towerRate;
+    public int[] towerUpgradeCost;
 
     void Awake()
     {
@@ -12,6 +18,9 @@ public class PlayerStats : MonoBehaviour
             return;
         }
         playerStats = this;
+
+
+        GetStatsRebuild();
 
         GetAllTowersStats();
         Currencies();
@@ -172,5 +181,33 @@ public class PlayerStats : MonoBehaviour
     void SetMapDefaultCondition()
     {
         PlayerPrefs.GetString("2", "false");
+    }
+
+    void GetStatsRebuild()
+    {
+        string[] towerArray = {
+        "archerTowerStar", 
+        "fireTowerStar", 
+        "iceTowerStar", 
+        "lightningTowerStar",
+        "poisonTowerStar"};
+
+        int numberOfTower = towerArray.Length;
+
+        towerStar = new int[numberOfTower];
+        towerDamage = new int[numberOfTower];
+        towerRange = new float[numberOfTower];
+        towerRate = new float[numberOfTower];
+        towerUpgradeCost = new int[numberOfTower];
+
+        for (int i = 0; i < numberOfTower; i++)
+        {
+            towerStar[i] = PlayerPrefs.GetInt(towerArray[i], 0);
+            towerDamage[i] = 10 + towerStar[i] ;
+            towerRange[i] = 1.5f + towerStar[i] * 0.1f;
+            towerRate[i] = 1f + towerStar[i] * 0.1f;
+            towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
+        }
+        
     }
 }

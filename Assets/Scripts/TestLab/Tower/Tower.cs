@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class ArcherTower : MonoBehaviour
+public class Tower : MonoBehaviour
 {
     [Header("Attributes")]
+    public int towerType;
     public int damage;
     public float range;
     public float fireRate;
-
+    
 
     [Header("Unity Setup")]
     private Transform target;
@@ -14,89 +17,71 @@ public class ArcherTower : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
-    private float fireCountdown = 0f;
+    private float fireCountdown = 1f;
 
     PlayerStats instance;
-    // BuildManager buildManager;
-
+    // Start is called before the first frame update
     void Awake()
     {
         instance = PlayerStats.playerStats;
         GetStats();
-        // buildManager = BuildManager.instance;
     }
-
     void Start()
     {
-
         InvokeRepeating("TargetLock", 0.2f, 0.5f);
     }
-
     void Update()
     {
-        if (target == null)
+        if(target == null)
         {
             return;
         }
-        if (fireCountdown <= 0f)
+        if(fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
         }
         fireCountdown -= Time.deltaTime;
     }
-
     void TargetLock()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
-        foreach (GameObject enemy in enemies)
+        foreach(GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
+            if(distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
         }
-        if (nearestEnemy != null && shortestDistance <= range)
+        if(nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
-
     void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        Arrow bullet = bulletGO.GetComponent<Arrow>();
-        if (bullet != null)
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        if(bullet != null)
         {
             bullet.seekTarget(target);
             bullet.GetDamageValue(damage);
         }
     }
-
     void GetStats()
     {
-        damage = instance.archerTowerDamage;
-        fireRate = instance.archerTowerRate;
-        range = instance.archerTowerRange;
+        damage = instance.towerDamage[towerType];
+        fireRate = instance.towerRate[towerType];
+        range = instance.towerRange[towerType];
     }
-
-    // void OnMouseDown()
-    // {
-    //     buildManager.SelectNode(this.gameObject.GetComponentInParent<Node>());
-
-    //     NodeUI.towerDamage = damage;
-    //     NodeUI.towerRange = range;
-    //     NodeUI.towerFireRate = fireRate;
-    // }
+    void OnMouseDown()
+    {
+        //Call Knot selectNode();
+    }
 }

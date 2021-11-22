@@ -18,28 +18,43 @@ public class Knot : MonoBehaviour
     public bool isAccept = false;
     void OnMouseDown()
     {
-        if(status == "Normal")
+        if(status == "Normal" && BuildSystem.instance.hasBluePrint == true && checkMoneyIHad())
         {
-            status = "Can't walk throught";
+            status = "Has Tower";
             GetComponent<SpriteRenderer>().color = Color.black;
+            BuildTower();
             knotValue = 10;
         }    
-        else
+        else if (status == "Has Tower")
         {
-            status = "Normal";
-            GetComponent<SpriteRenderer>().color = Color.white;
-            knotValue = 1;
+            SelectTower();
         }    
         SendSignalToAi("UpdateMap");
     }
     void SendSignalToAi(string signal)
     {
-        GameObject[] allEnemy = GameObject.FindGameObjectsWithTag(aiTag);
         GameObject knotsManager = GameObject.FindGameObjectWithTag("KnotsManager");
         knotsManager.SendMessage(signal);
-        for(int i = 0; i < allEnemy.Length; i++)
+    }
+    void BuildTower()
+    {
+        if(BuildSystem.instance.hasBluePrint == true)
         {
-            allEnemy[i].SendMessage(signal);
+            Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+            BuildSystem.instance.selectingBluePrint = null;
+            BuildSystem.instance.hasBluePrint = false;
         }
+    }
+    void SelectTower()
+    {
+        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
+        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+        //GetTowerStats();
+        float[] statsArray = { 0.5f, 0.4f, 0.3f }; 
+        sUI.SendMessage("UpdateStatusUI", statsArray);
+    }
+    bool checkMoneyIHad()
+    {
+        return true;
     }
 }
