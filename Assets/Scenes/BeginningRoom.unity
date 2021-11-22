@@ -6146,7 +6146,7 @@ MonoBehaviour:
   moneyText: {fileID: 12238019}
   startLives: 10
   liveText: {fileID: 973422181}
-  waveText: {fileID: 0}
+  waveText: {fileID: 1234720081}
   startWavesNumber: 0
 --- !u!114 &1621789222
 MonoBehaviour:
