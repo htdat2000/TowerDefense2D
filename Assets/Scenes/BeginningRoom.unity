@@ -7038,7 +7038,7 @@ MonoBehaviour:
   - {fileID: 8963251635051683785, guid: 1d827ffd777d26b4db1b17b2e8321e49, type: 3}
   spawnPoint: {fileID: 1843572263}
   offset: {x: 0, y: 0, z: -0.1}
-  timeBetweenWaves: 10
+  timeBetweenWaves: 15
   wayCountdownText: {fileID: 1001427670}
   wavesText: {fileID: 1234720081}
 --- !u!1001 &1625821049
