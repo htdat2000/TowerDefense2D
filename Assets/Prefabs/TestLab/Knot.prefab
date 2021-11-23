@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6102993164187527042}
   - component: {fileID: 3058990101879981030}
   - component: {fileID: 3012272193653397041}
+  - component: {fileID: 7897571333570649460}
   m_Layer: 0
   m_Name: Knot
   m_TagString: Untagged
@@ -95,7 +96,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01b8f3ad4eefe04cb21f8a4dcf3c623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiTag: Ai
   status: Normal
+  xindex: 0
+  yindex: 0
+  nextXindex: -1
+  nextYindex: -1
+  knotValue: 1
+  distanceValue: 999
+  isAccept: 0
 --- !u!61 &3012272193653397041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,3 +131,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7897571333570649460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027656610179702520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8cd7ec51c7e741b35d46199801525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6102993164187527042}
+  newSprite:
+  - {fileID: -1899323892893402489, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -2740574027646026063, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -1899323892893402489, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -6373171609193792369, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
