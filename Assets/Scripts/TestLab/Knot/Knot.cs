@@ -23,7 +23,7 @@ public class Knot : MonoBehaviour
     void Start()
     {
         float rand = Random.Range(0.0f, obstaclePercent);
-        if (rand < 1)
+        if (rand < 1 && (xindex != 0 && yindex != 0 && yindex != KnotsManager.noOfRow-1 && xindex != KnotsManager.noOfRow-1))
         {
             status = "Obstacle";
             GetComponent<NodeImage>().SetObstacle();

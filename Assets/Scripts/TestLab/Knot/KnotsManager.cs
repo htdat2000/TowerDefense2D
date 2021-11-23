@@ -6,7 +6,7 @@ public class KnotsManager : MonoBehaviour
 {
     public static GameObject[,] KnotArray; //Mảng 2 chiều để mô phỏng lại map
     private int noOfChild;
-    private int noOfRow;
+    public static int noOfRow;
     void Awake()
     {
         noOfChild = transform.childCount;
@@ -45,7 +45,6 @@ public class KnotsManager : MonoBehaviour
     }
     void CalculateMapRoute()
     {
-        Debug.Log("Update Route");
         for(int i = 0; i < noOfRow; i++)
         {
             for(int j = 0; j < noOfRow; j++)
