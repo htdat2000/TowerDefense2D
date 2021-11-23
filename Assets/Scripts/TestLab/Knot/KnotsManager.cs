@@ -23,6 +23,13 @@ public class KnotsManager : MonoBehaviour
             }        
         }
         CalculateMapRoute();
+        
+    }
+    void Start()
+    {
+        {
+            InvokeRepeating("UpdateMap", 0.2f, 3f);
+        }
     }
     void SetKnotIndex(GameObject Knot, int x, int y)
     {
@@ -38,6 +45,7 @@ public class KnotsManager : MonoBehaviour
     }
     void CalculateMapRoute()
     {
+        Debug.Log("Update Route");
         for(int i = 0; i < noOfRow; i++)
         {
             for(int j = 0; j < noOfRow; j++)
@@ -50,12 +58,11 @@ public class KnotsManager : MonoBehaviour
         KnotArray[0,0].GetComponent<Knot>().distanceValue = KnotArray[0,0].GetComponent<Knot>().knotValue;
 
         GameObject currentKnot = KnotArray[0,0];
-
         for(int i = 0; i < noOfChild - 1; i++)
-        {
-            currentKnot = WhoIsNext(); //chọn ra knot có distanceValue thấp nhất nhưng chưa có isAccept
-            LookAround(currentKnot);
-        }
+            {
+                currentKnot = WhoIsNext(); //chọn ra knot có distanceValue thấp nhất nhưng chưa có isAccept
+                LookAround(currentKnot);
+            }
     }
     GameObject WhoIsNext()
     {
@@ -66,12 +73,16 @@ public class KnotsManager : MonoBehaviour
             for(int j = 0; j < noOfRow; j++)
             {
                 Knot checkingKnot = KnotArray[i,j].GetComponent<Knot>();
-                if(checkingKnot.isAccept == false && checkingKnot.distanceValue < minDistance)
+                if(checkingKnot.isAccept == false && checkingKnot.distanceValue <= minDistance)
                 {
-                    result = KnotArray[i,j];
-                    minDistance = checkingKnot.distanceValue;
+                    float deci = UnityEngine.Random.Range(-1.0f, 1.2f);
+                    if(deci < 0 || result == null)
+                    {
+                        result = KnotArray[i,j];
+                        minDistance = checkingKnot.distanceValue;
+                    }
                 }
-            }        
+            }    
         }
         if (result != null)
         {

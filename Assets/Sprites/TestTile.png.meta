@@ -17,6 +17,30 @@ TextureImporter:
   - first:
       213: -6547380189097625900
     second: TextTile_4
+  - first:
+      213: -1437518083614475044
+    second: TestTile_0
+  - first:
+      213: -1942591492475333752
+    second: TestTile_1
+  - first:
+      213: 1912718030932439627
+    second: TestTile_2
+  - first:
+      213: -3633075033104148243
+    second: TestTile_3
+  - first:
+      213: 6240388119088572149
+    second: TestTile_4
+  - first:
+      213: -94597396864947349
+    second: TestTile_5
+  - first:
+      213: -3465763879971835843
+    second: TestTile_6
+  - first:
+      213: -6724563150589832562
+    second: TestTile_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,7 +138,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TextTile_0
+      name: TestTile_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78a3da28bfe34a5e0800000000000000
-      internalID: -1899323892893402489
+      spriteID: cdc75f35be8ec0ce0800000000000000
+      internalID: -1437518083614475044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TextTile_1
+      name: TestTile_1
       rect:
         serializedVersion: 2
         x: 32
@@ -149,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1be3f79217687f9d0800000000000000
-      internalID: -2740574027646026063
+      spriteID: 883df4374578a05e0800000000000000
+      internalID: -1942591492475333752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TextTile_2
+      name: TestTile_2
       rect:
         serializedVersion: 2
         x: 64
@@ -170,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 957410c4ff3650bb0800000000000000
-      internalID: -4970456665590511783
+      spriteID: b4276354ae65b8a10800000000000000
+      internalID: 1912718030932439627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TextTile_3
+      name: TestTile_3
       rect:
         serializedVersion: 2
         x: 96
@@ -191,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8c366d1032fd87a0800000000000000
-      internalID: -6373171609193792369
+      spriteID: de89c799189b49dc0800000000000000
+      internalID: -3633075033104148243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TextTile_4
+      name: TestTile_4
       rect:
         serializedVersion: 2
         x: 0
@@ -212,8 +236,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d6f76358680325a0800000000000000
-      internalID: -6547380189097625900
+      spriteID: 5f6a7da6eef4a9650800000000000000
+      internalID: 6240388119088572149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTile_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b20333b2cefaef0800000000000000
+      internalID: -94597396864947349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTile_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3036e21d1227efc0800000000000000
+      internalID: -3465763879971835843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestTile_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82596b517d8da2a0800000000000000
+      internalID: -6724563150589832562
       vertices: []
       indices: 
       edges: []

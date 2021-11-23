@@ -105,6 +105,7 @@ MonoBehaviour:
   knotValue: 1
   distanceValue: 999
   isAccept: 0
+  obstaclePercent: 20
 --- !u!61 &3012272193653397041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,7 +146,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6102993164187527042}
   newSprite:
-  - {fileID: -1899323892893402489, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
-  - {fileID: -2740574027646026063, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
-  - {fileID: -1899323892893402489, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
-  - {fileID: -6373171609193792369, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -1437518083614475044, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -1942591492475333752, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: 1912718030932439627, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -3633075033104148243, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: 6240388119088572149, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -94597396864947349, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  newObstacle:
+  - {fileID: -3465763879971835843, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
+  - {fileID: -6724563150589832562, guid: 9a19d4fd2ae951345b46e6f6ac72281d, type: 3}
