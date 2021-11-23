@@ -20,11 +20,15 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<Agent>();
         
         health = healthRatio * SceneStats.equationValue;
+        Debug.Log(SceneStats.equationValue);
     }
     
     public void TakeDamage(int amount)
     {
+        Debug.Log(health);
         health -= amount;
+        Debug.Log(amount);
+        Debug.Log(health);
         //healthBar.fillAmount = health / startHealth;
         if(health <= 0)
         {

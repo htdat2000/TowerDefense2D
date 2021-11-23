@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3545019589981822270, guid: a95ac08cc06f3b94388a5d80ab06d221, type: 3}
-  cost: 0
+  cost: 100
   upgradePrefab: {fileID: 0}
   upgradeCost: 0
 --- !u!1 &323526682
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4651737142562626925, guid: 333b1f898edd8644d92a4d3ea59a160d, type: 3}
-  cost: 0
+  cost: 250
   upgradePrefab: {fileID: 0}
   upgradeCost: 0
 --- !u!114 &367874135
