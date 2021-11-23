@@ -13,9 +13,9 @@ public class SceneStats : MonoBehaviour
     public Text waveText;
 
     public static int wavesNumber; //nhớ xóa static khi xong task nhe Mực
-    public int startWavesNumber = 0;
+    public int startWavesNumber = 1;
 
-    public static float equationValue;
+    public static float equationValue = 1;
 
     void Start()
     {
@@ -30,9 +30,9 @@ public class SceneStats : MonoBehaviour
         moneyText.text = Money.ToString();
         waveText.text = wavesNumber.ToString();
 
-        if(Lives <= 0)
+        if(wavesNumber >= 11)
         {
-            GameManager.gameOver = true;
+            GameManager.gameWin = true;
         }
     }
 

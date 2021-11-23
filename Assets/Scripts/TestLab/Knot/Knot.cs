@@ -54,6 +54,7 @@ public class Knot : MonoBehaviour
         if(BuildSystem.instance.hasBluePrint == true)
         {
             myTower = Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+            SceneStats.Money -= BuildSystem.instance.selectingBluePrint.cost;
             BuildSystem.instance.selectingBluePrint = null;
             BuildSystem.instance.hasBluePrint = false;
         }
@@ -76,6 +77,6 @@ public class Knot : MonoBehaviour
     }
     bool checkMoneyIHad()
     {
-        return true;
+        return SceneStats.Money >= BuildSystem.instance.selectingBluePrint.cost;
     }
 }

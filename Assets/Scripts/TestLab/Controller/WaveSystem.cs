@@ -15,7 +15,7 @@ public class WaveSystem : MonoBehaviour
     public float timeBetweenWaves = 5f;
     public float timeBetweenSpawn = 0.5f;
 
-    public int waveCount = 0;
+    public int waveCount = 1;
     private bool spawning = false;
     void Start()
     {
@@ -62,9 +62,6 @@ public class WaveSystem : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        // wayNumber++;
-        // wavesText.text = wayNumber.ToString();
-
         for (int i = 0; i <= waveCount; i++)
         {
             SpawnEnemy();
@@ -74,16 +71,6 @@ public class WaveSystem : MonoBehaviour
             }
             yield return new WaitForSeconds(timeBetweenSpawn);
         }
-
-        // if (enemyIndex == (maxEnemyTypes - 1))
-        // {
-        //     enemyIndex = 0;
-        // }
-        // else
-        //     enemyIndex++;
-
-        // SceneStats.wavesNumber++;
-        // sceneStats.HealthEquation();
     }
 
     void SpawnEnemy()
