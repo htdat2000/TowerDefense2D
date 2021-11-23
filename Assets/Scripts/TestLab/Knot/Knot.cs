@@ -16,12 +16,17 @@ public class Knot : MonoBehaviour
     public int knotValue = 1;
     public int distanceValue = 999;
     public bool isAccept = false;
+
+    private GameObject myTower;
+    void Start()
+    {
+        
+    }
     void OnMouseDown()
     {
         if(status == "Normal" && BuildSystem.instance.hasBluePrint == true && checkMoneyIHad())
         {
             status = "Has Tower";
-            GetComponent<SpriteRenderer>().color = Color.black;
             BuildTower();
             knotValue = 10;
         }    
@@ -40,7 +45,7 @@ public class Knot : MonoBehaviour
     {
         if(BuildSystem.instance.hasBluePrint == true)
         {
-            Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+            myTower = Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
             BuildSystem.instance.selectingBluePrint = null;
             BuildSystem.instance.hasBluePrint = false;
         }
@@ -49,9 +54,17 @@ public class Knot : MonoBehaviour
     {
         GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
         TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
-        //GetTowerStats();
-        float[] statsArray = { 0.5f, 0.4f, 0.3f }; 
+
+        Tower myTowerPrefab = myTower.GetComponent<Tower>();
+
+        float myType = (float)myTowerPrefab.towerType;
+        float myDmg = (float)myTowerPrefab.damage;
+        float myRange = myTowerPrefab.range;
+        float myFRate = myTowerPrefab.fireRate;
+
+        float[] statsArray = { myType, myDmg, myRange, myFRate}; 
         sUI.SendMessage("UpdateStatusUI", statsArray);
+        sUI.SendMessage("UpdateSelectedTower", myTower);
     }
     bool checkMoneyIHad()
     {

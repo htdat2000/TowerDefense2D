@@ -9,13 +9,6 @@ public class WalkingAi : MonoBehaviour
     public GameObject nextKnot;
     public GameObject currentKnot;
     
-    //KnotArray
-    //Ý tưởng:
-    /*
-    Lúc được sinh ra AI sẽ tạo 1 mãng KnotPath lưu các Knot cần đi qua.
-    KnotPath được cập nhật mỗi khi có thay đổi trên bản đồ (đặt trụ).
-    */
-    // Start is called before the first frame update
     void Awake()
     {
         speed = GetComponent<Enemy>().startSpeed;
@@ -27,10 +20,6 @@ public class WalkingAi : MonoBehaviour
         Walk();
     }
 
-    void OnMouseDown()
-    {
-        Destroy(gameObject);
-    }
     void Walk()
     {
         Vector2 dir = nextKnot.transform.position - transform.position;        
@@ -39,6 +28,7 @@ public class WalkingAi : MonoBehaviour
         {
             if(Vector2.Distance(transform.position, KnotsManager.KnotArray[0,0].transform.position) <= 0.1f)
             {
+                SceneStats.Lives -= 1;
                 Destroy(gameObject);
                 return;
             }

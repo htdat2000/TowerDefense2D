@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class TowerStatusUI : MonoBehaviour
 {
+    public Text towerName;
     public Text damageTxt;
     public Text rangeTxt;
     public Text fRateTxt;
+
+    private GameObject selectedTower;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +26,14 @@ public class TowerStatusUI : MonoBehaviour
 
     void UpdateStatusUI(float[] stats)
     {
-        damageTxt.text = stats[0].ToString();
-        rangeTxt.text = stats[1].ToString();
-        fRateTxt.text = stats[2].ToString();
+        towerName.text = stats[0].ToString();
+        damageTxt.text = stats[1].ToString();
+        rangeTxt.text = stats[2].ToString();
+        fRateTxt.text = stats[3].ToString();
+    }
+
+    void UpdateSelectedTower(GameObject tower)
+    {
+        selectedTower = tower;
     }
 }

@@ -29,6 +29,11 @@ public class SceneStats : MonoBehaviour
         liveText.text = Lives.ToString();
         moneyText.text = Money.ToString();
         waveText.text = wavesNumber.ToString();
+
+        if(Lives <= 0)
+        {
+            GameManager.gameOver = true;
+        }
     }
 
     public void HealthEquation()
