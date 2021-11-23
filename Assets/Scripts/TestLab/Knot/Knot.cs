@@ -17,10 +17,18 @@ public class Knot : MonoBehaviour
     public int distanceValue = 999;
     public bool isAccept = false;
 
+    public float obstaclePercent = 50.0f;
+
     private GameObject myTower;
     void Start()
     {
-        
+        float rand = Random.Range(0.0f, obstaclePercent);
+        if (rand < 1)
+        {
+            status = "Obstacle";
+            GetComponent<NodeImage>().SetObstacle();
+            knotValue = 90;
+        }
     }
     void OnMouseDown()
     {
