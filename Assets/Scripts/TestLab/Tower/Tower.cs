@@ -29,6 +29,8 @@ public class Tower : MonoBehaviour
     void Start()
     {
         InvokeRepeating("TargetLock", 0.2f, 0.5f);
+        GetCostUpgrade();
+        GetSellValue();
     }
     void Update()
     {
@@ -84,4 +86,39 @@ public class Tower : MonoBehaviour
     {
         //Call Knot selectNode();
     }
+
+    public int level = 1;
+    public int costUpgrade;
+    private int sellValue;
+
+    public void UpgradeTowerLevel()
+    {
+        if(SceneStats.Money >= costUpgrade)
+        {
+            level++;
+            damage = 40;
+
+            SceneStats.Money -=costUpgrade;
+
+            GetCostUpgrade();
+            GetSellValue();
+        }      
+    }
+
+    public void SellTower()
+    {
+        SceneStats.Money += sellValue;
+        Destroy(this.gameObject);
+    }
+
+    void GetCostUpgrade()
+    {
+        costUpgrade = (int)Mathf.Pow(3, level+1);
+    }
+
+    void GetSellValue()
+    {
+        sellValue = (int)Mathf.Round(Mathf.Pow(3, level)/2);
+    }
+
 }
