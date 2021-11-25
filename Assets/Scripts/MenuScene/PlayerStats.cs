@@ -4,12 +4,12 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStats;
     [Header("TowerStat")]
+    //0: archer, 1: fire
     public int[] towerStar;
     public int[] towerDamage;
     public float[] towerRange;
     public float[] towerRate;
     public int[] towerUpgradeCost;
-
     void Awake()
     {
         if (playerStats != null)
@@ -17,6 +17,7 @@ public class PlayerStats : MonoBehaviour
             Debug.LogError("More than one PlayerStats in scene");
             return;
         }
+
         playerStats = this;
 
 
@@ -44,6 +45,7 @@ public class PlayerStats : MonoBehaviour
         IceTowerStats();
         LightningTowerStats();
         PoisonTowerStats();
+
         TestTowerStats();
     }
 
@@ -185,12 +187,14 @@ public class PlayerStats : MonoBehaviour
 
     void GetStatsRebuild()
     {
-        string[] towerArray = {
+        string[] towerArray = 
+        {
         "archerTowerStar", 
         "fireTowerStar", 
         "iceTowerStar", 
         "lightningTowerStar",
-        "poisonTowerStar"};
+        "poisonTowerStar"
+        };
 
         int numberOfTower = towerArray.Length;
 
@@ -208,6 +212,5 @@ public class PlayerStats : MonoBehaviour
             towerRate[i] = 1f + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
         }
-        
     }
 }

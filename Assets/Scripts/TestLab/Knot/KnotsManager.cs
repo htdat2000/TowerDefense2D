@@ -5,6 +5,7 @@ using UnityEngine;
 public class KnotsManager : MonoBehaviour
 {
     public static GameObject[,] KnotArray; //Mảng 2 chiều để mô phỏng lại map
+    
     private int noOfChild;
     public static int noOfRow;
     void Awake()
@@ -23,7 +24,6 @@ public class KnotsManager : MonoBehaviour
             }        
         }
         CalculateMapRoute();
-        
     }
     void Start()
     {

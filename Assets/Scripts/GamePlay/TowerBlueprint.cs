@@ -2,7 +2,7 @@ using UnityEngine;
 
     [System.Serializable]
 public class TowerBlueprint : MonoBehaviour
-{
+{   
     public GameObject prefab;
     public int cost;
 

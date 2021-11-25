@@ -6,7 +6,7 @@ using UnityEngine;
 public class Knot : MonoBehaviour
 {
     // Start is called before the first frame update
-    public string aiTag = "Ai";
+    //public string aiTag = "Ai";
     public string status = "Normal";
     //Các biến phục vụ cho mục đích tìm đường
     public int xindex;
