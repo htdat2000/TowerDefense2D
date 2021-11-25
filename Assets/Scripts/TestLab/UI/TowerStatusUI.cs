@@ -33,7 +33,6 @@ public class TowerStatusUI : MonoBehaviour
 
     void UpgradeTowerLevelFunction()
     {
-        Debug.Log("Check");
         if(selectedTowerPrefab.level < 5)
         {
             Debug.Log("Addlistener");

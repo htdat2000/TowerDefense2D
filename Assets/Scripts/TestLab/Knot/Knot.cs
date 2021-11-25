@@ -85,7 +85,7 @@ public class Knot : MonoBehaviour
         return SceneStats.Money >= BuildSystem.instance.selectingBluePrint.cost;
     }
 
-    public void UpdateStatus()
+    public void UpdateKnotStatus()
     {
         status = "Normal";
         knotValue = 1;

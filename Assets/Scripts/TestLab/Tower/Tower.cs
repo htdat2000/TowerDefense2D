@@ -95,12 +95,10 @@ public class Tower : MonoBehaviour
     {
         if(SceneStats.Money >= costUpgrade)
         {
-            Debug.Log("Upgrade");
+            SceneStats.Money -=costUpgrade;
 
             level++;
-            damage = 40;
-
-            SceneStats.Money -=costUpgrade;
+            TowerStatsEquation();
 
             GetCostUpgrade();
             GetSellValue();
@@ -113,7 +111,7 @@ public class Tower : MonoBehaviour
         
         Knot parentKnot = GetComponentInParent<Knot>();
 
-        parentKnot.UpdateStatus();
+        parentKnot.UpdateKnotStatus();
         Destroy(this.gameObject);
     }
 
@@ -127,4 +125,21 @@ public class Tower : MonoBehaviour
         sellValue = (int)Mathf.Round(Mathf.Pow(3, level)/2);
     }
 
+    void TowerStatsEquation()
+    {
+        switch (towerType)
+        {
+            case 0:
+                damage = (int)(Mathf.Pow(2, level - 1) + Mathf.Pow(4, level) + damage + Mathf.Pow(damage - 11,level - 1));
+                range = range + 0.5f * (level - 1);
+                break; 
+            case 1:
+                damage = (int)(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + damage + Mathf.Pow(damage - 11,level - 1));
+                range = range + 0.5f * (level - 1);
+                break;
+            default:
+                Debug.Log("No Type");
+                break;           
+        }
+    }
 }
