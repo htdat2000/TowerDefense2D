@@ -203,7 +203,7 @@ public class PlayerStats : MonoBehaviour
         for (int i = 0; i < numberOfTower; i++)
         {
             towerStar[i] = PlayerPrefs.GetInt(towerArray[i], 0);
-            towerDamage[i] = 12 + towerStar[i] ;
+            towerDamage[i] = 10 + towerStar[i] ;
             towerRange[i] = 1.5f + towerStar[i] * 0.1f;
             towerRate[i] = 1f + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
