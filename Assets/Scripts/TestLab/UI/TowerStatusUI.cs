@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TowerStatusUI : MonoBehaviour
@@ -10,21 +8,13 @@ public class TowerStatusUI : MonoBehaviour
     public Text rangeTxt;
     public Text fRateTxt;
 
+    public Button upgradeTowerLevelBtn;
+    public Button sellTowerBtn;
+
     private GameObject selectedTower;
+    private Tower selectedTowerPrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void UpdateStatusUI(float[] stats)
+    public void UpdateStatusUI(float[] stats)
     {
         towerName.text = stats[0].ToString();
         damageTxt.text = stats[1].ToString();
@@ -32,8 +22,27 @@ public class TowerStatusUI : MonoBehaviour
         fRateTxt.text = stats[3].ToString();
     }
 
-    void UpdateSelectedTower(GameObject tower)
+    public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
         selectedTower = tower;
+        selectedTowerPrefab = towerPrefab;
+
+        UpgradeTowerLevelFunction();
+        SellTowerFunction();
+    }
+
+    void UpgradeTowerLevelFunction()
+    {
+        Debug.Log("Check");
+        if(selectedTowerPrefab.level < 5)
+        {
+            Debug.Log("Addlistener");
+            upgradeTowerLevelBtn.onClick.AddListener(selectedTowerPrefab.UpgradeTowerLevel);
+        }
+    }
+
+    void SellTowerFunction()
+    {
+        sellTowerBtn.onClick.AddListener(selectedTowerPrefab.SellTower);
     }
 }
