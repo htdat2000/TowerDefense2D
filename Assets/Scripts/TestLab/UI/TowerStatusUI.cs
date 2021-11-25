@@ -14,7 +14,7 @@ public class TowerStatusUI : MonoBehaviour
     private GameObject selectedTower;
     private Tower selectedTowerPrefab;
 
-    void UpdateStatusUI(float[] stats)
+    public void UpdateStatusUI(float[] stats)
     {
         towerName.text = stats[0].ToString();
         damageTxt.text = stats[1].ToString();
@@ -22,21 +22,26 @@ public class TowerStatusUI : MonoBehaviour
         fRateTxt.text = stats[3].ToString();
     }
 
-    void UpdateSelectedTower(GameObject tower)
+    public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
         selectedTower = tower;
-        selectedTowerPrefab = selectedTower.GetComponent<Tower>();
+        selectedTowerPrefab = towerPrefab;
+
+        UpgradeTowerLevelFunction();
+        SellTowerFunction();
     }
 
-    void UpgradeTowerLevel()
+    void UpgradeTowerLevelFunction()
     {
+        Debug.Log("Check");
         if(selectedTowerPrefab.level < 5)
         {
+            Debug.Log("Addlistener");
             upgradeTowerLevelBtn.onClick.AddListener(selectedTowerPrefab.UpgradeTowerLevel);
         }
     }
 
-    void SellTower()
+    void SellTowerFunction()
     {
         sellTowerBtn.onClick.AddListener(selectedTowerPrefab.SellTower);
     }

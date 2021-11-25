@@ -54,6 +54,8 @@ public class Knot : MonoBehaviour
         if(BuildSystem.instance.hasBluePrint == true)
         {
             myTower = Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
+            myTower.transform.SetParent(this.gameObject.transform);
+            
             SceneStats.Money -= BuildSystem.instance.selectingBluePrint.cost;
             BuildSystem.instance.selectingBluePrint = null;
             BuildSystem.instance.hasBluePrint = false;
@@ -72,11 +74,20 @@ public class Knot : MonoBehaviour
         float myFRate = myTowerPrefab.fireRate;
 
         float[] statsArray = { myType, myDmg, myRange, myFRate}; 
-        sUI.SendMessage("UpdateStatusUI", statsArray);
-        sUI.SendMessage("UpdateSelectedTower", myTower);
+        //sUI.SendMessage("UpdateStatusUI", statsArray);
+        //sUI.SendMessage("UpdateSelectedTower", myTower);
+
+        sUI.UpdateStatusUI(statsArray);
+        sUI.UpdateSelectedTower(myTower, myTowerPrefab);
     }
     bool checkMoneyIHad()
     {
         return SceneStats.Money >= BuildSystem.instance.selectingBluePrint.cost;
+    }
+
+    public void UpdateStatus()
+    {
+        status = "Normal";
+        knotValue = 1;
     }
 }

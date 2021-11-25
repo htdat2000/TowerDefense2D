@@ -95,6 +95,8 @@ public class Tower : MonoBehaviour
     {
         if(SceneStats.Money >= costUpgrade)
         {
+            Debug.Log("Upgrade");
+
             level++;
             damage = 40;
 
@@ -108,6 +110,10 @@ public class Tower : MonoBehaviour
     public void SellTower()
     {
         SceneStats.Money += sellValue;
+        
+        Knot parentKnot = GetComponentInParent<Knot>();
+
+        parentKnot.UpdateStatus();
         Destroy(this.gameObject);
     }
 
