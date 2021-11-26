@@ -32,16 +32,14 @@ public class TowerStatusUI : MonoBehaviour
     }
 
     void UpgradeTowerLevelFunction()
-    {
-        if(selectedTowerPrefab.level < 5)
-        {
-            Debug.Log("Addlistener");
-            upgradeTowerLevelBtn.onClick.AddListener(selectedTowerPrefab.UpgradeTowerLevel);
-        }
+    {   
+        upgradeTowerLevelBtn.onClick.RemoveAllListeners();
+        upgradeTowerLevelBtn.onClick.AddListener(selectedTowerPrefab.UpgradeTowerLevel);
     }
 
     void SellTowerFunction()
     {
+        sellTowerBtn.onClick.RemoveAllListeners();
         sellTowerBtn.onClick.AddListener(selectedTowerPrefab.SellTower);
     }
 }

@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed = 3f;
     //public GameObject impactEffect;
 
-    private int damage;
+    private float damage;
 
     void Update()
     {
@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void GetDamageValue(int _damage)
+    public void GetDamageValue(float _damage)
     {
         damage = _damage;
     }
