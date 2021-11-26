@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7bf2be709efaf53488d14ca957b68fd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,8 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 6858171812684065199, guid: 4ae77ed27ab46aa49a899e0c1a5cf03e,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0971e1cd16db2a4c9a873795fe4bbef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +104,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4963621235461401478, guid: 0bcf9a85b75705e4b952da6435528a12,
     type: 3}
   firePoint: {fileID: 1601684612297086779}
+  level: 1
+  costUpgrade: 0
 --- !u!95 &952799868846600458
 Animator:
   serializedVersion: 3
