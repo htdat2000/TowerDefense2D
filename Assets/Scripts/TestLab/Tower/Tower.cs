@@ -6,12 +6,13 @@ public class Tower : MonoBehaviour
 {
     [Header("Attributes")]
     public int towerType;
-    public int damage;
+    public float damage;
     public float range;
     public float fireRate;
     
 
     [Header("Unity Setup")]
+    private float defaultDmg;
     private Transform target;
     public string enemyTag = "Enemy";
 
@@ -28,6 +29,7 @@ public class Tower : MonoBehaviour
     }
     void Start()
     {
+        defaultDmg = damage;
         InvokeRepeating("TargetLock", 0.2f, 0.5f);
         GetCostUpgrade();
         GetSellValue();
@@ -93,17 +95,19 @@ public class Tower : MonoBehaviour
 
     public void UpgradeTowerLevel()
     {
-        if(SceneStats.Money >= costUpgrade)
+        if(level < 5)
         {
-            Debug.Log("Upgrade");
+            if(SceneStats.Money >= costUpgrade)
+            {
+                SceneStats.Money -=costUpgrade;
 
-            level++;
-            damage = 40;
+                level++;
+                //damage = 1000;
+                TowerStatsEquation();
 
-            SceneStats.Money -=costUpgrade;
-
-            GetCostUpgrade();
-            GetSellValue();
+                GetCostUpgrade();
+                GetSellValue();
+            }
         }      
     }
 
@@ -127,4 +131,24 @@ public class Tower : MonoBehaviour
         sellValue = (int)Mathf.Round(Mathf.Pow(3, level)/2);
     }
 
+<<<<<<< HEAD
+=======
+    void TowerStatsEquation()
+    {
+        switch (towerType)
+        {
+            case 0:
+                damage = Mathf.Round(Mathf.Pow(2, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
+                range += 0.5f;
+                break; 
+            case 1:
+                damage = Mathf.Round(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
+                range += 0.5f;
+                break;
+            default:
+                Debug.Log("No Type");
+                break;           
+        }
+    }
+>>>>>>> d0cc9bac5527cccf36e1107c68de15fffe78fb3c
 }

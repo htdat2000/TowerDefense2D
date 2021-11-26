@@ -5,7 +5,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats playerStats;
     [Header("TowerStat")]
     public int[] towerStar;
-    public int[] towerDamage;
+    public float[] towerDamage;
     public float[] towerRange;
     public float[] towerRate;
     public int[] towerUpgradeCost;
@@ -195,7 +195,7 @@ public class PlayerStats : MonoBehaviour
         int numberOfTower = towerArray.Length;
 
         towerStar = new int[numberOfTower];
-        towerDamage = new int[numberOfTower];
+        towerDamage = new float[numberOfTower];
         towerRange = new float[numberOfTower];
         towerRate = new float[numberOfTower];
         towerUpgradeCost = new int[numberOfTower];

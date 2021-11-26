@@ -36,6 +36,7 @@ public class UpgradePageController : MonoBehaviour
             btn.gameObject.SetActive(true);
         }
 
+        btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(UpgradeButton);
     }
 
@@ -57,6 +58,7 @@ public class UpgradePageController : MonoBehaviour
             btn.gameObject.SetActive(true);
         }
 
+        btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(UpgradeButton);
     }
 
@@ -77,7 +79,8 @@ public class UpgradePageController : MonoBehaviour
         {
             btn.gameObject.SetActive(true);
         }
-
+        
+        btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(UpgradeButton);
     }
 
@@ -99,6 +102,7 @@ public class UpgradePageController : MonoBehaviour
             btn.gameObject.SetActive(true);
         }
 
+        btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(UpgradeButton);
     }
 
@@ -120,6 +124,7 @@ public class UpgradePageController : MonoBehaviour
             btn.gameObject.SetActive(true);
         }
 
+        btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(UpgradeButton);
     }
 
@@ -158,10 +163,12 @@ public class UpgradePageController : MonoBehaviour
         if(PlayerPrefs.GetString(_towerStatusString) == "false")
         {
             towerStarString = _towerStatusString;
+            btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(UnlockButton);
         }
         else
         {
+            btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(UpgradeButton);
         }
     }
