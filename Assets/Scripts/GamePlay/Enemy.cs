@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         Debug.Log(SceneStats.equationValue);
     }
     
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         Debug.Log(health);
         health -= amount;

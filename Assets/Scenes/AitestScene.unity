@@ -3787,7 +3787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerStar: 
-  towerDamage: 
+  towerDamage: []
   towerRange: []
   towerRate: []
   towerUpgradeCost: 
