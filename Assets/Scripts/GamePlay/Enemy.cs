@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<Agent>();
         
         health = healthRatio * SceneStats.equationValue;
+
         Debug.Log(SceneStats.equationValue);
     }
     
