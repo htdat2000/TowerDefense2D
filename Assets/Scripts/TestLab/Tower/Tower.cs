@@ -131,8 +131,6 @@ public class Tower : MonoBehaviour
         sellValue = (int)Mathf.Round(Mathf.Pow(3, level)/2);
     }
 
-<<<<<<< HEAD
-=======
     void TowerStatsEquation()
     {
         switch (towerType)
@@ -150,5 +148,4 @@ public class Tower : MonoBehaviour
                 break;           
         }
     }
->>>>>>> d0cc9bac5527cccf36e1107c68de15fffe78fb3c
 }
