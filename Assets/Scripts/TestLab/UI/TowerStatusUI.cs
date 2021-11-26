@@ -13,43 +13,63 @@ public class TowerStatusUI : MonoBehaviour
 
     private GameObject selectedTower;
     private Tower selectedTowerPrefab;
+    
+    public Material outline;
+    public Material nonOutline;
 
     public void UpdateStatusUI(float[] stats)
     {
-        towerName.text = stats[0].ToString();
-        damageTxt.text = stats[1].ToString();
-        rangeTxt.text = stats[2].ToString();
-        fRateTxt.text = stats[3].ToString();
+        if(stats[0] != -1)
+        {
+            towerName.text = stats[0].ToString();
+            damageTxt.text = stats[1].ToString();
+            rangeTxt.text = stats[2].ToString();
+            fRateTxt.text = stats[3].ToString();
+            return;
+        }
+        towerName.text = "";
+        damageTxt.text = "";
+        rangeTxt.text = "";
+        fRateTxt.text = "";
     }
 
     public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
+        if(selectedTower != null)
+        {
+            SetToNonOutline(selectedTower);
+        }
         selectedTower = tower;
         selectedTowerPrefab = towerPrefab;
+
+        SetToOutline(selectedTower);
 
         UpgradeTowerLevelFunction();
         SellTowerFunction();
     }
 
     void UpgradeTowerLevelFunction()
-<<<<<<< HEAD
-    {
-        Debug.Log("Check");
-        if(selectedTowerPrefab.level < 5)
-        {
-            Debug.Log("Addlistener");
-            upgradeTowerLevelBtn.onClick.AddListener(selectedTowerPrefab.UpgradeTowerLevel);
-        }
-=======
     {   
         upgradeTowerLevelBtn.onClick.RemoveAllListeners();
         upgradeTowerLevelBtn.onClick.AddListener(selectedTowerPrefab.UpgradeTowerLevel);
->>>>>>> d0cc9bac5527cccf36e1107c68de15fffe78fb3c
     }
 
     void SellTowerFunction()
     {
         sellTowerBtn.onClick.RemoveAllListeners();
         sellTowerBtn.onClick.AddListener(selectedTowerPrefab.SellTower);
+    }
+
+    void SetToNonOutline(GameObject tower)
+    {
+        tower.GetComponent<SpriteRenderer>().material = nonOutline;
+    }
+    void SetToOutline(GameObject tower)
+    {
+        tower.GetComponent<SpriteRenderer>().material = outline;
+    }
+    public void SetToNonOutlineSelected()
+    {
+        selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
     }
 }
