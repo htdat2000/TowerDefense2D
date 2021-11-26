@@ -1859,6 +1859,8 @@ MonoBehaviour:
   fRateTxt: {fileID: 1361073002}
   upgradeTowerLevelBtn: {fileID: 1277749323}
   sellTowerBtn: {fileID: 593219678}
+  outline: {fileID: 2100000, guid: 7bf2be709efaf53488d14ca957b68fd3, type: 2}
+  nonOutline: {fileID: 2100000, guid: fa48d23a66d5c3d4c989ca80c119fea8, type: 2}
 --- !u!1 &702051696
 GameObject:
   m_ObjectHideFlags: 0
