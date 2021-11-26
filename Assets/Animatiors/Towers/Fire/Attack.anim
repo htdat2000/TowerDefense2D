@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireIdle
+  m_Name: Attack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: da38bb26b046f284da81270d44fde773, type: 3}
+      value: {fileID: 21300000, guid: 6363abe083c93d94dbb3c630be86f7bf, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 01e85129d6add8740af979f988e84c8a, type: 3}
+      value: {fileID: 21300000, guid: f1ff678574ad6ce47b5527283d3906a9, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: a29bc98d2eb61564c9cf53c402e8edfd, type: 3}
+      value: {fileID: 21300000, guid: b39a5163a541bba4b9757445325c505b, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: ead2a8d08f59efc44a8ee26d1cadffec, type: 3}
+      value: {fileID: 21300000, guid: c766d8f02ca47134ba907f7304a01d5d, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: da38bb26b046f284da81270d44fde773, type: 3}
+      value: {fileID: 21300000, guid: 57d9653ce95ecb54194df378356c7ba2, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: 6363abe083c93d94dbb3c630be86f7bf, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +50,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: da38bb26b046f284da81270d44fde773, type: 3}
-    - {fileID: 21300000, guid: 01e85129d6add8740af979f988e84c8a, type: 3}
-    - {fileID: 21300000, guid: a29bc98d2eb61564c9cf53c402e8edfd, type: 3}
-    - {fileID: 21300000, guid: ead2a8d08f59efc44a8ee26d1cadffec, type: 3}
-    - {fileID: 21300000, guid: da38bb26b046f284da81270d44fde773, type: 3}
+    - {fileID: 21300000, guid: 6363abe083c93d94dbb3c630be86f7bf, type: 3}
+    - {fileID: 21300000, guid: f1ff678574ad6ce47b5527283d3906a9, type: 3}
+    - {fileID: 21300000, guid: b39a5163a541bba4b9757445325c505b, type: 3}
+    - {fileID: 21300000, guid: c766d8f02ca47134ba907f7304a01d5d, type: 3}
+    - {fileID: 21300000, guid: 57d9653ce95ecb54194df378356c7ba2, type: 3}
+    - {fileID: 21300000, guid: 6363abe083c93d94dbb3c630be86f7bf, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,4 +80,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.3
+    functionName: SpawnBullet
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: BackToIdle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

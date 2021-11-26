@@ -82,7 +82,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf2be709efaf53488d14ca957b68fd3, type: 2}
+  - {fileID: 2100000, guid: fa48d23a66d5c3d4c989ca80c119fea8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,8 +134,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4963621235461401478, guid: 0bcf9a85b75705e4b952da6435528a12,
     type: 3}
   firePoint: {fileID: 7459765740303292264}
-  outline: {fileID: 2100000, guid: 7bf2be709efaf53488d14ca957b68fd3, type: 2}
-  nonOutLine: {fileID: 2100000, guid: fa48d23a66d5c3d4c989ca80c119fea8, type: 2}
+  anim: {fileID: 8972644556414038337}
   level: 1
   costUpgrade: 0
 --- !u!95 &8972644556414038337

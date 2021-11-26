@@ -20,6 +20,7 @@ public class Tower : MonoBehaviour
     public Transform firePoint;
     private float fireCountdown = 1f;
 
+    public Animator anim;
     PlayerStats instance;
     // Start is called before the first frame update
     void Awake()
@@ -33,6 +34,7 @@ public class Tower : MonoBehaviour
         InvokeRepeating("TargetLock", 0.2f, 0.5f);
         GetCostUpgrade();
         GetSellValue();
+        anim.Play("Idle", 0, 0f);
     }
     void Update()
     {
@@ -70,13 +72,8 @@ public class Tower : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-        if(bullet != null)
-        {
-            bullet.seekTarget(target);
-            bullet.GetDamageValue(damage);
-        }
+        anim.Play("Attack", 0, 0f);
+        Invoke("SpawnBullet", 0.4f);
     }
     void GetStats()
     {
@@ -146,6 +143,20 @@ public class Tower : MonoBehaviour
             default:
                 Debug.Log("No Type");
                 break;           
+        }
+    }
+    public void BackToIdle()
+    {
+        anim.Play("Idle", 0, 0f);
+    }
+    void SpawnBullet()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        if(bullet != null)
+        {
+            bullet.seekTarget(target);
+            bullet.GetDamageValue(damage);
         }
     }
 }

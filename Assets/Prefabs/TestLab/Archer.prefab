@@ -104,6 +104,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4963621235461401478, guid: 0bcf9a85b75705e4b952da6435528a12,
     type: 3}
   firePoint: {fileID: 1601684612297086779}
+  anim: {fileID: 952799868846600458}
   level: 1
   costUpgrade: 0
 --- !u!95 &952799868846600458
