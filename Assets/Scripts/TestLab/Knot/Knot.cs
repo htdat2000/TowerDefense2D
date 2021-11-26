@@ -32,16 +32,22 @@ public class Knot : MonoBehaviour
     }
     void OnMouseDown()
     {
+        KnotTouch();
         if(status == "Normal" && BuildSystem.instance.hasBluePrint == true && checkMoneyIHad())
         {
             status = "Has Tower";
             BuildTower();
             knotValue = 10;
+            SelectTower();
         }    
         else if (status == "Has Tower")
         {
             SelectTower();
-        }    
+        }
+        else
+        {
+            SetToNonOutlineSelectedTower();
+        }
         SendSignalToAi("UpdateMap");
     }
     void SendSignalToAi(string signal)
@@ -89,5 +95,21 @@ public class Knot : MonoBehaviour
     {
         status = "Normal";
         knotValue = 1;
+    }
+
+    public void KnotTouch()
+    {
+        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
+        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+
+        float[] statsArray = { -1f, -1f, -1f, -1f}; 
+        sUI.UpdateStatusUI(statsArray);
+    }
+    public void SetToNonOutlineSelectedTower()
+    {
+        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
+        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+
+        sUI.SetToNonOutlineSelected();
     }
 }

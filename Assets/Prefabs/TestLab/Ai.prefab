@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf2be709efaf53488d14ca957b68fd3, type: 2}
+  - {fileID: 2100000, guid: fa48d23a66d5c3d4c989ca80c119fea8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,6 +117,8 @@ MonoBehaviour:
   value: 100
   startSpeed: 10
   healthBar: {fileID: 0}
+  outline: {fileID: 2100000, guid: 7bf2be709efaf53488d14ca957b68fd3, type: 2}
+  nonOutLine: {fileID: 2100000, guid: fa48d23a66d5c3d4c989ca80c119fea8, type: 2}
 --- !u!61 &7138119221888600563
 BoxCollider2D:
   m_ObjectHideFlags: 0
