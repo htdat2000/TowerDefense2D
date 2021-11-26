@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class SceneStats : MonoBehaviour
 {
     public static int Money;
-    public int startMoney = 400;
+    public int startMoney = 15;
     public Text moneyText;
 
     public static int Lives;

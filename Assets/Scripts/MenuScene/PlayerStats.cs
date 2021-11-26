@@ -10,6 +10,11 @@ public class PlayerStats : MonoBehaviour
     public float[] towerRate;
     public int[] towerUpgradeCost;
 
+    [Header("DefaultValue")]
+    private float[] towerDefaultDmg = {12,20,10,10,10};
+    private float[] towerDefaultRange = {1.5f, 2, 1.5f, 1.5f, 1.5f};
+    private float[] towerDefaultRate = {1.2f, 0.5f, 0, 0, 0};
+
     void Awake()
     {
         if (playerStats != null)
@@ -203,9 +208,9 @@ public class PlayerStats : MonoBehaviour
         for (int i = 0; i < numberOfTower; i++)
         {
             towerStar[i] = PlayerPrefs.GetInt(towerArray[i], 0);
-            towerDamage[i] = 10 + towerStar[i] ;
-            towerRange[i] = 1.5f + towerStar[i] * 0.1f;
-            towerRate[i] = 1f + towerStar[i] * 0.1f;
+            towerDamage[i] = towerDefaultDmg[i] + towerStar[i] ;
+            towerRange[i] = towerDefaultRange[i] + towerStar[i] * 0.1f;
+            towerRate[i] = towerDefaultRate[i] + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
         }
         
