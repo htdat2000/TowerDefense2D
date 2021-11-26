@@ -3744,7 +3744,9 @@ MonoBehaviour:
   - {fileID: 280645605}
   - {fileID: 901748648}
   enemyPrefabs:
-  - {fileID: 7138119221888600575, guid: 55f5f429320328242b99ef7bfd5c1f80, type: 3}
+  - {fileID: 648149551863772403, guid: 92d0de50083b98c44a493fe6f897a610, type: 3}
+  - {fileID: 2713679405477155153, guid: 94b2dde2383861546b993afe72ccfead, type: 3}
+  - {fileID: 4181153676798826311, guid: 145149f96a44f4741b42111801bbfc5f, type: 3}
   timeBetweenWaves: 5
   timeBetweenSpawn: 0.5
   waveCount: 0

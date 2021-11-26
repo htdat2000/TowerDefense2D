@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
 
     public float speed = 3f;
     //public GameObject impactEffect;
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Damage(Transform enemy)
+    public void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
 
