@@ -105,6 +105,8 @@ public class Tower : MonoBehaviour
 
                 GetCostUpgrade();
                 GetSellValue();
+
+                myStand.SelectTower();
             }
         }      
     }
@@ -112,10 +114,8 @@ public class Tower : MonoBehaviour
     public void SellTower()
     {
         SceneStats.Money += sellValue;
-        
-        Knot parentKnot = GetComponentInParent<Knot>();
-
-        parentKnot.UpdateStatus();
+    
+        myStand.UpdateStatus();
         Destroy(this.gameObject);
     }
 

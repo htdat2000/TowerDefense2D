@@ -12,16 +12,24 @@ public class WaveSystem : MonoBehaviour
     public GameObject[] enemyPrefabs;
 
     private float countdown = 2f; //đếm để spawn
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 15f;
     public float timeBetweenSpawn = 0.5f;
 
     public int waveCount = 1;
     private bool spawning = false;
 
     private float enemiesTypeRange = 3f;
+
+    SceneStats sceneStats;
+    
+    void Awake()
+    {
+        sceneStats = GetComponent<SceneStats>();
+    }
+
     void Start()
     {
-       
+       sceneStats.HealthEquation();
     }
 
     // Update is called once per frame
@@ -34,6 +42,7 @@ public class WaveSystem : MonoBehaviour
             countdown = timeBetweenWaves;
             waveCount ++;
             SceneStats.wavesNumber = waveCount;
+            sceneStats.HealthEquation();
         }
         if (!spawning)
         {
