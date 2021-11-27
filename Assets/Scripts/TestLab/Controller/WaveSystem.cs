@@ -12,7 +12,7 @@ public class WaveSystem : MonoBehaviour
     public GameObject[] enemyPrefabs;
 
     private float countdown = 2f; //đếm để spawn
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 15f;
     public float timeBetweenSpawn = 0.5f;
 
     public int waveCount = 1;
