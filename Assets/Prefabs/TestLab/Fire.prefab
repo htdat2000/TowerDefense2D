@@ -133,7 +133,7 @@ MonoBehaviour:
   level: 1
   costRatio: 2
   enemyTag: Enemy
-  bulletPrefab: {fileID: 4963621235461401478, guid: 0bcf9a85b75705e4b952da6435528a12,
+  bulletPrefab: {fileID: 8186962682425527013, guid: e0ed779e319b85546bc693f0697c9d72,
     type: 3}
   firePoint: {fileID: 7459765740303292264}
   anim: {fileID: 8972644556414038337}

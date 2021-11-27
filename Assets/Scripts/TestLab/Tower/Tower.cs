@@ -151,7 +151,8 @@ public class Tower : MonoBehaviour
     }
     void SpawnBullet()
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        float tan = (target.position.x - this.transform.position.x) / (this.transform.position.y - target.position.y);
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * Mathf.Rad2Deg));
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         if(bullet != null)
         {
