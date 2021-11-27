@@ -70,6 +70,8 @@ public class TowerStatusUI : MonoBehaviour
     }
     public void SetToNonOutlineSelected()
     {
+        upgradeTowerLevelBtn.onClick.RemoveAllListeners();
+        sellTowerBtn.onClick.RemoveAllListeners();
         selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
     }
 }

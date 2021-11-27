@@ -22,6 +22,7 @@ public class Tower : MonoBehaviour
 
     public Animator anim;
     PlayerStats instance;
+    public Knot myStand;
     // Start is called before the first frame update
     void Awake()
     {
@@ -83,7 +84,7 @@ public class Tower : MonoBehaviour
     }
     void OnMouseDown()
     {
-        //Call Knot selectNode();
+        myStand.selectMe();
     }
 
     public int level = 1;
@@ -151,13 +152,23 @@ public class Tower : MonoBehaviour
     }
     void SpawnBullet()
     {
-        float tan = (target.position.x - this.transform.position.x) / (this.transform.position.y - target.position.y);
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * Mathf.Rad2Deg));
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-        if(bullet != null)
+        if(target)
         {
-            bullet.seekTarget(target);
-            bullet.GetDamageValue(damage);
+            float tan = (target.position.x - this.transform.position.x) / (this.transform.position.y - target.position.y);
+            GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * Mathf.Rad2Deg));
+            Bullet bullet = bulletGO.GetComponent<Bullet>();
+            if(bullet != null)
+            {
+                bullet.seekTarget(target);
+                bullet.GetDamageValue(damage);
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
         }
     }
 }

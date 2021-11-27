@@ -32,7 +32,12 @@ public class Knot : MonoBehaviour
     }
     void OnMouseDown()
     {
-        KnotTouch();
+        selectMe();
+    }
+
+    public void selectMe()
+    {
+       KnotTouch();
         if(status == "Normal" && BuildSystem.instance.hasBluePrint == true && checkMoneyIHad())
         {
             status = "Has Tower";
@@ -61,6 +66,7 @@ public class Knot : MonoBehaviour
         {
             myTower = Instantiate(BuildSystem.instance.selectingBluePrint.prefab, transform.position, transform.rotation);
             myTower.transform.SetParent(this.gameObject.transform);
+            myTower.GetComponent<Tower>().myStand = this;
             
             SceneStats.Money -= BuildSystem.instance.selectingBluePrint.cost;
             BuildSystem.instance.selectingBluePrint = null;
