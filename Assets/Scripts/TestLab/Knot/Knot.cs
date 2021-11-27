@@ -34,7 +34,7 @@ public class Knot : MonoBehaviour
     {
         selectMe();
     }
-    public void lostTower()
+    public void lostTower() //trùng rồi
     {
         status = "Normal";
         knotValue = 1;
@@ -78,7 +78,7 @@ public class Knot : MonoBehaviour
             BuildSystem.instance.hasBluePrint = false;
         }
     }
-    void SelectTower()
+    public void SelectTower()
     {
         GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
         TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
@@ -91,8 +91,6 @@ public class Knot : MonoBehaviour
         float myFRate = myTowerPrefab.fireRate;
 
         float[] statsArray = { myType, myDmg, myRange, myFRate}; 
-        //sUI.SendMessage("UpdateStatusUI", statsArray);
-        //sUI.SendMessage("UpdateSelectedTower", myTower);
 
         sUI.UpdateStatusUI(statsArray);
         sUI.UpdateSelectedTower(myTower, myTowerPrefab);

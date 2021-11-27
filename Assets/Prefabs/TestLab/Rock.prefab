@@ -139,10 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64fdb25431670241b4760bd0af3645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthRatio: 10
+  healthRatio: 2
   health: 30
   value: 3
-  startSpeed: 8
+  startSpeed: 4
   healthBar: {fileID: 0}
 --- !u!95 &2390983097909938807
 Animator:
