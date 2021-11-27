@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     public float fireRate;
     
     public int level = 1;
-    public int costRatio;
+    public float costRatio;
     private int costUpgrade;
     private int sellValue;
 
@@ -120,12 +120,12 @@ public class Tower : MonoBehaviour
 
     void GetCostUpgrade()
     {
-        costUpgrade = costRatio * (int)Mathf.Round(Mathf.Pow(3, level+1));
+        costUpgrade = (int)Mathf.Round(costRatio * Mathf.Pow(3, level+1));
     }
 
     void GetSellValue()
     {
-        sellValue = costRatio * (int)Mathf.Round(Mathf.Pow(3, level)/2);
+        sellValue += (int)Mathf.Round(costRatio * Mathf.Pow(3, level)/2);
     }
 
     void TowerStatsEquation()
