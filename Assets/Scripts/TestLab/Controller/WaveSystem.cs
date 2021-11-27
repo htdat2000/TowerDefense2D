@@ -19,9 +19,17 @@ public class WaveSystem : MonoBehaviour
     private bool spawning = false;
 
     private float enemiesTypeRange = 3f;
+
+    SceneStats sceneStats;
+    
+    void Awake()
+    {
+        sceneStats = GetComponent<SceneStats>();
+    }
+
     void Start()
     {
-       
+       sceneStats.HealthEquation();
     }
 
     // Update is called once per frame
@@ -34,6 +42,7 @@ public class WaveSystem : MonoBehaviour
             countdown = timeBetweenWaves;
             waveCount ++;
             SceneStats.wavesNumber = waveCount;
+            sceneStats.HealthEquation();
         }
         if (!spawning)
         {
