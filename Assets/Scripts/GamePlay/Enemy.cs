@@ -7,9 +7,9 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float health;
     
-    public int value = 100;
+    public int value;
 
-    public float startSpeed = 10f;
+    public float startSpeed;
  
     public Image healthBar;
 

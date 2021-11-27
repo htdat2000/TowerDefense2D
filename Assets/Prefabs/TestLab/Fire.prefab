@@ -158,13 +158,13 @@ MonoBehaviour:
   damage: 0
   range: 0
   fireRate: 0
+  level: 1
+  costRatio: 0
   enemyTag: Enemy
   bulletPrefab: {fileID: 8186962682425527013, guid: e0ed779e319b85546bc693f0697c9d72,
     type: 3}
   firePoint: {fileID: 7459765740303292264}
   anim: {fileID: 8972644556414038337}
-  level: 1
-  costUpgrade: 0
 --- !u!95 &8972644556414038337
 Animator:
   serializedVersion: 3

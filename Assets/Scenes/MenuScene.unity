@@ -4446,6 +4446,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8701db623d57364389f253f507ab7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerStar: 
+  towerDamage: []
+  towerRange: []
+  towerRate: []
+  towerUpgradeCost: 
   gem: 0
   diamond: 0
   archerTowerStar: 0

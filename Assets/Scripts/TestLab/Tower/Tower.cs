@@ -10,6 +10,10 @@ public class Tower : MonoBehaviour
     public float range;
     public float fireRate;
     
+    public int level = 1;
+    public float costRatio;
+    private int costUpgrade;
+    private int sellValue;
 
     [Header("Unity Setup")]
     private float defaultDmg;
@@ -87,10 +91,6 @@ public class Tower : MonoBehaviour
         myStand.selectMe();
     }
 
-    public int level = 1;
-    public int costUpgrade;
-    private int sellValue;
-
     public void UpgradeTowerLevel()
     {
         if(level < 5)
@@ -100,7 +100,7 @@ public class Tower : MonoBehaviour
                 SceneStats.Money -=costUpgrade;
 
                 level++;
-                //damage = 1000;
+                
                 TowerStatsEquation();
 
                 GetCostUpgrade();
@@ -121,12 +121,12 @@ public class Tower : MonoBehaviour
 
     void GetCostUpgrade()
     {
-        costUpgrade = (int)Mathf.Pow(3, level+1);
+        costUpgrade = (int)Mathf.Round(costRatio * Mathf.Pow(3, level+1));
     }
 
     void GetSellValue()
     {
-        sellValue = (int)Mathf.Round(Mathf.Pow(3, level)/2);
+        sellValue += (int)Mathf.Round(costRatio * Mathf.Pow(3, level)/2);
     }
 
     void TowerStatsEquation()
@@ -135,10 +135,10 @@ public class Tower : MonoBehaviour
         {
             case 0:
                 damage = Mathf.Round(Mathf.Pow(2, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
-                range += 0.5f;
+                range += 0.25f;
                 break; 
             case 1:
-                damage = Mathf.Round(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
+                damage = Mathf.Round(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 19,level - 1));
                 range += 0.5f;
                 break;
             default:
