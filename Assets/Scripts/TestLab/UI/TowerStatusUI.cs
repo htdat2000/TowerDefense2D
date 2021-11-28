@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class TowerStatusUI : MonoBehaviour
 {
+    public Text upgradeTxt;
+    public Text sellTxt;
     public Text towerName;
     public Text damageTxt;
     public Text rangeTxt;
@@ -11,8 +13,8 @@ public class TowerStatusUI : MonoBehaviour
     public Button upgradeTowerLevelBtn;
     public Button sellTowerBtn;
 
-    private GameObject selectedTower;
-    private Tower selectedTowerPrefab;
+    public GameObject selectedTower;
+    public Tower selectedTowerPrefab;
     
     public Material outline;
     public Material nonOutline;
@@ -25,12 +27,16 @@ public class TowerStatusUI : MonoBehaviour
             damageTxt.text = stats[1].ToString();
             rangeTxt.text = stats[2].ToString();
             fRateTxt.text = stats[3].ToString();
+            upgradeTxt.text = stats[4].ToString();
+            sellTxt.text = stats[5].ToString();
             return;
         }
         towerName.text = "";
         damageTxt.text = "";
         rangeTxt.text = "";
         fRateTxt.text = "";
+        upgradeTxt.text = "";
+        sellTxt.text = "";
     }
 
     public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)

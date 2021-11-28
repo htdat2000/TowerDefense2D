@@ -37,13 +37,13 @@ public class Knot : MonoBehaviour
 
     public void selectMe()
     {
-       KnotTouch();
+        KnotTouch();
         if(status == "Normal" && BuildSystem.instance.hasBluePrint == true && checkMoneyIHad())
         {
             status = "Has Tower";
             BuildTower();
             knotValue = 10;
-            SelectTower();
+            // SelectTower();
         }    
         else if (status == "Has Tower")
         {
@@ -84,8 +84,10 @@ public class Knot : MonoBehaviour
         float myDmg = (float)myTowerPrefab.damage;
         float myRange = myTowerPrefab.range;
         float myFRate = myTowerPrefab.fireRate;
+        float myUCost = (float)myTowerPrefab.costUpgrade;
+        float mySValue = (float)myTowerPrefab.sellValue;
 
-        float[] statsArray = { myType, myDmg, myRange, myFRate}; 
+        float[] statsArray = { myType, myDmg, myRange, myFRate, myUCost, mySValue}; 
 
         sUI.UpdateStatusUI(statsArray);
         sUI.UpdateSelectedTower(myTower, myTowerPrefab);

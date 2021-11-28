@@ -12,8 +12,8 @@ public class Tower : MonoBehaviour
     
     public int level = 1;
     public float costRatio;
-    private int costUpgrade;
-    private int sellValue;
+    public int costUpgrade;
+    public int sellValue;
 
     [Header("Unity Setup")]
     private float defaultDmg;
