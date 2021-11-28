@@ -17,40 +17,37 @@ public class UpgradePageController : MonoBehaviour
     private int towerUpgradeCost;
 
     private string towerStarString;
-    private string tabName;
+    private int towerType;
     private string towerStatusString;
     void Start()
     {
         instance = PlayerStats.playerStats;
     }
-    public void OpenTowerUpgradeTab(int towerType)
+    public void OpenTowerUpgradeTab(int _towerType)
     {
-        towerDamage.text = instance.towerDamage[towerType].ToString();
-        towerRange.text = instance.towerRange[towerType].ToString();
-        towerFireRate.text = instance.towerRate[towerType].ToString();
+        towerDamage.text = instance.towerDamage[_towerType].ToString();
+        towerRange.text = instance.towerRange[_towerType].ToString();
+        towerFireRate.text = instance.towerRate[_towerType].ToString();
         specialEffect.text = null;
 
-        towerStar = instance.towerStar[towerType];
-        towerUpgradeCost = instance.towerUpgradeCost[towerType];
+        towerStar = instance.towerStar[_towerType];
+        towerUpgradeCost = instance.towerUpgradeCost[_towerType];
 
-        towerStarString = "archerTowerStar"; //còn là hardcode
-        tabName = "ArcherTower"; //còn là hardcode
+        towerStarString = instance.towerArray[_towerType]; 
+        towerType = _towerType;
 
         if(btn.gameObject.activeSelf != true)
         {
             btn.gameObject.SetActive(true);
         }
 
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(UpgradeButton);
-
-        Debug.Log(towerType);
+        CheckTowerStatus(_towerType);
+        Debug.Log(_towerType);
     }
-    void CheckTowerStatus(string _towerStatusString) //chưa hiểu lắm
+    void CheckTowerStatus(int _towerType) //check tower unlock status, if false => player can unlock 
     {
-        if(PlayerPrefs.GetString(_towerStatusString) == "false")
+        if(instance.towerStatus[_towerType] == "false")
         {
-            towerStarString = _towerStatusString;
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(UnlockButton);
         }
@@ -78,28 +75,28 @@ public class UpgradePageController : MonoBehaviour
 
     void ResetUpgradeTab()
     {
-        switch (tabName)
+        switch (towerType)
         {
-            case "PoisonTower":
+            case 4:
                 OpenTowerUpgradeTab(4);
                 break;
 
-            case "LightningTower":
+            case 3:
                 OpenTowerUpgradeTab(3);
                 break;
 
-            case "IceTower":
+            case 2:
                 OpenTowerUpgradeTab(2);
                 break;
 
-            case "ArcherTower":
+            case 0:
                 OpenTowerUpgradeTab(0);
                 break;
 
-            case "FireTower":
+            case 1:
                 OpenTowerUpgradeTab(1);
                 break;
-            case "TestTower":
+            case 5:
                 OpenTowerUpgradeTab(5);
                 break;
         }
@@ -109,7 +106,7 @@ public class UpgradePageController : MonoBehaviour
     {
         if ((instance.gem - towerUpgradeCost) >= 0)
         {            
-            PlayerPrefs.SetString(towerStatusString, "true");
+            PlayerPrefs.SetString(instance.towerStatusArray[towerType], "true");
 
             instance.gem -= 4000; //unlock cost
             PlayerPrefs.SetInt("gem", instance.gem);

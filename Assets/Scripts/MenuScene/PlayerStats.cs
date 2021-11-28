@@ -10,6 +10,8 @@ public class PlayerStats : MonoBehaviour
     public float[] towerRate;
     public int[] towerUpgradeCost;
 
+    public string[] towerStatus;
+
     [Header("DefaultValue")]
     private float[] towerDefaultDmg = {12,20,10,10,10};
     private float[] towerDefaultRange = {1.5f, 2, 1.5f, 1.5f, 1.5f};
@@ -22,6 +24,20 @@ public class PlayerStats : MonoBehaviour
     public int gem;
     public int diamond;
 
+    [Header("Unity Scripts Set Up")]
+    public string[] towerArray = {
+        "archerTowerStar", 
+        "fireTowerStar", 
+        "iceTowerStar", 
+        "lightningTowerStar",
+        "poisonTowerStar"};
+
+    public string[] towerStatusArray = {
+        "archerTowerStatus", 
+        "fireTowerStatus", 
+        "iceTowerStatus", 
+        "lightningTowerStatus",
+        "poisonTowerStatus"};
 
     void Awake()
     {
@@ -51,13 +67,6 @@ public class PlayerStats : MonoBehaviour
 
     public void GetStatsRebuild()
     {
-        string[] towerArray = {
-        "archerTowerStar", 
-        "fireTowerStar", 
-        "iceTowerStar", 
-        "lightningTowerStar",
-        "poisonTowerStar"};
-
         int numberOfTower = towerArray.Length;
 
         towerStar = new int[numberOfTower];
@@ -65,6 +74,7 @@ public class PlayerStats : MonoBehaviour
         towerRange = new float[numberOfTower];
         towerRate = new float[numberOfTower];
         towerUpgradeCost = new int[numberOfTower];
+        towerStatus = new string[numberOfTower];
 
         for (int i = 0; i < numberOfTower; i++)
         {
@@ -73,7 +83,16 @@ public class PlayerStats : MonoBehaviour
             towerRange[i] = towerDefaultRange[i];
             towerRate[i] = towerDefaultRate[i] + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
+
+            if(i < 5)
+            {
+                towerStatus[i] = PlayerPrefs.GetString(towerStatusArray[i], "true");
+            }
+            else 
+            {
+                towerStatus[i] = PlayerPrefs.GetString(towerStatusArray[i], "false");
+            }
         }
-        
+    
     }
 }
