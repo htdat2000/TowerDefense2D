@@ -34,11 +34,6 @@ public class Knot : MonoBehaviour
     {
         selectMe();
     }
-    public void lostTower() //trùng rồi
-    {
-        status = "Normal";
-        knotValue = 1;
-    }
 
     public void selectMe()
     {

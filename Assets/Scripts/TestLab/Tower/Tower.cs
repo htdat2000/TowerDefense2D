@@ -168,7 +168,7 @@ public class Tower : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            myStand.lostTower();
+            myStand.UpdateStatus();
             Destroy(gameObject);
         }
     }

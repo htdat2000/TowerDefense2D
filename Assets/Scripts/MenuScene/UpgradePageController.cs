@@ -12,24 +12,29 @@ public class UpgradePageController : MonoBehaviour
 
     PlayerStats instance;
 
+    //chổ này đem lên chưa biết để header là gì
+    private int towerStar;
+    private int towerUpgradeCost;
+
+    private string towerStarString;
+    private string tabName;
+    private string towerStatusString;
     void Start()
     {
         instance = PlayerStats.playerStats;
     }
-
-    #region TowerTabs
-    public void ArcherTowerUpgradeTab()
+    public void OpenTowerUpgradeTab(int towerType)
     {
-        towerDamage.text = instance.archerTowerDamage.ToString();
-        towerRange.text = instance.archerTowerRange.ToString();
-        towerFireRate.text = instance.archerTowerRate.ToString();
+        towerDamage.text = instance.towerDamage[towerType].ToString();
+        towerRange.text = instance.towerRange[towerType].ToString();
+        towerFireRate.text = instance.towerRate[towerType].ToString();
         specialEffect.text = null;
 
-        towerStar = instance.archerTowerStar;
-        towerUpgradeCost = instance.archerTowerUpgradeCost;
+        towerStar = instance.towerStar[towerType];
+        towerUpgradeCost = instance.towerUpgradeCost[towerType];
 
-        towerStarString = "archerTowerStar";
-        tabName = "ArcherTower";
+        towerStarString = "archerTowerStar"; //còn là hardcode
+        tabName = "ArcherTower"; //còn là hardcode
 
         if(btn.gameObject.activeSelf != true)
         {
@@ -38,127 +43,10 @@ public class UpgradePageController : MonoBehaviour
 
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(UpgradeButton);
+
+        Debug.Log(towerType);
     }
-
-    public void FireTowerUpgradeTab()
-    {
-        towerDamage.text = instance.fireTowerDamage.ToString();
-        towerRange.text = instance.fireTowerRange.ToString();
-        towerFireRate.text = instance.fireTowerRate.ToString();
-        specialEffect.text = null;
-
-        towerStar = instance.fireTowerStar;
-        towerUpgradeCost = instance.fireTowerUpgradeCost;
-
-        towerStarString = "fireTowerStar";
-        tabName = "FireTower";
-
-        if (btn.gameObject.activeSelf != true)
-        {
-            btn.gameObject.SetActive(true);
-        }
-
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(UpgradeButton);
-    }
-
-    public void IceTowerUpgradeTab()
-    {
-        towerDamage.text = instance.iceTowerDamage.ToString();
-        towerRange.text = instance.iceTowerRange.ToString();
-        towerFireRate.text = instance.iceTowerRate.ToString();
-        specialEffect.text = "- " + (instance.slowValue * 100).ToString() + " %speed for 3s";
-
-        towerStar = instance.iceTowerStar;
-        towerUpgradeCost = instance.iceTowerUpgradeCost;
-
-        towerStarString = "iceTowerStar";
-        tabName = "IceTower";
-
-        if (btn.gameObject.activeSelf != true)
-        {
-            btn.gameObject.SetActive(true);
-        }
-        
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(UpgradeButton);
-    }
-
-    public void LightningTowerUpgradeTab()
-    {
-        towerDamage.text = instance.lightningTowerDamage.ToString();
-        towerRange.text = instance.lightningTowerRange.ToString();
-        towerFireRate.text = instance.lightningTowerRate.ToString();
-        specialEffect.text = null;
-
-        towerStar = instance.lightningTowerStar;
-        towerUpgradeCost = instance.lightningTowerUpgradeCost;
-
-        towerStarString = "lightningTowerStar";
-        tabName = "LightningTower";
-
-        if (btn.gameObject.activeSelf != true)
-        {
-            btn.gameObject.SetActive(true);
-        }
-
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(UpgradeButton);
-    }
-
-    public void PoisonTowerUpgradeTab()
-    {
-        towerDamage.text = instance.poisonTowerDamage.ToString();
-        towerRange.text = instance.poisonTowerRange.ToString();
-        towerFireRate.text = instance.poisonTowerRate.ToString();
-        specialEffect.text = "- " + (instance.poisonValue * 100).ToString() + " %HP/hit";
-
-        towerStar = instance.poisonTowerStar;
-        towerUpgradeCost = instance.poisonTowerUpgradeCost;
-
-        towerStarString = "poisonTowerStar";
-        tabName = "PoisonTower";
-
-        if (btn.gameObject.activeSelf != true)
-        {
-            btn.gameObject.SetActive(true);
-        }
-
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(UpgradeButton);
-    }
-
-    public void TestTowerUpgradeTab()  
-    {
-        towerDamage.text = instance.testTowerDamage.ToString();
-        towerRange.text = instance.testTowerRange.ToString();
-        towerFireRate.text = instance.testTowerRate.ToString();
-        specialEffect.text = null;
-
-        towerStar = instance.testTowerStar;
-        towerUpgradeCost = instance.testTowerUpgradeCost;
-
-        towerStarString = "testTowerStar";
-        tabName = "TestTower";
-
-        if (btn.gameObject.activeSelf != true)
-        {
-            btn.gameObject.SetActive(true);
-        }
-        
-        CheckTowerStatus("testTowerStatus");
-        
-    }
-    #endregion
-
-    private int towerStar;
-    private int towerUpgradeCost;
-
-    private string towerStarString;
-    private string tabName;
-    private string towerStatusString;
-
-    void CheckTowerStatus(string _towerStatusString)
+    void CheckTowerStatus(string _towerStatusString) //chưa hiểu lắm
     {
         if(PlayerPrefs.GetString(_towerStatusString) == "false")
         {
@@ -183,7 +71,7 @@ public class UpgradePageController : MonoBehaviour
             instance.gem -= towerUpgradeCost;
             PlayerPrefs.SetInt("gem", instance.gem);
         
-            instance.GetAllTowersStats();
+            instance.GetStatsRebuild();
             ResetUpgradeTab();
         }
     }
@@ -193,26 +81,26 @@ public class UpgradePageController : MonoBehaviour
         switch (tabName)
         {
             case "PoisonTower":
-                PoisonTowerUpgradeTab();
+                OpenTowerUpgradeTab(4);
                 break;
 
             case "LightningTower":
-                LightningTowerUpgradeTab();
+                OpenTowerUpgradeTab(3);
                 break;
 
             case "IceTower":
-                IceTowerUpgradeTab();
+                OpenTowerUpgradeTab(2);
                 break;
 
             case "ArcherTower":
-                ArcherTowerUpgradeTab();
+                OpenTowerUpgradeTab(0);
                 break;
 
             case "FireTower":
-                FireTowerUpgradeTab();
+                OpenTowerUpgradeTab(1);
                 break;
             case "TestTower":
-                TestTowerUpgradeTab();
+                OpenTowerUpgradeTab(5);
                 break;
         }
     }
@@ -226,7 +114,7 @@ public class UpgradePageController : MonoBehaviour
             instance.gem -= 4000; //unlock cost
             PlayerPrefs.SetInt("gem", instance.gem);
         
-            instance.GetAllTowersStats();
+            instance.GetStatsRebuild();
             ResetUpgradeTab();
         }
     }
