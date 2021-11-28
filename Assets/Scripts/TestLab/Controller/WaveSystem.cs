@@ -18,7 +18,7 @@ public class WaveSystem : MonoBehaviour
     public int waveCount = 1;
     private bool spawning = false;
 
-    private float enemiesTypeRange = 3f;
+    private float enemiesTypeRange = 4f;
 
     SceneStats sceneStats;
     
@@ -86,7 +86,7 @@ public class WaveSystem : MonoBehaviour
 
     void SpawnEnemy()
     {
-        float randT = UnityEngine.Random.Range(0f, enemiesTypeRange - 0.00001f);
+        float randT = UnityEngine.Random.Range(0f, enemyPrefabs.Length - 0.00001f);
 
         int rand = (int)Random.Range(0f, (float)spawnPosition.Length);
         GameObject thisEnemy = Instantiate(enemyPrefabs[(int)randT], spawnPosition[rand].position, spawnPosition[rand].rotation);

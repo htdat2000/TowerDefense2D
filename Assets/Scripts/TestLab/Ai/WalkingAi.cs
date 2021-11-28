@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class WalkingAi : MonoBehaviour
 {
-    //for test
     public float speed = 1f;
     public GameObject nextKnot;
     public GameObject currentKnot;
-    
     void Awake()
     {
-        speed = GetComponent<Enemy>().startSpeed;
         currentKnot = KnotsManager.KnotArray[8,8];
         UpdateNextKnot();
     }
@@ -19,7 +16,6 @@ public class WalkingAi : MonoBehaviour
     {
         Walk();
     }
-
     void Walk()
     {
         Vector2 dir = nextKnot.transform.position - transform.position;        

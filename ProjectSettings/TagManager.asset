@@ -12,6 +12,7 @@ TagManager:
   - Ai
   - KnotsManager
   - StatusUI
+  - Invisible
   layers:
   - Default
   - TransparentFX

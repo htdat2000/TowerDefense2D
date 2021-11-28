@@ -3,62 +3,67 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public string enemyTag = "Enemy";
+    public string invisibleTag = "Invisible";
+
+    public string special = "";
     public float healthRatio;
     [HideInInspector]
     public float health;
-    
     public int value;
-
     public float startSpeed;
- 
     public Image healthBar;
-
     Agent agent;
-
     void Start()
     {
         agent = GetComponent<Agent>();
-        
         health = healthRatio * SceneStats.equationValue;
-
-        Debug.Log(SceneStats.equationValue);
+        SetMySpeed();
     }
-    
     public void TakeDamage(float amount)
     {
-        Debug.Log(health);
         health -= amount;
-        Debug.Log(amount);
-        Debug.Log(health);
-        //healthBar.fillAmount = health / startHealth;
+        // healthBar.fillAmount = health / startHealth;
         if(health <= 0)
         {
             Die();
         }
-    }
 
+        if(special == "Invisible")
+        {
+            ChangeTag();
+            Invoke("ChangeTag", 1f);
+        }
+    }
     void Die()
     {
         SceneStats.Money += value; 
         Destroy(gameObject);
         WaveSpawner.enemyAlives--;
     }
-
-    // void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Tower"))
-    //     {
-    //         Destroy(collision.gameObject);
-    //     }
-    // }
-
     public void SetSlowValue(float percentage)
     {
         agent.Slow(percentage);
     }
-
     public void Poisoned(float percentage)
     {
         health -= health * percentage;
+    }
+    void SetMySpeed()
+    {
+        gameObject.GetComponent<WalkingAi>().speed = startSpeed;
+    }
+    void ChangeTag()
+    {
+        if(transform.gameObject.tag == enemyTag)
+        {
+            transform.gameObject.tag = invisibleTag;
+            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.5f);
+        }
+        else
+        {
+            transform.gameObject.tag = enemyTag;
+            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+        }
     }
 }
