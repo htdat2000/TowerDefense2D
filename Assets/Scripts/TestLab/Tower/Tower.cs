@@ -23,7 +23,6 @@ public class Tower : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     private float fireCountdown = 1f;
-
     public Animator anim;
     PlayerStats instance;
     public Knot myStand;
@@ -36,7 +35,7 @@ public class Tower : MonoBehaviour
     void Start()
     {
         defaultDmg = damage;
-        InvokeRepeating("TargetLock", 0.2f, 0.5f);
+        InvokeRepeating("TargetLock", 0.2f, 0.2f);
         GetCostUpgrade();
         GetSellValue();
         anim.Play("Idle", 0, 0f);
@@ -56,6 +55,7 @@ public class Tower : MonoBehaviour
     }
     void TargetLock()
     {
+        target = null;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
@@ -118,17 +118,14 @@ public class Tower : MonoBehaviour
         myStand.UpdateStatus();
         Destroy(this.gameObject);
     }
-
     void GetCostUpgrade()
     {
         costUpgrade = (int)Mathf.Round(costRatio * Mathf.Pow(3, level+1));
     }
-
     void GetSellValue()
     {
         sellValue += (int)Mathf.Round(costRatio * Mathf.Pow(3, level)/2);
     }
-
     void TowerStatsEquation()
     {
         switch (towerType)
