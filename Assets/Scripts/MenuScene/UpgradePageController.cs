@@ -44,9 +44,10 @@ public class UpgradePageController : MonoBehaviour
         CheckTowerStatus(_towerType);
         Debug.Log(_towerType);
     }
+
     void CheckTowerStatus(int _towerType) //check tower unlock status, if false => player can unlock 
     {
-        if(instance.towerStatus[_towerType] == "false")
+        if(instance.towerStatus[_towerType] == false)
         {
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(UnlockButton);
@@ -60,14 +61,30 @@ public class UpgradePageController : MonoBehaviour
 
     public void UpgradeButton()
     {
-        if (towerStar < 5 && (instance.gem - towerUpgradeCost) >= 0)
+        if (towerStar < 5 && (instance.gem >= towerUpgradeCost))
         {            
             towerStar++;
-            PlayerPrefs.SetInt(towerStarString, towerStar);
+            instance.towerStar[towerType] = towerStar;
 
             instance.gem -= towerUpgradeCost;
-            PlayerPrefs.SetInt("gem", instance.gem);
         
+            SaveSystem.saveSystem.Save();
+
+            instance.GetStatsRebuild();
+            ResetUpgradeTab();
+        }
+    }
+
+    public void UnlockButton()
+    {
+        if (instance.gem >= towerUpgradeCost)
+        {            
+            instance.towerStatus[towerType] = true;
+
+            instance.gem -= 4000; //unlock cost 
+    
+            SaveSystem.saveSystem.Save();
+
             instance.GetStatsRebuild();
             ResetUpgradeTab();
         }
@@ -99,20 +116,6 @@ public class UpgradePageController : MonoBehaviour
             case 5:
                 OpenTowerUpgradeTab(5);
                 break;
-        }
-    }
-
-    public void UnlockButton()
-    {
-        if ((instance.gem - towerUpgradeCost) >= 0)
-        {            
-            PlayerPrefs.SetString(instance.towerStatusArray[towerType], "true");
-
-            instance.gem -= 4000; //unlock cost
-            PlayerPrefs.SetInt("gem", instance.gem);
-        
-            instance.GetStatsRebuild();
-            ResetUpgradeTab();
         }
     }
 }
