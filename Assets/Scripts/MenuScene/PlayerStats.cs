@@ -26,6 +26,8 @@ public class PlayerStats : MonoBehaviour
     public int gem = 100000;
     public int diamond = 0;
 
+    private string savePath;
+
     [Header("Unity Scripts Set Up")]
     public string[] towerArray = {
         "archerTowerStar", 
@@ -43,8 +45,8 @@ public class PlayerStats : MonoBehaviour
         }
         playerStats = this;
    
-        string path = Application.persistentDataPath + "/player.data";
-        if(!File.Exists(path))
+        savePath = Application.persistentDataPath + "/player.data";
+        if(!File.Exists(savePath))
         {
             Save();        
         }
