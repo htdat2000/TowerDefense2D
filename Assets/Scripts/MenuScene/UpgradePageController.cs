@@ -61,14 +61,14 @@ public class UpgradePageController : MonoBehaviour
 
     public void UpgradeButton()
     {
-        if (towerStar < 5 && (instance.gem >= towerUpgradeCost))
+        if (towerStar < 3 && (instance.gem >= towerUpgradeCost))
         {            
             towerStar++;
-            instance.towerStar[towerType] = towerStar;
+            instance.towerStar[towerType] = towerStar;      
 
             instance.gem -= towerUpgradeCost;
         
-            SaveSystem.saveSystem.Save(instance);
+            Save();
 
             instance.GetStatsRebuild();
             ResetUpgradeTab();
@@ -83,7 +83,7 @@ public class UpgradePageController : MonoBehaviour
 
             instance.gem -= 4000; //unlock cost 
     
-            SaveSystem.saveSystem.Save(instance);
+            Save();
 
             instance.GetStatsRebuild();
             ResetUpgradeTab();
@@ -117,5 +117,10 @@ public class UpgradePageController : MonoBehaviour
                 OpenTowerUpgradeTab(5);
                 break;
         }
+    }
+
+    void Save()
+    {
+        instance.Save();
     }
 }

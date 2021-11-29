@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class PlayerStats : MonoBehaviour
 {       //O: archer; 1: fire; 2: ice; 3:lightning; 4: poison
     public static PlayerStats playerStats;
     [Header("TowerStat")]
-    public int[] towerStar = {0,0,0,0,0};
+    
     public float[] towerDamage;
     public float[] towerRange;
     public float[] towerRate;
     public int[] towerUpgradeCost;
+    public int[] towerStar = {0,0,0,0,0};
 
     public bool[] towerStatus = {true, true, true, true, true};
 
@@ -42,16 +42,18 @@ public class PlayerStats : MonoBehaviour
             return;
         }
         playerStats = this;
-
-        GetStatsRebuild();
-        
+   
         string path = Application.persistentDataPath + "/player.data";
         if(!File.Exists(path))
         {
-            SaveSystem.saveSystem.Save(this);
+            Save();        
         }
+        else
+        {
+            LoadData();
+        }    
 
-        
+        GetStatsRebuild();
     }
 
     void SetMapDefaultCondition()
@@ -75,5 +77,28 @@ public class PlayerStats : MonoBehaviour
             towerRate[i] = towerDefaultRate[i] + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
         }
+    }
+
+    public void Save()
+    {
+        SaveSystem.Save(this);
+    }
+
+    void LoadData()
+    {
+      SaveData data = SaveSystem.LoadSaveData();
+
+      if(data == null)
+      return;
+
+      int numberOfTower = towerArray.Length;
+        
+      for(int i = 0; i < numberOfTower; i++)
+      {
+        towerStar[i] = data.towerStar[i];
+        towerStatus[i] = data.towerStatus[i];
+      }   
+      gem = data.gem;
+      diamond = data.diamond;
     }
 }

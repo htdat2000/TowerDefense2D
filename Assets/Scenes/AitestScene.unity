@@ -3606,10 +3606,10 @@ GameObject:
   - component: {fileID: 1572519120}
   - component: {fileID: 1572519119}
   - component: {fileID: 1572519121}
-  - component: {fileID: 1572519122}
   - component: {fileID: 1572519123}
   - component: {fileID: 1572519124}
   - component: {fileID: 1572519125}
+  - component: {fileID: 1572519122}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3685,14 +3685,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8701db623d57364389f253f507ab7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerStar: 
   towerDamage: []
   towerRange: []
   towerRate: []
   towerUpgradeCost: 
+  towerStar: 0000000000000000000000000000000000000000
+  towerStatus: 0101010101
   map: 0
-  gem: 0
+  gem: 100000
   diamond: 0
+  towerArray:
+  - archerTowerStar
+  - fireTowerStar
+  - iceTowerStar
+  - lightningTowerStar
+  - poisonTowerStar
 --- !u!114 &1572519123
 MonoBehaviour:
   m_ObjectHideFlags: 0
