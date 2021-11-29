@@ -7,4 +7,9 @@ public class StartUI : MonoBehaviour
     {
         SceneManager.LoadScene("MenuScene");               
     }
+
+    public void ResetGame()
+    {
+        SaveSystem.Reset();
+    }
 }

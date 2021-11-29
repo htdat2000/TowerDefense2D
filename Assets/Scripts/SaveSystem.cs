@@ -36,4 +36,13 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static void Reset()
+    {
+        string path = Application.persistentDataPath + "/player.data";
+        if(File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
 }
