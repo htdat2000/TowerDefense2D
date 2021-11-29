@@ -22,7 +22,10 @@ public class Tower : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject towerRangePrefab;
+    
     private float fireCountdown = 1f;
+    
     public Animator anim;
     PlayerStats instance;
     public Knot myStand;
@@ -168,5 +171,10 @@ public class Tower : MonoBehaviour
             myStand.UpdateStatus();
             Destroy(gameObject);
         }
+    }
+
+    void ShowRange()
+    {
+        
     }
 }
