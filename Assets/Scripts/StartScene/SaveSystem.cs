@@ -40,13 +40,13 @@ public class SaveSystem : MonoBehaviour
         return;
     }
     
-    public void Save()
+    public void Save(PlayerStats _playerStats)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.data";
         FileStream file = new FileStream(path, FileMode.Create);
 
-        SaveData data = new SaveData();
+        SaveData data = new SaveData(_playerStats);
 
         formatter.Serialize(file, data);
         file.Close();

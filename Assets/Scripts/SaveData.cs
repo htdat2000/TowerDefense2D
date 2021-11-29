@@ -13,22 +13,21 @@ public class SaveData
     public int gem;
     public int diamond;
 
-    public SaveData ()
+    public SaveData (PlayerStats _playerStats)
     {
-        PlayerStats instance = PlayerStats.playerStats;
 
-        int numberOfTower = instance.towerArray.Length;
+        int numberOfTower = _playerStats.towerArray.Length;
         
         towerStar = new int[numberOfTower];
         towerStatus = new bool[numberOfTower];
 
         for(int i = 0; i < numberOfTower; i++)
         {
-            towerStar[i] = instance.towerStar[i];
-            towerStatus[i] =instance. towerStatus[i];        
+            towerStar[i] = _playerStats.towerStar[i];
+            towerStatus[i] = _playerStats.towerStatus[i];        
         }
         
-        gem = PlayerStats.playerStats.gem;
-        diamond = PlayerStats.playerStats.diamond;    
+        gem = _playerStats.gem;
+        diamond = _playerStats.diamond;    
     }
 }

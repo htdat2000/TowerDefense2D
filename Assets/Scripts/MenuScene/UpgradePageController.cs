@@ -18,7 +18,7 @@ public class UpgradePageController : MonoBehaviour
 
     private string towerStarString;
     private int towerType;
-    private string towerStatusString;
+    
     void Start()
     {
         instance = PlayerStats.playerStats;
@@ -68,7 +68,7 @@ public class UpgradePageController : MonoBehaviour
 
             instance.gem -= towerUpgradeCost;
         
-            SaveSystem.saveSystem.Save();
+            SaveSystem.saveSystem.Save(instance);
 
             instance.GetStatsRebuild();
             ResetUpgradeTab();
@@ -83,7 +83,7 @@ public class UpgradePageController : MonoBehaviour
 
             instance.gem -= 4000; //unlock cost 
     
-            SaveSystem.saveSystem.Save();
+            SaveSystem.saveSystem.Save(instance);
 
             instance.GetStatsRebuild();
             ResetUpgradeTab();

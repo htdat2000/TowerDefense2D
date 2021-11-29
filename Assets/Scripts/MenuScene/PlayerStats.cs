@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     public int map; //this var is used to keep the header
 
      [Header("Currencies")]
-    public int gem = 1000000;
+    public int gem = 100000;
     public int diamond = 0;
 
     [Header("Unity Scripts Set Up")]
@@ -34,13 +34,6 @@ public class PlayerStats : MonoBehaviour
         "lightningTowerStar",
         "poisonTowerStar"};
 
-    public string[] towerStatusArray = {
-        "archerTowerStatus", 
-        "fireTowerStatus", 
-        "iceTowerStatus", 
-        "lightningTowerStatus",
-        "poisonTowerStatus"};
-
     void Awake()
     {
         if (playerStats != null)
@@ -50,13 +43,15 @@ public class PlayerStats : MonoBehaviour
         }
         playerStats = this;
 
+        GetStatsRebuild();
+        
         string path = Application.persistentDataPath + "/player.data";
         if(!File.Exists(path))
         {
-            SaveSystem.saveSystem.Save();
+            SaveSystem.saveSystem.Save(this);
         }
 
-        GetStatsRebuild();
+        
     }
 
     void SetMapDefaultCondition()
@@ -80,6 +75,5 @@ public class PlayerStats : MonoBehaviour
             towerRate[i] = towerDefaultRate[i] + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
         }
-    
     }
 }
