@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float healthRatio;
     [HideInInspector]
     public float health;
+    private float startHealth;
     public int value;
     public float startSpeed;
     public Image healthBar;
@@ -18,17 +19,17 @@ public class Enemy : MonoBehaviour
     {
         agent = GetComponent<Agent>();
         health = healthRatio * SceneStats.equationValue;
+        startHealth = healthRatio * SceneStats.equationValue;
         SetMySpeed();
     }
     public void TakeDamage(float amount)
     {
         health -= amount;
-        // healthBar.fillAmount = health / startHealth;
+        healthBar.fillAmount = health / startHealth;
         if(health <= 0)
         {
             Die();
         }
-
         if(special == "Invisible")
         {
             ChangeTag();
