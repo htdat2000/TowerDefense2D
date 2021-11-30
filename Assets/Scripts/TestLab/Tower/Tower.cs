@@ -86,7 +86,7 @@ public class Tower : MonoBehaviour
     void Shoot()
     {
         anim.Play("Attack", 0, 0f);
-        Invoke("SpawnBullet", 0.4f);
+        Invoke("SpawnBullet", 0.2f);
     }
     void GetStats()
     {
