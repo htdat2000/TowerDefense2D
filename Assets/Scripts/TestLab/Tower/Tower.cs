@@ -191,7 +191,8 @@ public class Tower : MonoBehaviour
 
     public void ToggleRangeSprite()
     {
-        towerRangeGO.SetActive(towerRangeGO.activeSelf);
+        towerRangeGO.SetActive(!towerRangeGO.activeSelf);
+        Debug.Log("TestRANGE");
     }
 
     void OnDrawGizmosSelected()     //To check the range
