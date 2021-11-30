@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
@@ -22,7 +20,11 @@ public class Tower : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject towerRangePrefab;
+    private GameObject towerRangeGO;
+    
     private float fireCountdown = 1f;
+    
     public Animator anim;
     PlayerStats instance;
     public Knot myStand;
@@ -35,10 +37,16 @@ public class Tower : MonoBehaviour
     void Start()
     {
         defaultDmg = damage;
+        
         InvokeRepeating("TargetLock", 0.2f, 0.2f);
+        
         GetCostUpgrade();
         GetSellValue();
+        
         anim.Play("Idle", 0, 0f);
+
+        DrawRange();
+        ToggleRangeSprite();
     }
     void Update()
     {
@@ -102,6 +110,7 @@ public class Tower : MonoBehaviour
                 level++;
                 
                 TowerStatsEquation();
+                DrawRange();
 
                 GetCostUpgrade();
                 GetSellValue();
@@ -168,5 +177,26 @@ public class Tower : MonoBehaviour
             myStand.UpdateStatus();
             Destroy(gameObject);
         }
+    }
+
+    void DrawRange()
+    {
+        if (towerRangeGO == null)
+        {
+            towerRangeGO = (GameObject)Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
+            towerRangeGO.transform.SetParent(gameObject.transform);
+        }  
+        towerRangeGO.transform.localScale = new Vector3 (range * 2, range * 2, 0); // diameter = radius multiply 2 
+    }
+
+    public void ToggleRangeSprite()
+    {
+        towerRangeGO.SetActive(!towerRangeGO.activeSelf);
+    }
+
+    void OnDrawGizmosSelected()     //To check the range
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

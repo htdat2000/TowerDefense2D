@@ -130,11 +130,16 @@ MonoBehaviour:
   fireRate: 0
   level: 1
   costRatio: 1
+  costUpgrade: 0
+  sellValue: 0
   enemyTag: Enemy
   bulletPrefab: {fileID: 5785482194725269460, guid: 05addf5a1aa2d684ead9b46a57a6ccba,
     type: 3}
   firePoint: {fileID: 1601684612297086779}
+  towerRangePrefab: {fileID: 6042546973786046516, guid: 95e5541c8d08bcb4a8b1dd2681e7bf5d,
+    type: 3}
   anim: {fileID: 952799868846600458}
+  myStand: {fileID: 0}
 --- !u!95 &952799868846600458
 Animator:
   serializedVersion: 3

@@ -44,11 +44,30 @@ public class TowerStatusUI : MonoBehaviour
 
     public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
+        if(tower == null)
+            selectedTowerPrefab = null;
         if(selectedTower != null)
         {
-            SetToNonOutline(selectedTower);
+            if(tower.GetComponent<Tower>() && selectedTowerPrefab)
+            {
+                if(towerPrefab.myStand == selectedTowerPrefab.myStand)
+                {
+                    selectedTowerPrefab.myStand.KnotTouch();
+                    Deselect();
+                    return;
+                }
+            }
+            else
+            {
+                if(tower.GetComponent<Tower>())
+                {
+                    SetToNonOutline(selectedTower);
+                    if(selectedTowerPrefab)
+                        selectedTowerPrefab.ToggleRangeSprite();
+                }
+            }     
         }
-        if(tower!= null)
+        if(tower != null)
         {
             selectedTower = tower;
             selectedTowerPrefab = towerPrefab;
@@ -57,8 +76,8 @@ public class TowerStatusUI : MonoBehaviour
 
             if(tower.GetComponent<Tower>())
             {
-                UpgradeTowerLevelFunction();
-                SellTowerFunction();
+                selectedTowerPrefab.ToggleRangeSprite();
+                UpgradeAndSellTowerFunction();
                 SetTowerStatus();
             }
             if(tower.GetComponent<Enemy>())
@@ -68,14 +87,11 @@ public class TowerStatusUI : MonoBehaviour
         }
     }
 
-    void UpgradeTowerLevelFunction()
+    void UpgradeAndSellTowerFunction()
     {   
         upgradeTowerLevelBtn.onClick.RemoveAllListeners();
         upgradeTowerLevelBtn.onClick.AddListener(selectedTowerPrefab.UpgradeTowerLevel);
-    }
 
-    void SellTowerFunction()
-    {
         sellTowerBtn.onClick.RemoveAllListeners();
         sellTowerBtn.onClick.AddListener(selectedTowerPrefab.SellTower);
     }
@@ -92,11 +108,21 @@ public class TowerStatusUI : MonoBehaviour
     {
         if(selectedTower != null)
         {
-            upgradeTowerLevelBtn.onClick.RemoveAllListeners();
-            sellTowerBtn.onClick.RemoveAllListeners();
-            selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
+            Deselect();
         }
     }
+
+    void Deselect()
+    {
+        upgradeTowerLevelBtn.onClick.RemoveAllListeners();
+        sellTowerBtn.onClick.RemoveAllListeners();
+        selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
+
+        selectedTowerPrefab.ToggleRangeSprite();
+        selectedTowerPrefab = null;
+        selectedTower = null;
+    }
+
     void SetTowerStatus()
     {
         rangeLbl.text = "Range: ";

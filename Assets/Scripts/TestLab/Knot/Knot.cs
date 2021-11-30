@@ -1,6 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Knot : MonoBehaviour
@@ -20,6 +17,8 @@ public class Knot : MonoBehaviour
     public float obstaclePercent = 50.0f;
 
     private GameObject myTower;
+    private TowerStatusUI sUI;
+
     void Start()
     {
         float rand = Random.Range(0.0f, obstaclePercent);
@@ -75,8 +74,7 @@ public class Knot : MonoBehaviour
     }
     public void SelectTower()
     {
-        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
-        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+        GetStatusUIComponent();
 
         Tower myTowerPrefab = myTower.GetComponent<Tower>();
 
@@ -105,17 +103,24 @@ public class Knot : MonoBehaviour
 
     public void KnotTouch()
     {
-        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
-        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+        GetStatusUIComponent();     
 
         float[] statsArray = { -1f, -1f, -1f, -1f}; 
         sUI.UpdateStatusUI(statsArray);
     }
     public void SetToNonOutlineSelectedTower()
     {
-        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
-        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+        GetStatusUIComponent();
 
         sUI.SetToNonOutlineSelected();
+    }
+
+    void GetStatusUIComponent()
+    {
+        if(sUI == null)
+        {
+            GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
+            sUI = sUIGO.GetComponent<TowerStatusUI>();
+        }
     }
 }
