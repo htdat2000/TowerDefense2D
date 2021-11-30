@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
@@ -23,6 +21,7 @@ public class Tower : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject towerRangePrefab;
+    private GameObject towerRangeGO;
     
     private float fireCountdown = 1f;
     
@@ -38,10 +37,15 @@ public class Tower : MonoBehaviour
     void Start()
     {
         defaultDmg = damage;
+        
         InvokeRepeating("TargetLock", 0.2f, 0.2f);
+        
         GetCostUpgrade();
         GetSellValue();
+        
         anim.Play("Idle", 0, 0f);
+
+        DrawRange();
     }
     void Update()
     {
@@ -173,8 +177,15 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void ShowRange()
+    void DrawRange()
     {
-        
+        towerRangeGO = (GameObject)Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
+        towerRangeGO.transform.localScale = new Vector3 (range * 2, range * 2, 0); // diameter = radius multiply 2 
+    }
+
+    void OnDrawGizmosSelected()     //To check the range
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
