@@ -46,6 +46,7 @@ public class Tower : MonoBehaviour
         anim.Play("Idle", 0, 0f);
 
         DrawRange();
+        ToggleRangeSprite();
     }
     void Update()
     {
@@ -109,6 +110,7 @@ public class Tower : MonoBehaviour
                 level++;
                 
                 TowerStatsEquation();
+                DrawRange();
 
                 GetCostUpgrade();
                 GetSellValue();
@@ -179,8 +181,17 @@ public class Tower : MonoBehaviour
 
     void DrawRange()
     {
-        towerRangeGO = (GameObject)Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
+        if (towerRangeGO == null)
+        {
+            towerRangeGO = (GameObject)Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
+            towerRangeGO.transform.SetParent(gameObject.transform);
+        }  
         towerRangeGO.transform.localScale = new Vector3 (range * 2, range * 2, 0); // diameter = radius multiply 2 
+    }
+
+    public void ToggleRangeSprite()
+    {
+        towerRangeGO.SetActive(towerRangeGO.activeSelf);
     }
 
     void OnDrawGizmosSelected()     //To check the range
