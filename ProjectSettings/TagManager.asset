@@ -13,6 +13,8 @@ TagManager:
   - KnotsManager
   - StatusUI
   - Invisible
+  - Bullet
+  - Raven
   layers:
   - Default
   - TransparentFX

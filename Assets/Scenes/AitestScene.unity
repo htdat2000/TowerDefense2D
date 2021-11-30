@@ -1801,7 +1801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -86.89502, y: 17.710022}
+  m_AnchoredPosition: {x: -86.89502, y: 17.710083}
   m_SizeDelta: {x: 173.78973, y: 35.41124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692972131
@@ -1952,6 +1952,7 @@ MonoBehaviour:
   damageTxt: {fileID: 559883384}
   rangeTxt: {fileID: 1375681122}
   fRateTxt: {fileID: 1361073002}
+  rangeLbl: {fileID: 1316202098}
   upgradeTowerLevelBtn: {fileID: 1277749323}
   sellTowerBtn: {fileID: 593219678}
   selectedTower: {fileID: 0}
@@ -3519,7 +3520,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rate
+  m_Text: 'Speed:'
 --- !u!222 &1480337617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3639,6 +3640,7 @@ MonoBehaviour:
   - {fileID: 901748648}
   enemyPrefabs:
   - {fileID: 648149551863772403, guid: 92d0de50083b98c44a493fe6f897a610, type: 3}
+  - {fileID: 7604498403453458934, guid: afb161b99ce35fb468906e4e0d80f576, type: 3}
   timeBetweenWaves: 5
   timeBetweenSpawn: 0.5
   waveCount: 0
@@ -4617,7 +4619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -86.899994, y: 0}
+  m_AnchoredPosition: {x: -86.8999, y: 0}
   m_SizeDelta: {x: 173.77942, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979550829

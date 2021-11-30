@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed = 3f;
     //public GameObject impactEffect;
 
-    private float damage;
+    public float damage;
 
     void Update()
     {
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Damage(target);    
+        //Damage(target);    
         Destroy(gameObject);
     }
 
@@ -51,7 +51,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Invisible") || collision.gameObject.CompareTag("Raven"))
         {
             HitTarget();
         }

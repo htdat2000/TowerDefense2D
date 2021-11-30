@@ -36,9 +36,16 @@ public class Enemy : MonoBehaviour
             Invoke("ChangeTag", 1f);
         }
     }
+    public void Heal(float amount)
+    {
+        health += amount;
+        health = Mathf.Clamp(health, 0, startHealth);
+        healthBar.fillAmount = health / startHealth;
+    }
     void Die()
     {
         SceneStats.Money += value; 
+        CheckRavenAround();
         Destroy(gameObject);
         WaveSpawner.enemyAlives--;
     }
@@ -66,5 +73,48 @@ public class Enemy : MonoBehaviour
             transform.gameObject.tag = enemyTag;
             this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(collision.GetComponent<Bullet>().damage);
+        }
+    }
+    void OnMouseDown()
+    {
+        selectMe();
+    }
+    void CheckRavenAround()
+    {
+        GameObject[] ravens = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject raven in ravens)
+        {
+            if(raven.GetComponent<Raven>() != null)
+            {
+                float distanceToRaven = Vector3.Distance(transform.position, raven.transform.position);
+                if(distanceToRaven < raven.GetComponent<Raven>().skillRange)
+                {
+                    raven.GetComponent<Enemy>().Heal(raven.GetComponent<Raven>().skillValue);
+                }
+            }
+        }
+    }
+    void selectMe()
+    {
+        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
+        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+
+        float myType = 4f;
+        float myDmg = startHealth;
+        float myRange = value;
+        float myFRate = startSpeed;
+        float myUCost = 0f;
+        float mySValue = 0f;
+
+        float[] statsArray = { myType, myDmg, myRange, myFRate, myUCost, mySValue}; 
+
+        sUI.UpdateStatusUI(statsArray);
+        sUI.UpdateSelectedTower(gameObject, null);
     }
 }
