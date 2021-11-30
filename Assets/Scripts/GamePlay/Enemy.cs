@@ -40,7 +40,6 @@ public class Enemy : MonoBehaviour
     {
         health += amount;
         health = Mathf.Clamp(health, 0, startHealth);
-        Debug.Log(this + " Heal: " + amount);
         healthBar.fillAmount = health / startHealth;
     }
     void Die()
@@ -108,14 +107,14 @@ public class Enemy : MonoBehaviour
 
         float myType = 4f;
         float myDmg = startHealth;
-        float myRange = 0f;
+        float myRange = value;
         float myFRate = startSpeed;
-        float myUCost = (float)value;
+        float myUCost = 0f;
         float mySValue = 0f;
 
         float[] statsArray = { myType, myDmg, myRange, myFRate, myUCost, mySValue}; 
 
         sUI.UpdateStatusUI(statsArray);
-        sUI.UpdateSelectedTower(null, null);
+        sUI.UpdateSelectedTower(gameObject, null);
     }
 }
