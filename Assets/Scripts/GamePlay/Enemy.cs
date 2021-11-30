@@ -14,10 +14,8 @@ public class Enemy : MonoBehaviour
     public int value;
     public float startSpeed;
     public Image healthBar;
-    Agent agent;
     void Start()
     {
-        agent = GetComponent<Agent>();
         health = healthRatio * SceneStats.equationValue;
         startHealth = healthRatio * SceneStats.equationValue;
         SetMySpeed();
@@ -51,7 +49,7 @@ public class Enemy : MonoBehaviour
     }
     public void SetSlowValue(float percentage)
     {
-        agent.Slow(percentage);
+        //slowdown
     }
     public void Poisoned(float percentage)
     {
