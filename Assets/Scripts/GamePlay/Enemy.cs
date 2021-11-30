@@ -82,6 +82,10 @@ public class Enemy : MonoBehaviour
             TakeDamage(collision.GetComponent<Bullet>().damage);
         }
     }
+    void OnMouseDown()
+    {
+        selectMe();
+    }
     void CheckRavenAround()
     {
         GameObject[] ravens = GameObject.FindGameObjectsWithTag("Enemy");
@@ -96,5 +100,22 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+    }
+    void selectMe()
+    {
+        GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
+        TowerStatusUI sUI = sUIGO.GetComponent<TowerStatusUI>();
+
+        float myType = 4f;
+        float myDmg = startHealth;
+        float myRange = 0f;
+        float myFRate = startSpeed;
+        float myUCost = (float)value;
+        float mySValue = 0f;
+
+        float[] statsArray = { myType, myDmg, myRange, myFRate, myUCost, mySValue}; 
+
+        sUI.UpdateStatusUI(statsArray);
+        sUI.UpdateSelectedTower(null, null);
     }
 }
