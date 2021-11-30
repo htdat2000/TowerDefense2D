@@ -5,14 +5,25 @@ using UnityEngine;
 public class Healer : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float healValue ;
+    public float healRadius;
     void Start()
     {
-        
+        InvokeRepeating("Heal", 1f, 6f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Heal()
     {
-        
+        Debug.Log("Healing");
+        Vector2 healArea = new Vector2(transform.position.x, transform.position.y);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(healArea, healRadius);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if(collider.CompareTag("Enemy"))
+            {
+                collider.GetComponent<Enemy>().Heal(healValue);
+            }
+        }
     }
 }

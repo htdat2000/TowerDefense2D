@@ -117,10 +117,10 @@ MonoBehaviour:
   enemyTag: Enemy
   invisibleTag: Invisible
   special: 
-  healthRatio: 5
+  healthRatio: 3
   health: 30
   value: 3
-  startSpeed: 10
+  startSpeed: 5
   healthBar: {fileID: 3508367029844023546}
 --- !u!61 &5805655217712058364
 BoxCollider2D:
@@ -179,6 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66724a292d712e04d92e4ce110a4bc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healValue: 3
+  healRadius: 10
 --- !u!1001 &6762440373094811597
 PrefabInstance:
   m_ObjectHideFlags: 0

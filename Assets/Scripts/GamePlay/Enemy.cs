@@ -36,6 +36,13 @@ public class Enemy : MonoBehaviour
             Invoke("ChangeTag", 1f);
         }
     }
+    public void Heal(float amount)
+    {
+        health += amount;
+        health = Mathf.Clamp(health, 0, startHealth);
+        
+        healthBar.fillAmount = health / startHealth;
+    }
     void Die()
     {
         SceneStats.Money += value; 
@@ -65,6 +72,13 @@ public class Enemy : MonoBehaviour
         {
             transform.gameObject.tag = enemyTag;
             this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(collision.GetComponent<Bullet>().damage);
         }
     }
 }

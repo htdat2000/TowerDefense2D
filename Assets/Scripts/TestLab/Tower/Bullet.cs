@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed = 3f;
     //public GameObject impactEffect;
 
-    private float damage;
+    public float damage;
 
     void Update()
     {
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Damage(target);    
+        //Damage(target);    
         Destroy(gameObject);
     }
 
