@@ -1952,6 +1952,7 @@ MonoBehaviour:
   damageTxt: {fileID: 559883384}
   rangeTxt: {fileID: 1375681122}
   fRateTxt: {fileID: 1361073002}
+  rangeLbl: {fileID: 1316202098}
   upgradeTowerLevelBtn: {fileID: 1277749323}
   sellTowerBtn: {fileID: 593219678}
   selectedTower: {fileID: 0}
