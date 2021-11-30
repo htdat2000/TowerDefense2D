@@ -69,6 +69,10 @@ public class TowerStatusUI : MonoBehaviour
         }
         if(tower != null)
         {
+            if(selectedTower)
+                SetToNonOutline(selectedTower);
+            if(selectedTowerPrefab)
+                selectedTowerPrefab.ToggleRangeSprite();
             selectedTower = tower;
             selectedTowerPrefab = towerPrefab;
             
@@ -117,8 +121,10 @@ public class TowerStatusUI : MonoBehaviour
         upgradeTowerLevelBtn.onClick.RemoveAllListeners();
         sellTowerBtn.onClick.RemoveAllListeners();
         selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
+        
+        if(selectedTowerPrefab)
+            selectedTowerPrefab.ToggleRangeSprite();
 
-        selectedTowerPrefab.ToggleRangeSprite();
         selectedTowerPrefab = null;
         selectedTower = null;
     }
