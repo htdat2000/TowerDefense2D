@@ -44,30 +44,39 @@ public class TowerStatusUI : MonoBehaviour
 
     public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
+        if(tower == null)
+            selectedTowerPrefab = null;
         if(selectedTower != null)
         {
-            if(towerPrefab.myStand == selectedTowerPrefab.myStand)
+            if(tower.GetComponent<Tower>() && selectedTowerPrefab)
             {
-                selectedTowerPrefab.myStand.KnotTouch();
-                Deselect();
-                return;
+                if(towerPrefab.myStand == selectedTowerPrefab.myStand)
+                {
+                    selectedTowerPrefab.myStand.KnotTouch();
+                    Deselect();
+                    return;
+                }
             }
             else
             {
-                SetToNonOutline(selectedTower);
-                selectedTowerPrefab.ToggleRangeSprite();
+                if(tower.GetComponent<Tower>())
+                {
+                    SetToNonOutline(selectedTower);
+                    if(selectedTowerPrefab)
+                        selectedTowerPrefab.ToggleRangeSprite();
+                }
             }     
         }
-        if(tower!= null)
+        if(tower != null)
         {
             selectedTower = tower;
             selectedTowerPrefab = towerPrefab;
             
-            selectedTowerPrefab.ToggleRangeSprite();
             SetToOutline(selectedTower);
 
             if(tower.GetComponent<Tower>())
             {
+                selectedTowerPrefab.ToggleRangeSprite();
                 UpgradeAndSellTowerFunction();
                 SetTowerStatus();
             }
