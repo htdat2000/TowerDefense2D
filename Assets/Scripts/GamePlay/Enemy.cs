@@ -40,12 +40,13 @@ public class Enemy : MonoBehaviour
     {
         health += amount;
         health = Mathf.Clamp(health, 0, startHealth);
-        
+        Debug.Log(this + " Heal: " + amount);
         healthBar.fillAmount = health / startHealth;
     }
     void Die()
     {
         SceneStats.Money += value; 
+        CheckRavenAround();
         Destroy(gameObject);
         WaveSpawner.enemyAlives--;
     }
@@ -79,6 +80,21 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(collision.GetComponent<Bullet>().damage);
+        }
+    }
+    void CheckRavenAround()
+    {
+        GameObject[] ravens = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject raven in ravens)
+        {
+            if(raven.GetComponent<Raven>() != null)
+            {
+                float distanceToRaven = Vector3.Distance(transform.position, raven.transform.position);
+                if(distanceToRaven < raven.GetComponent<Raven>().skillRange)
+                {
+                    raven.GetComponent<Enemy>().Heal(raven.GetComponent<Raven>().skillValue);
+                }
+            }
         }
     }
 }
