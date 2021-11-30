@@ -13,6 +13,7 @@ TagManager:
   - KnotsManager
   - StatusUI
   - Invisible
+  - Bullet
   layers:
   - Default
   - TransparentFX
