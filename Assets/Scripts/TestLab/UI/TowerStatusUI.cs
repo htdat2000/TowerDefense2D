@@ -19,11 +19,15 @@ public class TowerStatusUI : MonoBehaviour
     public Material outline;
     public Material nonOutline;
 
+    private string[] towerNameArray = {"Archer", "Fire", "Ice", "Poision", "Enemy"};
+
+    private string selectedType = "None";
+
     public void UpdateStatusUI(float[] stats)
     {
         if(stats[0] != -1)
         {
-            towerName.text = stats[0].ToString();
+            towerName.text = towerNameArray[(int)stats[0]];
             damageTxt.text = stats[1].ToString();
             rangeTxt.text = stats[2].ToString();
             fRateTxt.text = stats[3].ToString();
@@ -41,17 +45,22 @@ public class TowerStatusUI : MonoBehaviour
 
     public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
+        selectedType = "Tower";
         if(selectedTower != null)
         {
+            selectedType = "None";
             SetToNonOutline(selectedTower);
         }
-        selectedTower = tower;
-        selectedTowerPrefab = towerPrefab;
 
-        SetToOutline(selectedTower);
+        if(selectedTower != null)
+        {
+            selectedTower = tower;
+            selectedTowerPrefab = towerPrefab;
+            SetToOutline(selectedTower);
 
-        UpgradeTowerLevelFunction();
-        SellTowerFunction();
+            UpgradeTowerLevelFunction();
+            SellTowerFunction();
+        }
     }
 
     void UpgradeTowerLevelFunction()
@@ -76,8 +85,11 @@ public class TowerStatusUI : MonoBehaviour
     }
     public void SetToNonOutlineSelected()
     {
-        upgradeTowerLevelBtn.onClick.RemoveAllListeners();
-        sellTowerBtn.onClick.RemoveAllListeners();
-        selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
+        if(selectedTower != null)
+        {
+            upgradeTowerLevelBtn.onClick.RemoveAllListeners();
+            sellTowerBtn.onClick.RemoveAllListeners();
+            selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
+        }
     }
 }
