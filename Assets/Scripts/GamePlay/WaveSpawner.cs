@@ -29,7 +29,6 @@ public class WaveSpawner : MonoBehaviour
     void Awake()
     {
         sceneStats = GetComponent<SceneStats>();
-
         if(ModePageController.easyMode == true)
         {
             maxWaves = 30;
