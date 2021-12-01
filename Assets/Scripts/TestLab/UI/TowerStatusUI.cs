@@ -44,28 +44,18 @@ public class TowerStatusUI : MonoBehaviour
 
     public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
-        if(tower == null)
-            selectedTowerPrefab = null;
         if(selectedTower != null)
         {
-            if(tower.GetComponent<Tower>() && selectedTowerPrefab)
+            SetToNonOutline(selectedTower);
+            if(isTower(tower) && isTower(selectedTower)) //nếu con vừa chọn là trụ, và trc đó cũng là trụ
             {
-                if(towerPrefab.myStand == selectedTowerPrefab.myStand)
+                if(towerPrefab.myStand == selectedTowerPrefab.myStand) //nếu con vừa chọn là con chọn lúc trước
                 {
                     selectedTowerPrefab.myStand.KnotTouch();
                     Deselect();
                     return;
                 }
-            }
-            else
-            {
-                if(tower.GetComponent<Tower>())
-                {
-                    SetToNonOutline(selectedTower);
-                    if(selectedTowerPrefab)
-                        selectedTowerPrefab.ToggleRangeSprite();
-                }
-            }     
+            }    
         }
         if(tower != null)
         {
@@ -78,19 +68,18 @@ public class TowerStatusUI : MonoBehaviour
             
             SetToOutline(selectedTower);
 
-            if(tower.GetComponent<Tower>())
+            if(isTower(tower))
             {
                 selectedTowerPrefab.ToggleRangeSprite();
                 UpgradeAndSellTowerFunction();
                 SetTowerStatus();
             }
-            if(tower.GetComponent<Enemy>())
+            else
             {
                 SetEnemyStatus();
             }
         }
     }
-
     void UpgradeAndSellTowerFunction()
     {   
         upgradeTowerLevelBtn.onClick.RemoveAllListeners();
@@ -99,7 +88,6 @@ public class TowerStatusUI : MonoBehaviour
         sellTowerBtn.onClick.RemoveAllListeners();
         sellTowerBtn.onClick.AddListener(selectedTowerPrefab.SellTower);
     }
-
     void SetToNonOutline(GameObject goj)
     {
         goj.GetComponent<SpriteRenderer>().material = nonOutline;
@@ -115,20 +103,18 @@ public class TowerStatusUI : MonoBehaviour
             Deselect();
         }
     }
-
     void Deselect()
     {
         upgradeTowerLevelBtn.onClick.RemoveAllListeners();
         sellTowerBtn.onClick.RemoveAllListeners();
         selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
-        
+
         if(selectedTowerPrefab)
             selectedTowerPrefab.ToggleRangeSprite();
 
         selectedTowerPrefab = null;
         selectedTower = null;
     }
-
     void SetTowerStatus()
     {
         rangeLbl.text = "Range: ";
@@ -136,5 +122,13 @@ public class TowerStatusUI : MonoBehaviour
     void SetEnemyStatus()
     {
         rangeLbl.text = "Value: ";
+    }
+    bool isTower(GameObject goj)
+    {
+        return goj.GetComponent<Tower>();
+    }
+    bool isEnemy(GameObject goj)
+    {
+        return goj.GetComponent<Enemy>();
     }
 }
