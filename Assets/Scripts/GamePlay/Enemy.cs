@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public int value;
     public float startSpeed;
     public Image healthBar;
+
+    public GameObject deadEffect;
     void Start()
     {
         health = healthRatio * SceneStats.equationValue;
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
     }
     public void Die()
     {
+        Instantiate(deadEffect, transform.position, transform.rotation);
         SceneStats.Money += value; 
         CheckRavenAround();
         WaveSystem.thisWaveEnemiesCount--;
