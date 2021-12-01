@@ -44,8 +44,9 @@ public class Enemy : MonoBehaviour
     {
         SceneStats.Money += value; 
         CheckRavenAround();
+        WaveSystem.thisWaveEnemiesCount--;
         Destroy(gameObject);
-        WaveSpawner.enemyAlives--;
+        // WaveSpawner.enemyAlives--;
     }
     public void SetSlowValue(float percentage)
     {
