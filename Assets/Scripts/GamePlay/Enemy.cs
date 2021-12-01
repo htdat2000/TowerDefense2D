@@ -14,11 +14,15 @@ public class Enemy : MonoBehaviour
     public int value;
     public float startSpeed;
     public Image healthBar;
+
+    public GameObject deadEffect;
+    private AudioManager audioGO;
     void Start()
     {
         health = healthRatio * SceneStats.equationValue;
         startHealth = healthRatio * SceneStats.equationValue;
         SetMySpeed();
+        audioGO = FindObjectOfType<AudioManager>();
     }
     public void TakeDamage(float amount)
     {
@@ -42,6 +46,7 @@ public class Enemy : MonoBehaviour
     }
     public void Die()
     {
+        Instantiate(deadEffect, transform.position, transform.rotation);
         SceneStats.Money += value; 
         CheckRavenAround();
         WaveSystem.thisWaveEnemiesCount--;
@@ -83,6 +88,7 @@ public class Enemy : MonoBehaviour
     void OnMouseDown()
     {
         selectMe();
+        audioGO.Play("Click");
     }
     void CheckRavenAround()
     {

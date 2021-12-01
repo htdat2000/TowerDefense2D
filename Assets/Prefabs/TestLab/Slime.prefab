@@ -148,6 +148,8 @@ MonoBehaviour:
   value: 3
   startSpeed: 6
   healthBar: {fileID: 4821372144246001734}
+  deadEffect: {fileID: 4868360996752368055, guid: 48c0a73a4f3a3c44fa5364d0c0a288a1,
+    type: 3}
 --- !u!95 &898512013163753429
 Animator:
   serializedVersion: 3

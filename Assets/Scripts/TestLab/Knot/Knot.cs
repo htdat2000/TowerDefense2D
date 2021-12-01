@@ -19,6 +19,8 @@ public class Knot : MonoBehaviour
     private GameObject myTower;
     private TowerStatusUI sUI;
 
+    private AudioManager audioGO;
+
     void Start()
     {
         float rand = Random.Range(0.0f, obstaclePercent);
@@ -28,10 +30,13 @@ public class Knot : MonoBehaviour
             GetComponent<NodeImage>().SetObstacle();
             knotValue = 90;
         }
+
+        audioGO = FindObjectOfType<AudioManager>();
     }
     void OnMouseDown()
     {
         selectMe();
+        audioGO.Play("Click");
     }
 
     public void selectMe()

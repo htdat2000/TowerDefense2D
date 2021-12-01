@@ -166,6 +166,8 @@ MonoBehaviour:
   value: 3
   startSpeed: 5
   healthBar: {fileID: 8212795347347854717}
+  deadEffect: {fileID: 4868360996752368055, guid: 48c0a73a4f3a3c44fa5364d0c0a288a1,
+    type: 3}
 --- !u!1001 &2058302620333656650
 PrefabInstance:
   m_ObjectHideFlags: 0
