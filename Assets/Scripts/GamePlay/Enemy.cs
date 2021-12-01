@@ -40,12 +40,13 @@ public class Enemy : MonoBehaviour
         health = Mathf.Clamp(health, 0, startHealth);
         healthBar.fillAmount = health / startHealth;
     }
-    void Die()
+    public void Die()
     {
         SceneStats.Money += value; 
         CheckRavenAround();
+        WaveSystem.thisWaveEnemiesCount--;
         Destroy(gameObject);
-        WaveSpawner.enemyAlives--;
+        // WaveSpawner.enemyAlives--;
     }
     public void SetSlowValue(float percentage)
     {

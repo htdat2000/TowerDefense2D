@@ -11,7 +11,7 @@ public class WaveSystem : MonoBehaviour
         // với spawnPositon
     public GameObject[] enemyPrefabs;
 
-    private float countdown = 2f; //đếm để spawn
+    private float countdown = 10f; //đếm để spawn
     public float timeBetweenWaves = 15f;
     public float timeBetweenSpawn = 0.5f;
 
@@ -19,6 +19,8 @@ public class WaveSystem : MonoBehaviour
     private bool spawning = false;
 
     private float enemiesTypeRange = 4f;
+
+    public static int thisWaveEnemiesCount = 0;
 
     SceneStats sceneStats;
     
@@ -29,22 +31,25 @@ public class WaveSystem : MonoBehaviour
 
     void Start()
     {
-       sceneStats.HealthEquation();
+        thisWaveEnemiesCount = 0;
+        sceneStats.HealthEquation();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(thisWaveEnemiesCount);
         if (countdown <= 0f)                 //Create enemy
         {
             spawning = true;
             ChooseEnemyToSpawn();
             countdown = timeBetweenWaves;
             waveCount ++;
+            thisWaveEnemiesCount = waveCount + 1;
             SceneStats.wavesNumber = waveCount;
             sceneStats.HealthEquation();
         }
-        if (!spawning)
+        if (!spawning && thisWaveEnemiesCount <= 0) //&& thisWaveEnemiesCount == 0
         {
             countdown -= Time.deltaTime;            
         }
