@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WaveSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
     //Script này để spawn quái theo đợt, tính toán wave
     public Transform[] spawnPosition;
     public GameObject[] spawnFirstKnot;//spawnFirstKnot là điểm đầu tiên mà quái sẽ bước đến, nên cùng độ dài
@@ -38,6 +37,7 @@ public class WaveSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("EnemyCount: " + thisWaveEnemiesCount);
         if (countdown <= 0f)                 //Create enemy
         {
             spawning = true;

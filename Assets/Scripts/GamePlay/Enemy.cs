@@ -16,11 +16,13 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
 
     public GameObject deadEffect;
+    private AudioManager audioGO;
     void Start()
     {
         health = healthRatio * SceneStats.equationValue;
         startHealth = healthRatio * SceneStats.equationValue;
         SetMySpeed();
+        audioGO = FindObjectOfType<AudioManager>();
     }
     public void TakeDamage(float amount)
     {
@@ -86,6 +88,7 @@ public class Enemy : MonoBehaviour
     void OnMouseDown()
     {
         selectMe();
+        audioGO.Play("Click");
     }
     void CheckRavenAround()
     {
