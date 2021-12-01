@@ -25,7 +25,7 @@ public class WalkingAi : MonoBehaviour
             if(Vector2.Distance(transform.position, KnotsManager.KnotArray[0,0].transform.position) <= 0.1f)
             {
                 SceneStats.Lives -= 1;
-                Destroy(gameObject);
+                GetComponent<Enemy>().Die();
                 return;
             }
             currentKnot = nextKnot;

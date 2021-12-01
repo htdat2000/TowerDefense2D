@@ -57,6 +57,8 @@ public class TowerStatusUI : MonoBehaviour
                 if(towerPrefab.myStand == selectedTowerPrefab.myStand) //nếu con vừa chọn là con chọn lúc trước
                 {
                     selectThisAgain = true;
+                    if(isTower(selectedTower))
+                        selectedTowerPrefab.ToggleRangeSprite();
                     selectedTowerPrefab.myStand.KnotTouch();
                     Deselect();
                     return;
@@ -113,8 +115,8 @@ public class TowerStatusUI : MonoBehaviour
         sellTowerBtn.onClick.RemoveAllListeners();
         selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
 
-        // if(selectedTowerPrefab)
-        //     selectedTowerPrefab.ToggleRangeSprite();
+        if(selectedTowerPrefab)
+            selectedTowerPrefab.ToggleRangeSprite();
 
         selectedTowerPrefab = null;
         selectedTower = null;
