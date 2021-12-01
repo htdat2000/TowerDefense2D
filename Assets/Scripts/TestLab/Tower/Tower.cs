@@ -29,7 +29,7 @@ public class Tower : MonoBehaviour
     PlayerStats instance;
     public Knot myStand;
     
-    private AudioManager audio;
+    private AudioManager audioGO;
 
     void Awake()
     {
@@ -50,7 +50,7 @@ public class Tower : MonoBehaviour
         DrawRange();
         ToggleRangeSprite();
 
-        audio = FindObjectOfType<AudioManager>();
+        audioGO = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -101,7 +101,7 @@ public class Tower : MonoBehaviour
     void OnMouseDown()
     {
         myStand.selectMe();
-        audio.Play("Click");
+        audioGO.Play("Click");
     }
 
     public void UpgradeTowerLevel()

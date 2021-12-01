@@ -19,7 +19,7 @@ public class Knot : MonoBehaviour
     private GameObject myTower;
     private TowerStatusUI sUI;
 
-    private AudioManager audio;
+    private AudioManager audioGO;
 
     void Start()
     {
@@ -31,12 +31,12 @@ public class Knot : MonoBehaviour
             knotValue = 90;
         }
 
-        audio = FindObjectOfType<AudioManager>();
+        audioGO = FindObjectOfType<AudioManager>();
     }
     void OnMouseDown()
     {
         selectMe();
-        audio.Play("Click");
+        audioGO.Play("Click");
     }
 
     public void selectMe()
