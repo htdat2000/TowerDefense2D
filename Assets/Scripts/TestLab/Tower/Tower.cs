@@ -28,7 +28,9 @@ public class Tower : MonoBehaviour
     public Animator anim;
     PlayerStats instance;
     public Knot myStand;
-    // Start is called before the first frame update
+    
+    private AudioManager audio;
+
     void Awake()
     {
         instance = PlayerStats.playerStats;
@@ -47,6 +49,8 @@ public class Tower : MonoBehaviour
 
         DrawRange();
         ToggleRangeSprite();
+
+        audio = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -97,6 +101,7 @@ public class Tower : MonoBehaviour
     void OnMouseDown()
     {
         myStand.selectMe();
+        audio.Play("Click");
     }
 
     public void UpgradeTowerLevel()
