@@ -38,7 +38,6 @@ public class WaveSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(thisWaveEnemiesCount);
         if (countdown <= 0f)                 //Create enemy
         {
             spawning = true;
