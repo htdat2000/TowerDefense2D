@@ -148,7 +148,7 @@ public class Tower : MonoBehaviour
                 range += 0.5f;
                 break;
             default:
-                Debug.Log("No Type");
+                Debug.Log("No Stats Equation");
                 break;           
         }
     }
