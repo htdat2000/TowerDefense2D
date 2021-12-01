@@ -44,25 +44,28 @@ public class TowerStatusUI : MonoBehaviour
 
     public void UpdateSelectedTower(GameObject tower, Tower towerPrefab)
     {
-        if(selectedTower != null)
+        //Hủy cái cũ
+        bool selectThisAgain = false; //kiểm tra có deselect hông
+        if(selectedTower != null) //nếu trước đó có 1 đối tượng được chọn
         {
             SetToNonOutline(selectedTower);
+            if(isTower(selectedTower))
+                selectedTowerPrefab.ToggleRangeSprite();
+
             if(isTower(tower) && isTower(selectedTower)) //nếu con vừa chọn là trụ, và trc đó cũng là trụ
             {
                 if(towerPrefab.myStand == selectedTowerPrefab.myStand) //nếu con vừa chọn là con chọn lúc trước
                 {
+                    selectThisAgain = true;
                     selectedTowerPrefab.myStand.KnotTouch();
                     Deselect();
                     return;
                 }
             }    
         }
-        if(tower != null)
+        //Chọn cái mới
+        if(tower)
         {
-            if(selectedTower)
-                SetToNonOutline(selectedTower);
-            if(selectedTowerPrefab)
-                selectedTowerPrefab.ToggleRangeSprite();
             selectedTower = tower;
             selectedTowerPrefab = towerPrefab;
             
@@ -70,7 +73,8 @@ public class TowerStatusUI : MonoBehaviour
 
             if(isTower(tower))
             {
-                selectedTowerPrefab.ToggleRangeSprite();
+                if(!selectThisAgain)
+                    selectedTowerPrefab.ToggleRangeSprite();
                 UpgradeAndSellTowerFunction();
                 SetTowerStatus();
             }
@@ -109,8 +113,8 @@ public class TowerStatusUI : MonoBehaviour
         sellTowerBtn.onClick.RemoveAllListeners();
         selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
 
-        if(selectedTowerPrefab)
-            selectedTowerPrefab.ToggleRangeSprite();
+        // if(selectedTowerPrefab)
+        //     selectedTowerPrefab.ToggleRangeSprite();
 
         selectedTowerPrefab = null;
         selectedTower = null;
