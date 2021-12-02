@@ -22,6 +22,14 @@ public class TowerStatusUI : MonoBehaviour
 
     private string[] towerNameArray = {"Archer", "Fire", "Ice", "Poision", "Enemy"};
 
+    private AudioManager audioGO;
+
+    void Start()
+    {
+        audioGO = FindObjectOfType<AudioManager>();
+        AddButtonErrorSound();
+    }
+
     public void UpdateStatusUI(float[] stats)
     {
         if(stats[0] != -1)
@@ -113,6 +121,9 @@ public class TowerStatusUI : MonoBehaviour
     {
         upgradeTowerLevelBtn.onClick.RemoveAllListeners();
         sellTowerBtn.onClick.RemoveAllListeners();
+
+        AddButtonErrorSound();
+
         selectedTower.GetComponent<SpriteRenderer>().material = nonOutline;
 
         if(selectedTowerPrefab)
@@ -136,5 +147,16 @@ public class TowerStatusUI : MonoBehaviour
     bool isEnemy(GameObject goj)
     {
         return goj.GetComponent<Enemy>();
+    }
+
+    void AddButtonErrorSound()
+    {
+        upgradeTowerLevelBtn.onClick.AddListener(PlayErrorSound);
+        sellTowerBtn.onClick.AddListener(PlayErrorSound);
+    }
+
+    void PlayErrorSound()
+    {
+        audioGO.Play("Error");
     }
 }

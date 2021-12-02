@@ -46,25 +46,25 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: f3668804080914e4680a6ee27b0dd7a0, type: 3}
-    volume: 0.427
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Click
     clip: {fileID: 8300000, guid: 7082aa91476434073809693d3d5988a6, type: 3}
-    volume: 0.427
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Error
     clip: {fileID: 8300000, guid: 9a64d1c2caefec840b32966f568ea2b7, type: 3}
-    volume: 0.427
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Hit
     clip: {fileID: 8300000, guid: 49297786b20e90146b5cce9a6e2d167b, type: 3}
-    volume: 0.427
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}

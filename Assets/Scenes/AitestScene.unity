@@ -864,8 +864,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3545019589981822270, guid: a95ac08cc06f3b94388a5d80ab06d221, type: 3}
   cost: 3
-  upgradePrefab: {fileID: 0}
-  upgradeCost: 0
 --- !u!1 &323526682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,8 +1163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4651737142562626925, guid: 333b1f898edd8644d92a4d3ea59a160d, type: 3}
   cost: 5
-  upgradePrefab: {fileID: 0}
-  upgradeCost: 0
 --- !u!114 &367874135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5738,6 +5734,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8920983422976223690, guid: f6856642277a38f4f9ce57fac56733a8,
         type: 3}
