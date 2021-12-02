@@ -35,8 +35,7 @@ public class Knot : MonoBehaviour
     }
     void OnMouseDown()
     {
-        selectMe();
-        audioGO.Play("Click");
+        selectMe();      
     }
 
     public void selectMe()
@@ -44,6 +43,7 @@ public class Knot : MonoBehaviour
         KnotTouch();
         if(status == "Normal" && BuildSystem.instance.hasBluePrint == true && checkMoneyIHad())
         {
+            audioGO.Play("Click");
             status = "Has Tower";
             BuildTower();
             knotValue = 10;
@@ -51,11 +51,13 @@ public class Knot : MonoBehaviour
         }    
         else if (status == "Has Tower")
         {
+            audioGO.Play("Click");
             SelectTower();
         }
         else
         {
             SetToNonOutlineSelectedTower();
+            audioGO.Play("Error");
         }
         SendSignalToAi("UpdateMap");
     }

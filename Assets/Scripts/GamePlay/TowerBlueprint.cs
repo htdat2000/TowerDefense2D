@@ -1,22 +1,21 @@
 using UnityEngine;
-
-    [System.Serializable]
+   
 public class TowerBlueprint : MonoBehaviour
 {
     public GameObject prefab;
     public int cost;
 
-    public GameObject upgradePrefab;
-    public int upgradeCost;
+    private AudioManager audioGO;
 
-    public int GetSellAmount()
+    void Start()
     {
-        return cost / 2;
+        audioGO = FindObjectOfType<AudioManager>();
     }
-
+ 
     public void ChooseThisBluePrint()
     {
         BuildSystem.instance.selectingBluePrint = this;
         BuildSystem.instance.hasBluePrint = true;
+        audioGO.Play("Click");
     }
 }

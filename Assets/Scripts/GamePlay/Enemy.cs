@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        audioGO.Play("Hit");
         health -= amount;
         healthBar.fillAmount = health / startHealth;
         if(health <= 0)

@@ -109,7 +109,8 @@ public class Tower : MonoBehaviour
         if(level < 5)
         {
             if(SceneStats.Money >= costUpgrade)
-            {
+            {   
+                audioGO.Play("Click");
                 SceneStats.Money -=costUpgrade;
 
                 level++;
@@ -120,13 +121,22 @@ public class Tower : MonoBehaviour
                 GetCostUpgrade();
                 GetSellValue();
 
-                myStand.SelectTower();
+                myStand.SelectTower();            
             }
-        }      
+            else
+            {
+                audioGO.Play("Error");
+            }
+        }   
+        else
+        {
+            audioGO.Play("Error");
+        }   
     }
 
     public void SellTower()
     {
+        audioGO.Play("Click");
         SceneStats.Money += sellValue;
     
         myStand.UpdateStatus();
