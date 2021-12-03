@@ -135,3 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 3
+  hitEffect: {fileID: 6277968662835084408, guid: 24728866709223f49951559d95ab8b10,
+    type: 3}
+  damage: 0
