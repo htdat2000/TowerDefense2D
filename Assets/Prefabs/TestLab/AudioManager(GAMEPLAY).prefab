@@ -74,3 +74,27 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ArrowShoot
+    clip: {fileID: 8300000, guid: 683aa5b137d116249a6e84281c01ee91, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FireShoot
+    clip: {fileID: 8300000, guid: bbc958203770dda44b83352acf151622, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EndPoint
+    clip: {fileID: 8300000, guid: f155dd55032e1d34ba8f4ed99d51c045, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spawn
+    clip: {fileID: 8300000, guid: fb74fddc579276c429fc7015e896a295, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

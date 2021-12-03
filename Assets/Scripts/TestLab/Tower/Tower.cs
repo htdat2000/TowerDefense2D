@@ -28,7 +28,9 @@ public class Tower : MonoBehaviour
     public Animator anim;
     PlayerStats instance;
     public Knot myStand;
-    
+
+
+    private string[] shootSFX = {"ArrowShoot","FireShoot"};
     private AudioManager audioGO;
 
     void Awake()
@@ -91,6 +93,7 @@ public class Tower : MonoBehaviour
     {
         anim.Play("Attack", 0, 0f);
         Invoke("SpawnBullet", 0.2f);
+        audioGO.Play(shootSFX[towerType]);
     }
     void GetStats()
     {
