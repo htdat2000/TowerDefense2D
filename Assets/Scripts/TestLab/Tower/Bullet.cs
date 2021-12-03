@@ -31,7 +31,6 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Instantiate(hitEffect, transform.position, transform.rotation);   
         Destroy(gameObject);
     }
 
@@ -41,6 +40,7 @@ public class Bullet : MonoBehaviour
 
         if (e != null)
         {
+            Instantiate(hitEffect, transform.position, Quaternion.identity);   
             e.TakeDamage(damage);
         }
     }
