@@ -28,7 +28,9 @@ public class Tower : MonoBehaviour
     public Animator anim;
     PlayerStats instance;
     public Knot myStand;
-    
+
+
+    private string[] shootSFX = {"ArrowShoot","FireShoot"};
     private AudioManager audioGO;
 
     void Awake()
@@ -91,6 +93,7 @@ public class Tower : MonoBehaviour
     {
         anim.Play("Attack", 0, 0f);
         Invoke("SpawnBullet", 0.2f);
+        audioGO.Play(shootSFX[towerType]);
     }
     void GetStats()
     {
@@ -109,7 +112,8 @@ public class Tower : MonoBehaviour
         if(level < 5)
         {
             if(SceneStats.Money >= costUpgrade)
-            {
+            {   
+                audioGO.Play("Click");
                 SceneStats.Money -=costUpgrade;
 
                 level++;
@@ -120,13 +124,22 @@ public class Tower : MonoBehaviour
                 GetCostUpgrade();
                 GetSellValue();
 
-                myStand.SelectTower();
+                myStand.SelectTower();            
             }
-        }      
+            else
+            {
+                audioGO.Play("Error");
+            }
+        }   
+        else
+        {
+            audioGO.Play("Error");
+        }   
     }
 
     public void SellTower()
     {
+        audioGO.Play("Click");
         SceneStats.Money += sellValue;
     
         myStand.UpdateStatus();

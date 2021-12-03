@@ -11,6 +11,8 @@ public class MapButton : MonoBehaviour
 
     private int mapIndex;
 
+    private AudioManager audioGO;
+
     void Awake()
     {
         controller.AddMapButton(this);
@@ -22,6 +24,11 @@ public class MapButton : MonoBehaviour
         controller.SetUnlockMap();
     }
 
+    void Start()
+    {
+        audioGO = FindObjectOfType<AudioManager>();
+    }
+
     public void AddMapToGo(int _mapIndex)
     {
         mapIndex = _mapIndex;
@@ -30,7 +37,8 @@ public class MapButton : MonoBehaviour
 
     void GoToMap()
     {
-        SceneManager.LoadScene(mapIndex);
+        SceneManager.LoadSceneAsync(mapIndex);
+        audioGO.Play("Click");
     }
 
     public void AddUnlockMapFunction(int _mapIndex)
@@ -43,10 +51,16 @@ public class MapButton : MonoBehaviour
     {
         if(instance.gem - 2000 >= 0)
         {
+            audioGO.Play("Click");
             instance.gem -= 2000;
             PlayerPrefs.SetInt("gem", instance.gem);
 
             PlayerPrefs.SetString(mapIndex.ToString(), "true");
+        }
+        else
+        {
+            audioGO.Play("Error");
+            return;
         }
         btn.onClick.RemoveListener(UnlockFunction);
         btn.onClick.AddListener(GoToMap);

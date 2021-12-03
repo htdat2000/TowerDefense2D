@@ -22,6 +22,7 @@ public class WaveSystem : MonoBehaviour
     public static int thisWaveEnemiesCount = 0;
 
     SceneStats sceneStats;
+    AudioManager audioGO;
     
     void Awake()
     {
@@ -32,9 +33,10 @@ public class WaveSystem : MonoBehaviour
     {
         thisWaveEnemiesCount = 0;
         sceneStats.HealthEquation();
-    }
 
-    // Update is called once per frame
+        audioGO = FindObjectOfType<AudioManager>();
+    }
+  
     void Update()
     {
         //Debug.Log("EnemyCount: " + thisWaveEnemiesCount);
@@ -90,6 +92,7 @@ public class WaveSystem : MonoBehaviour
 
     void SpawnEnemy()
     {
+        audioGO.Play("Spawn");
         float randT = UnityEngine.Random.Range(0f, enemyPrefabs.Length - 0.00001f);
 
         int rand = (int)Random.Range(0f, (float)spawnPosition.Length);

@@ -183,9 +183,21 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: af9cf526fa1b72c4ea2d4071ca670dd9, type: 3}
-    volume: 0.565
+    volume: 0.4
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: 7082aa91476434073809693d3d5988a6, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Error
+    clip: {fileID: 8300000, guid: 9a64d1c2caefec840b32966f568ea2b7, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &319025094
 Transform:

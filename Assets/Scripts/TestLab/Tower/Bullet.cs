@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 3f;
     //public GameObject impactEffect;
+    public GameObject hitEffect;
 
     public float damage;
 
@@ -30,7 +31,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        //Damage(target);    
+        Instantiate(hitEffect, transform.position, transform.rotation);   
         Destroy(gameObject);
     }
 

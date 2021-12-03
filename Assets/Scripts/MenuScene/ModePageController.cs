@@ -8,8 +8,12 @@ public class ModePageController : MonoBehaviour
 
     public GameObject mapPanel;
 
+    private AudioManager audioGO;
+
     void Start()
     {
+        audioGO = FindObjectOfType<AudioManager>();
+
         easyMode = false;
         normalMode = false;
     }
@@ -45,12 +49,14 @@ public class ModePageController : MonoBehaviour
 
     public void ChooseEasyMode()
     {
+        audioGO.Play("Click");
         easyMode = true;
         mapPanel.SetActive(true);
     }
 
     public void ChooseNormalMode()
     {
+        audioGO.Play("Click");
         normalMode = true;
         mapPanel.SetActive(true);
     }
