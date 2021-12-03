@@ -7,8 +7,10 @@ public class WalkingAi : MonoBehaviour
     public float speed = 1f;
     public GameObject nextKnot;
     public GameObject currentKnot;
+    private AudioManager audioGO;
     void Awake()
     {
+        audioGO = FindObjectOfType<AudioManager>();
         currentKnot = KnotsManager.KnotArray[8,8];
         UpdateNextKnot();
     }
@@ -24,6 +26,7 @@ public class WalkingAi : MonoBehaviour
         {
             if(Vector2.Distance(transform.position, KnotsManager.KnotArray[0,0].transform.position) <= 0.1f)
             {
+                audioGO.Play("EndPoint");
                 SceneStats.Lives -= 1;
                 GetComponent<Enemy>().Die();
                 return;
