@@ -210,7 +210,7 @@ MonoBehaviour:
   towerRangePrefab: {fileID: 6042546973786046516, guid: 95e5541c8d08bcb4a8b1dd2681e7bf5d,
     type: 3}
   towerRangeGO: {fileID: 0}
-  fireCountdown: 1
+  fireCountdown: 0
   anim: {fileID: 0}
   myStand: {fileID: 0}
   audioGO: {fileID: 0}

@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             Die();
+            audioGO.Play("Die");
         }
         if(special == "Invisible")
         {
