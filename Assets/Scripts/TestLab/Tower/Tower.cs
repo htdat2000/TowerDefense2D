@@ -30,7 +30,7 @@ public class Tower : MonoBehaviour
     public Knot myStand;
 
 
-    private string[] shootSFX = {"ArrowShoot","FireShoot"};
+    private string[] shootSFX = {"ArrowShoot","FireShoot", "ArrowShoot"}; //change 3 to ice effect
     public AudioManager audioGO;
 
     void Awake()

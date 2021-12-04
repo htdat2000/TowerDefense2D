@@ -34,6 +34,6 @@ public class Miner : Tower
     }
     void Mine()
     {
-        Debug.Log("Mine");
+        SceneStats.Money += (int)damage; 
     }
 }

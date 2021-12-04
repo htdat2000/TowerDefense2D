@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2386d154eb02443901ed9136d83632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerType: 0
+  towerType: 3
   damage: 0
   range: 0
   fireRate: 0
