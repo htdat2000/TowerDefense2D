@@ -14,16 +14,16 @@ public class Tower : MonoBehaviour
     public int sellValue;
 
     [Header("Unity Setup")]
-    private float defaultDmg;
+    public float defaultDmg;
     private Transform target;
     public string enemyTag = "Enemy";
 
     public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject towerRangePrefab;
-    private GameObject towerRangeGO;
+    public GameObject towerRangeGO;
     
-    private float fireCountdown = 1f;
+    public float fireCountdown = 1f;
     
     public Animator anim;
     PlayerStats instance;
@@ -31,7 +31,7 @@ public class Tower : MonoBehaviour
 
 
     private string[] shootSFX = {"ArrowShoot","FireShoot"};
-    private AudioManager audioGO;
+    public AudioManager audioGO;
 
     void Awake()
     {
@@ -67,7 +67,7 @@ public class Tower : MonoBehaviour
         }
         fireCountdown -= Time.deltaTime;
     }
-    void TargetLock()
+    public void TargetLock()
     {
         target = null;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -89,19 +89,19 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         anim.Play("Attack", 0, 0f);
         Invoke("SpawnBullet", 0.2f);
         audioGO.Play(shootSFX[towerType]);
     }
-    void GetStats()
+    public void GetStats()
     {
         damage = instance.towerDamage[towerType];
         fireRate = instance.towerRate[towerType];
         range = instance.towerRange[towerType];
     }
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         myStand.selectMe();
         audioGO.Play("Click");
@@ -145,15 +145,15 @@ public class Tower : MonoBehaviour
         myStand.UpdateStatus();
         Destroy(this.gameObject);
     }
-    void GetCostUpgrade()
+    public void GetCostUpgrade()
     {
         costUpgrade = (int)Mathf.Round(costRatio * Mathf.Pow(3, level+1));
     }
-    void GetSellValue()
+    public void GetSellValue()
     {
         sellValue += (int)Mathf.Round(costRatio * Mathf.Pow(3, level)/2);
     }
-    void TowerStatsEquation()
+    public void TowerStatsEquation()
     {
         switch (towerType)
         {
@@ -174,7 +174,7 @@ public class Tower : MonoBehaviour
     {
         anim.Play("Idle", 0, 0f);
     }
-    void SpawnBullet()
+    public void SpawnBullet()
     {
         if(target)
         {
@@ -197,7 +197,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void DrawRange()
+    public void DrawRange()
     {
         if (towerRangeGO == null)
         {
@@ -212,7 +212,7 @@ public class Tower : MonoBehaviour
         towerRangeGO.SetActive(!towerRangeGO.activeSelf);
     }
 
-    void OnDrawGizmosSelected()     //To check the range
+    public void OnDrawGizmosSelected()     //To check the range
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
