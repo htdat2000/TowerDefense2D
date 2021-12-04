@@ -5,7 +5,6 @@ public class PlayerStats : MonoBehaviour
 {       //O: archer; 1: fire; 2: ice; 3:miner; 4: poison
     public static PlayerStats playerStats;
     [Header("TowerStat")]
-    
     public float[] towerDamage;
     public float[] towerRange;
     public float[] towerRate;
@@ -35,7 +34,6 @@ public class PlayerStats : MonoBehaviour
         "iceTowerStar", 
         "lightningTowerStar", //change to miner
         "poisonTowerStar"};
-
     void Awake()
     {
         if (playerStats != null)

@@ -9,6 +9,11 @@ public class NodeImage : MonoBehaviour
     public Sprite[] newSprite;
     public Sprite[] newObstacle;
 
+    void SetSprite(Sprite[] inSprite, Sprite[] inObstacle)
+    {
+        newSprite = inSprite;
+        newObstacle = inObstacle;
+    }
     void SetSprite()
     {
         int num = (int)Random.Range(0f, (float)newSprite.Length);
@@ -23,12 +28,14 @@ public class NodeImage : MonoBehaviour
 
     void Start()
     {
+        GetSpriteSet();
         SetSprite();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    void GetSpriteSet()
     {
-
+        //Get sprite
+        //SetSprite(inSprite,inObstacle);
     }
 }
