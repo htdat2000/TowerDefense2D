@@ -15,7 +15,6 @@ public class IceB : Bullet
     }
     void HitTarget()
     {
-        Debug.Log("Hit");
         Instantiate(hitEffect, transform.position, Quaternion.identity); 
         Slow();
         Damage(target);    
@@ -23,7 +22,6 @@ public class IceB : Bullet
     }
     void Slow()
     {
-        Debug.Log("Yah");
         target.GetComponent<Enemy>().SetSlowValue(slowPercentage, slowTime);
     }
 }

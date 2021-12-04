@@ -71,7 +71,6 @@ public class Enemy : MonoBehaviour
     public void SetSlowValue(float percentage, float slowTime)
     {
         //slowdown
-        Debug.Log("Slow");
         gameObject.GetComponent<WalkingAi>().speed = startSpeed - startSpeed * percentage;
         slowTimeCount = slowTime;
     }

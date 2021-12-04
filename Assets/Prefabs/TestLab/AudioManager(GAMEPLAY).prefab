@@ -104,3 +104,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: IceShoot
+    clip: {fileID: 8300000, guid: 30f8b22899423ba4e98b1a8f318d9645, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
