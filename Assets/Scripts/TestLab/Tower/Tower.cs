@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour
     public GameObject towerRangePrefab;
     public GameObject towerRangeGO;
     
-    public float fireCountdown = 1f;
+    public float fireCountdown = 0f;
     
     public Animator anim;
     PlayerStats instance;
