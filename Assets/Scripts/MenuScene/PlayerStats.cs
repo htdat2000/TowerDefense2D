@@ -2,7 +2,7 @@
 using System.IO;
 
 public class PlayerStats : MonoBehaviour
-{       //O: archer; 1: fire; 2: ice; 3:lightning; 4: poison
+{       //O: archer; 1: fire; 2: ice; 3:miner; 4: poison
     public static PlayerStats playerStats;
     [Header("TowerStat")]
     
@@ -15,9 +15,9 @@ public class PlayerStats : MonoBehaviour
     public bool[] towerStatus = {true, true, true, true, true};
 
     [Header("DefaultValue")]
-    private float[] towerDefaultDmg = {12,20,10,10,10};
-    private float[] towerDefaultRange = {1.5f, 2, 1.5f, 1.5f, 1.5f};
-    private float[] towerDefaultRate = {1.2f, 0.4f, 0, 0, 0};
+    private float[] towerDefaultDmg = {12,20,8,1,10};
+    private float[] towerDefaultRange = {1.5f, 2, 3f, 0f, 1.5f};
+    private float[] towerDefaultRate = {1.2f, 0.4f, 1.2f, 0.05f, 0};
 
     [Header("Map")]
     public int map; //this var is used to keep the header
@@ -33,7 +33,7 @@ public class PlayerStats : MonoBehaviour
         "archerTowerStar", 
         "fireTowerStar", 
         "iceTowerStar", 
-        "lightningTowerStar",
+        "lightningTowerStar", //change to miner
         "poisonTowerStar"};
 
     void Awake()

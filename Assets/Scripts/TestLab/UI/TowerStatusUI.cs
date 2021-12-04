@@ -20,7 +20,7 @@ public class TowerStatusUI : MonoBehaviour
     public Material outline;
     public Material nonOutline;
 
-    private string[] towerNameArray = {"Archer", "Fire", "Ice", "Poision", "Enemy"};
+    private string[] towerNameArray = {"Archer", "Fire", "Ice", "Miner", "Enemy"};
 
     private AudioManager audioGO;
 
