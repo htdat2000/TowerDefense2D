@@ -17,12 +17,25 @@ public class Enemy : MonoBehaviour
 
     public GameObject deadEffect;
     private AudioManager audioGO;
+
+    private float slowTimeCount;
     void Start()
     {
         health = healthRatio * SceneStats.equationValue;
         startHealth = healthRatio * SceneStats.equationValue;
         SetMySpeed();
         audioGO = FindObjectOfType<AudioManager>();
+    }
+    void Update()
+    {
+        if(slowTimeCount > 0)
+        {
+            slowTimeCount -= Time.deltaTime;
+            if(slowTimeCount <= 0)
+            {
+                SetMySpeed();
+            }
+        }
     }
     public void TakeDamage(float amount)
     {
@@ -54,9 +67,12 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         // WaveSpawner.enemyAlives--;
     }
-    public void SetSlowValue(float percentage)
+    public void SetSlowValue(float percentage, float slowTime)
     {
         //slowdown
+        Debug.Log("Slow");
+        gameObject.GetComponent<WalkingAi>().speed = startSpeed - startSpeed * percentage;
+        slowTimeCount = slowTime;
     }
     public void Poisoned(float percentage)
     {
