@@ -16,6 +16,7 @@ public class FireB : Bullet
 
     void HitTarget()
     {
+        Instantiate(hitEffect, transform.position, Quaternion.identity); 
         Explode();
         Damage(target);    
         Destroy(gameObject);
