@@ -14,7 +14,6 @@ public class Healer : MonoBehaviour
 
     void Heal()
     {
-        Debug.Log("Healing");
         Vector2 healArea = new Vector2(transform.position.x, transform.position.y);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(healArea, healRadius);
 
