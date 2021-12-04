@@ -31,16 +31,17 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
+        Instantiate(hitEffect, transform.position, Quaternion.identity); 
         Destroy(gameObject);
     }
 
     public void Damage(Transform enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
+        // 
 
         if (e != null)
-        {
-            Instantiate(hitEffect, transform.position, Quaternion.identity);   
+        {  
             e.TakeDamage(damage);
         }
     }
