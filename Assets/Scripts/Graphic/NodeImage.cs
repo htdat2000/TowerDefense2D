@@ -9,10 +9,10 @@ public class NodeImage : MonoBehaviour
     public Sprite[] newSprite;
     public Sprite[] newObstacle;
 
-    void SetSprite(Sprite[] inSprite, Sprite[] inObstacle)
+    void SetSprite(GameObject mapSet)
     {
-        newSprite = inSprite;
-        newObstacle = inObstacle;
+        newSprite = mapSet.GetComponent<MapSet>().spriteSet;
+        newObstacle = mapSet.GetComponent<MapSet>().obstacleSet;
     }
     void SetSprite()
     {
@@ -35,7 +35,7 @@ public class NodeImage : MonoBehaviour
 
     void GetSpriteSet()
     {
-        //Get sprite
-        //SetSprite(inSprite,inObstacle);
+        PlayerStats playerstats = PlayerStats.playerStats;
+        SetSprite(playerstats.mapSet[playerstats.map]);
     }
 }

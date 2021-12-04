@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Map")]
     public int map; //this var is used to keep the header
+    public GameObject[] mapSet;
 
      [Header("Currencies")]
     public int gem = 100000;
