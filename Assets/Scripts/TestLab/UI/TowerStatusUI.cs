@@ -134,11 +134,11 @@ public class TowerStatusUI : MonoBehaviour
     }
     void SetTowerStatus()
     {
-        rangeLbl.text = "Range: ";
+        //rangeLbl.text = "Range: ";
     }
     void SetEnemyStatus()
     {
-        rangeLbl.text = "Value: ";
+        //rangeLbl.text = "Value: ";
     }
     bool isTower(GameObject goj)
     {
