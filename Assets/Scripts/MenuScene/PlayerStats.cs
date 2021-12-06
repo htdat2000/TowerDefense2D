@@ -55,6 +55,7 @@ public class PlayerStats : MonoBehaviour
         }    
 
         GetStatsRebuild();
+        GetMapSet();
     }
 
     void SetMapDefaultCondition()
@@ -78,6 +79,11 @@ public class PlayerStats : MonoBehaviour
             towerRate[i] = towerDefaultRate[i] + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
         }
+    }
+
+    public void GetMapSet()
+    {
+        mapSet = Resources.LoadAll<GameObject>("MapSet"); 
     }
 
     public void Save()
