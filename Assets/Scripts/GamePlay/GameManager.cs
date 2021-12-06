@@ -8,8 +8,12 @@ public class GameManager : MonoBehaviour
     public static bool gameWin;
     public GameObject gameWinUI;
 
+    AudioManager audioGO;
+
     void Start()
     {
+        audioGO = FindObjectOfType<AudioManager>();
+
         Time.timeScale = 1f;
         gameOver = false;
         gameWin = false;
@@ -35,12 +39,14 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 0f;
-        gameOverUI.SetActive(true);       
+        gameOverUI.SetActive(true); 
+        audioGO.Play("Lose");      
     }
 
     void Win()
     {
         Time.timeScale = 0f;
-        gameWinUI.SetActive(true);       
+        gameWinUI.SetActive(true);
+        audioGO.Play("Win");
     }
 }
