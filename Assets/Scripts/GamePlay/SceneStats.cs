@@ -38,6 +38,6 @@ public class SceneStats : MonoBehaviour
 
     public void HealthEquation()
     {
-        equationValue = 10 + 4 * wavesNumber + * wavesNumber * wavesNumber;
+        equationValue = 10 + 4 * wavesNumber + wavesNumber * wavesNumber;
     }
 }
