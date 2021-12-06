@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3723,7 +3723,6 @@ GameObject:
   - component: {fileID: 1572519123}
   - component: {fileID: 1572519124}
   - component: {fileID: 1572519125}
-  - component: {fileID: 1572519122}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3784,34 +3783,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectingBluePrint: {fileID: 0}
   hasBluePrint: 0
---- !u!114 &1572519122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572519118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8701db623d57364389f253f507ab7b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerDamage: []
-  towerRange: []
-  towerRate: []
-  towerUpgradeCost: 
-  towerStar: 0000000000000000000000000000000000000000
-  towerStatus: 0101010101
-  map: 1
-  mapSet: []
-  gem: 100000
-  diamond: 0
-  towerArray:
-  - archerTowerStar
-  - fireTowerStar
-  - iceTowerStar
-  - lightningTowerStar
-  - poisonTowerStar
 --- !u!114 &1572519123
 MonoBehaviour:
   m_ObjectHideFlags: 0
