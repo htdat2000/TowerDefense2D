@@ -3802,7 +3802,7 @@ MonoBehaviour:
   towerUpgradeCost: 
   towerStar: 0000000000000000000000000000000000000000
   towerStatus: 0101010101
-  map: 1
+  map: 0
   mapSet:
   - {fileID: 8554272592858466748, guid: 1cf998bfe9869a14d920a26b02857072, type: 3}
   - {fileID: 8518845015764168390, guid: 5561837320804204f8510f2d360cd4ac, type: 3}
