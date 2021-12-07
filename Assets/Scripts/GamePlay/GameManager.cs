@@ -38,15 +38,17 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         gameOver = true;
+        audioGO.Stop("Theme");
+        audioGO.Play("Lose");   
         Time.timeScale = 0f;
-        gameOverUI.SetActive(true); 
-        audioGO.Play("Lose");      
+        gameOverUI.SetActive(true);       
     }
 
     void Win()
     {
-        Time.timeScale = 0f;
-        gameWinUI.SetActive(true);
+        audioGO.Stop("Theme");
         audioGO.Play("Win");
+        Time.timeScale = 0f;
+        gameWinUI.SetActive(true);  
     }
 }
