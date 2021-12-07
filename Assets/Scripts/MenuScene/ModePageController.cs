@@ -9,9 +9,11 @@ public class ModePageController : MonoBehaviour
     public GameObject mapPanel;
 
     private AudioManager audioGO;
+    PlayerStats instance;
 
     void Start()
     {
+        instance = PlayerStats.playerStats;
         audioGO = FindObjectOfType<AudioManager>();
 
         easyMode = false;
@@ -31,8 +33,8 @@ public class ModePageController : MonoBehaviour
     {     
         for (int i = 0; i < mapButtons.Count; i++) //Button 0 == map index 2 (Build Setting option)
         {
-            int mapIndex = i + 2;            
-            if (PlayerPrefs.GetString(mapIndex.ToString()) == "true") 
+            int mapIndex = i;            
+            if (instance.mapStatus[mapIndex] == true) 
             {
                 mapButtons[i].AddMapToGo(mapIndex);
             }
