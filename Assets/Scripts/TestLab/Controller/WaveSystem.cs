@@ -21,7 +21,7 @@ public class WaveSystem : MonoBehaviour
 
     public static int thisWaveEnemiesCount = 0;
 
-    public static int maxWave = 2;
+    public static int maxWave = 50;
 
     SceneStats sceneStats;
     AudioManager audioGO;
@@ -101,6 +101,11 @@ public class WaveSystem : MonoBehaviour
         int rand = (int)Random.Range(0f, (float)spawnPosition.Length);
         GameObject thisEnemy = Instantiate(enemyPrefabs[(int)randT], spawnPosition[rand].position, spawnPosition[rand].rotation);
         thisEnemy.GetComponent<WalkingAi>().SetCurrentKnot(spawnFirstKnot[rand]);
+    }
+
+    public void add40sec()
+    {
+        countdown += 40f;
     }
 
 }
