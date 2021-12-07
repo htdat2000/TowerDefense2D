@@ -37,7 +37,8 @@ public class MapButton : MonoBehaviour
 
     void GoToMap()
     {
-        SceneManager.LoadSceneAsync(mapIndex);
+        SceneManager.LoadSceneAsync(2);
+        instance.map = mapIndex;
         audioGO.Play("Click");
     }
 
@@ -47,9 +48,9 @@ public class MapButton : MonoBehaviour
         btn.onClick.AddListener(UnlockFunction);
     }
 
-    void UnlockFunction()
+    void UnlockFunction() 
     {
-        if(instance.gem - 2000 >= 0)
+        /*if(instance.gem - 2000 >= 0)
         {
             audioGO.Play("Click");
             instance.gem -= 2000;
@@ -61,7 +62,7 @@ public class MapButton : MonoBehaviour
         {
             audioGO.Play("Error");
             return;
-        }
+        }*/
         btn.onClick.RemoveListener(UnlockFunction);
         btn.onClick.AddListener(GoToMap);
     }

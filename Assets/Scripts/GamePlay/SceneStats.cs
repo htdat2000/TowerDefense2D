@@ -30,7 +30,7 @@ public class SceneStats : MonoBehaviour
         moneyText.text = Money.ToString();
         waveText.text = wavesNumber.ToString();
 
-        if(wavesNumber >= 5)
+        if(wavesNumber >= WaveSystem.maxWave + 1)
         {
             GameManager.gameWin = true;
         }
@@ -38,6 +38,6 @@ public class SceneStats : MonoBehaviour
 
     public void HealthEquation()
     {
-        equationValue = 10 + 5 * wavesNumber + 5 * wavesNumber * wavesNumber;
+        equationValue = 10 + 4 * wavesNumber + wavesNumber * wavesNumber;
     }
 }

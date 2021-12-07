@@ -19,7 +19,8 @@ public class PlayerStats : MonoBehaviour
     private float[] towerDefaultRate = {1.2f, 0.4f, 1.2f, 0.05f, 0};
 
     [Header("Map")]
-    public int map; //this var is used to keep the header
+    public int map;
+    public bool[] mapStatus = {true, true};
     public GameObject[] mapSet;
 
      [Header("Currencies")]
@@ -55,12 +56,9 @@ public class PlayerStats : MonoBehaviour
         }    
 
         GetStatsRebuild();
+        GetMapSet();
     }
 
-    void SetMapDefaultCondition()
-    {
-        PlayerPrefs.GetString("2", "false");
-    }
 
     public void GetStatsRebuild()
     {
@@ -78,6 +76,11 @@ public class PlayerStats : MonoBehaviour
             towerRate[i] = towerDefaultRate[i] + towerStar[i] * 0.1f;
             towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
         }
+    }
+
+    public void GetMapSet()
+    {
+        mapSet = Resources.LoadAll<GameObject>("MapSet"); 
     }
 
     public void Save()
