@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioGO = FindObjectOfType<AudioManager>();
-
         Time.timeScale = 1f;
         gameOver = false;
         gameWin = false;
@@ -21,13 +20,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        
+        if (gameOver)
+        {
+            return;
+        }
+            
         if(gameWin)
         {
             Win();
         }
-
-        if (gameOver)
-            return;
 
         if(SceneStats.Lives <= 0)
         {
@@ -40,15 +42,16 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         audioGO.Stop("Theme");
         audioGO.Play("Lose");   
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         gameOverUI.SetActive(true);       
     }
 
     void Win()
     {
+        gameOver = true;
         audioGO.Stop("Theme");
         audioGO.Play("Win");
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         gameWinUI.SetActive(true);  
     }
 }
