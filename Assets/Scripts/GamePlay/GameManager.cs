@@ -8,8 +8,11 @@ public class GameManager : MonoBehaviour
     public static bool gameWin;
     public GameObject gameWinUI;
 
+    AudioManager audioGO;
+
     void Start()
     {
+        audioGO = FindObjectOfType<AudioManager>();
         Time.timeScale = 1f;
         gameOver = false;
         gameWin = false;
@@ -17,13 +20,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        
+        if (gameOver)
+        {
+            return;
+        }
+            
         if(gameWin)
         {
             Win();
         }
-
-        if (gameOver)
-            return;
 
         if(SceneStats.Lives <= 0)
         {
@@ -34,7 +40,9 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         gameOver = true;
-        Time.timeScale = 0f;
+        audioGO.Stop("Theme");
+        audioGO.Play("Lose");   
+        //Time.timeScale = 0f;
         gameOverUI.SetActive(true);       
     }
 

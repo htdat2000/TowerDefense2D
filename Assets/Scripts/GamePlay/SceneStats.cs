@@ -30,7 +30,7 @@ public class SceneStats : MonoBehaviour
         moneyText.text = Money.ToString();
         waveText.text = wavesNumber.ToString();
 
-        if(wavesNumber >= 11)
+        if(wavesNumber >= WaveSystem.maxWave + 1)
         {
             GameManager.gameWin = true;
         }
