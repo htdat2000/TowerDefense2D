@@ -24,10 +24,13 @@ public class TowerStatusUI : MonoBehaviour
 
     private AudioManager audioGO;
 
+    private Color defaultButtonColor;
+
     void Start()
     {
         audioGO = FindObjectOfType<AudioManager>();
         AddButtonErrorSound();
+        defaultButtonColor = upgradeTowerLevelBtn.GetComponent<Image>().color;
     }
 
     public void UpdateStatusUI(float[] stats)
@@ -83,10 +86,15 @@ public class TowerStatusUI : MonoBehaviour
 
             if(isTower(tower))
             {
+                upgradeTowerLevelBtn.interactable = true;
                 if(!selectThisAgain)
                     selectedTowerPrefab.ToggleRangeSprite();
                 UpgradeAndSellTowerFunction();
                 SetTowerStatus();
+                if(towerPrefab.level >= 5)
+                {
+                    upgradeTowerLevelBtn.interactable = false;
+                }
             }
             else
             {

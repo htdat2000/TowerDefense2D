@@ -21,11 +21,11 @@ public class GameSpeed : MonoBehaviour
     {
         Debug.Log("click");
         if(timeScale == 0)
-            Time.timeScale = 1f;
-        else if (timeScale == 1)
             Time.timeScale = 2f;
-        else
+        else if (timeScale == 1)
             Time.timeScale = 3f;
+        else
+            Time.timeScale = 1f;
 
         timeScale = (timeScale + 1) % 3;
     }
