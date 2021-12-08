@@ -4517,7 +4517,7 @@ MonoBehaviour:
   towerStar: 0000000000000000000000000000000000000000
   towerStatus: 0101010101
   map: 0
-  mapStatus: 0101
+  mapStatus: 0100
   mapSet: []
   gem: 100000
   diamond: 0
