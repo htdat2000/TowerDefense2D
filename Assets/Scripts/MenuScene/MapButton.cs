@@ -50,7 +50,7 @@ public class MapButton : MonoBehaviour
 
     void UnlockFunction() 
     {
-        /*if(instance.gem - 2000 >= 0)
+        /*if(instance.gem - 2000 >= 0)      //unlock by money
         {
             audioGO.Play("Click");
             instance.gem -= 2000;
@@ -62,8 +62,10 @@ public class MapButton : MonoBehaviour
         {
             audioGO.Play("Error");
             return;
-        }*/
+        }
         btn.onClick.RemoveListener(UnlockFunction);
-        btn.onClick.AddListener(GoToMap);
+        btn.onClick.AddListener(GoToMap);*/
+        
+        audioGO.Play("Error");
     }
 }

@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Map")]
     public int map;
-    public bool[] mapStatus = {true, true};
+    public bool[] mapStatus = {true, false};
     public GameObject[] mapSet;
 
      [Header("Currencies")]
@@ -36,6 +36,7 @@ public class PlayerStats : MonoBehaviour
         "iceTowerStar", 
         "lightningTowerStar", //change to miner
         "poisonTowerStar"};
+    private bool isLoaded = false;
     void Awake()
     {
         if (playerStats != null)
@@ -50,9 +51,10 @@ public class PlayerStats : MonoBehaviour
         {
             Save();        
         }
-        else
+        else if(!isLoaded)
         {
             LoadData();
+            isLoaded = true;
         }    
 
         GetStatsRebuild();
@@ -95,14 +97,37 @@ public class PlayerStats : MonoBehaviour
       if(data == null)
       return;
 
-      int numberOfTower = towerArray.Length;
+      LoadTowerData(data);
+      LoadCurrenciesData(data); 
+      LoadMapData(data);        
+    }
+
+    void LoadTowerData(SaveData data)
+    {
+        int numberOfTower = towerArray.Length;
         
-      for(int i = 0; i < numberOfTower; i++)
+        for(int i = 0; i < numberOfTower; i++)
       {
         towerStar[i] = data.towerStar[i];
-        towerStatus[i] = data.towerStatus[i];
+        towerStatus[i] = data.towerStatus[i];           
       }   
-      gem = data.gem;
-      diamond = data.diamond;
+    }
+
+    void LoadCurrenciesData(SaveData data)
+    {
+        gem = data.gem;
+        diamond = data.diamond;
+    }
+
+    void LoadMapData(SaveData data)
+    {
+        int numberOfMap = mapStatus.Length;
+
+        mapStatus = new bool[numberOfMap];
+
+        for(int i = 0; i < numberOfMap; i++)
+        {
+            mapStatus[i] = data.mapStatus[i];
+        }
     }
 }

@@ -48,10 +48,18 @@ public class GameManager : MonoBehaviour
 
     void Win()
     {
-        gameOver = true;
-        audioGO.Stop("Theme");
-        audioGO.Play("Win");
-        //Time.timeScale = 0f;
-        gameWinUI.SetActive(true);  
+        Time.timeScale = 0f;
+        gameWinUI.SetActive(true);
+
+        if(PlayerStats.playerStats.mapStatus[PlayerStats.playerStats.map + 1] != true)
+        {
+            PlayerStats.playerStats.mapStatus[PlayerStats.playerStats.map + 1] = true;
+            Save();
+        }       
+    }
+
+    public void Save()
+    {
+        SaveSystem.Save(PlayerStats.playerStats);
     }
 }
