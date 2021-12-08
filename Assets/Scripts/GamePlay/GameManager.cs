@@ -48,13 +48,6 @@ public class GameManager : MonoBehaviour
 
     void Win()
     {
-<<<<<<< HEAD
-        gameOver = true;
-        audioGO.Stop("Theme");
-        audioGO.Play("Win");
-        //Time.timeScale = 0f;
-        gameWinUI.SetActive(true);  
-=======
         Time.timeScale = 0f;
         gameWinUI.SetActive(true);
 
@@ -68,6 +61,5 @@ public class GameManager : MonoBehaviour
     public void Save()
     {
         SaveSystem.Save(PlayerStats.playerStats);
->>>>>>> ef237b9912db238a11b1375053b47947d73b2e42
     }
 }
