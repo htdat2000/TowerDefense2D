@@ -86,6 +86,7 @@ public class TowerStatusUI : MonoBehaviour
 
             if(isTower(tower))
             {
+                upgradeTowerLevelBtn.GetComponent<Image>().color = defaultButtonColor;
                 upgradeTowerLevelBtn.interactable = true;
                 if(!selectThisAgain)
                     selectedTowerPrefab.ToggleRangeSprite();
@@ -93,6 +94,7 @@ public class TowerStatusUI : MonoBehaviour
                 SetTowerStatus();
                 if(towerPrefab.level >= 5)
                 {
+                    upgradeTowerLevelBtn.GetComponent<Image>().color = Color.cyan;
                     upgradeTowerLevelBtn.interactable = false;
                 }
             }
