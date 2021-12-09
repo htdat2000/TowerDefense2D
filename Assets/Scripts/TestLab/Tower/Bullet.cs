@@ -42,7 +42,8 @@ public class Bullet : MonoBehaviour
 
         if (e != null)
         {  
-            e.TakeDamage(damage);
+            if(e.health > 0)
+                e.TakeDamage(damage);
         }
     }
 

@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private AudioManager audioGO;
 
     private float slowTimeCount;
+    private bool wasDead = false;
     void Start()
     {
         health = healthRatio * SceneStats.equationValue;
@@ -39,18 +40,24 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        Debug.Log("Get hit");
         audioGO.Play("Hit");
         health -= amount;
         healthBar.fillAmount = health / startHealth;
         if(health <= 0)
         {
-            Die();
-            audioGO.Play("Die");
+            if(!wasDead)
+            {
+                Die();
+                audioGO.Play("Die");
+                return;
+            }
         }
         if(special == "Invisible")
         {
             ChangeTag();
             Invoke("ChangeTag", 1f);
+            return;
         }
     }
     public void Heal(float amount)
@@ -61,12 +68,12 @@ public class Enemy : MonoBehaviour
     }
     public void Die()
     {
+        wasDead = true;
         Instantiate(deadEffect, transform.position, transform.rotation);
         SceneStats.Money += value; 
         CheckRavenAround();
         WaveSystem.thisWaveEnemiesCount--;
         Destroy(gameObject);
-        // WaveSpawner.enemyAlives--;
     }
     public void SetSlowValue(float percentage, float slowTime)
     {
