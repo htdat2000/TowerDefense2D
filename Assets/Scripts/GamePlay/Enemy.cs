@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         if(special == "Invisible")
         {
             ChangeTag();
-            Invoke("ChangeTag", 1f);
+            Invoke("ChangeTag", 2f);
             return;
         }
     }

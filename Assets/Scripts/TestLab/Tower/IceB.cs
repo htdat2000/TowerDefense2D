@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class IceB : Bullet
 {
+    int parentLevel;
     public float slowPercentage;
     public float slowTime;
+
+    void Start()
+    {
+        parentLevel = parent.GetComponent<Tower>().level;
+        slowPercentage = 0.1f + 0.05f * parentLevel; 
+        Debug.Log(slowPercentage);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -15,7 +24,7 @@ public class IceB : Bullet
     }
     void HitTarget()
     {
-        Instantiate(hitEffect, transform.position, Quaternion.identity); 
+        Instantiate(hitEffect, transform.position, Quaternion.identity);
         Slow();
         Damage(target);    
         Destroy(gameObject);

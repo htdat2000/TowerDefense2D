@@ -14,9 +14,9 @@ public class PlayerStats : MonoBehaviour
     public bool[] towerStatus = {true, true, true, true, true};
 
     [Header("DefaultValue")]
-    private float[] towerDefaultDmg = {12,20,8,1,10};
-    private float[] towerDefaultRange = {1.5f, 2, 3f, 0f, 1.5f};
-    private float[] towerDefaultRate = {1.2f, 0.4f, 1.2f, 0.05f, 0};
+    private float[] towerDefaultDmg = {12,20,9,1,10};
+    private float[] towerDefaultRange = {2f, 1.5f, 1.5f, 0f, 1.5f};
+    private float[] towerDefaultRate = {1.5f, 0.4f, 1, 0.05f, 0};
 
     [Header("Map")]
     public int map;
