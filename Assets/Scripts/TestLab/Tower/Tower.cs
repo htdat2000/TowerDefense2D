@@ -159,11 +159,14 @@ public class Tower : MonoBehaviour
         {
             case 0:
                 damage = Mathf.Round(Mathf.Pow(2, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
-                range += 0.25f;
+                range += 0.5f;
                 break; 
             case 1:
                 damage = Mathf.Round(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 19,level - 1));
-                range += 0.5f;
+                range += 0.2f;
+                break;
+            case 2:
+                damage = Mathf.Round(Mathf.Pow(1, level - 1) + Mathf.Pow(3, level) + defaultDmg + Mathf.Pow(defaultDmg - 7,level - 1)); 
                 break;
             default:
                 Debug.Log("No Stats Equation");

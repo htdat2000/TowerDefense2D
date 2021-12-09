@@ -199,7 +199,7 @@ MonoBehaviour:
   range: 0
   fireRate: 0
   level: 1
-  costRatio: 0
+  costRatio: 1.25
   costUpgrade: 0
   sellValue: 0
   defaultDmg: 0
