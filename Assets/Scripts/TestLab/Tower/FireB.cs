@@ -17,21 +17,21 @@ public class FireB : Bullet
     void HitTarget()
     {
         Instantiate(hitEffect, transform.position, Quaternion.identity); 
-        Explode();
-        Damage(target);    
+        Explode(target);   
         Destroy(gameObject);
     }
 
-    void Explode()
+    void Explode(Transform target)
     {
         Vector2 explodeArea = new Vector2(transform.position.x, transform.position.y);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explodeArea, explosionRadius);
 
         foreach (Collider2D collider in colliders)
         {
-            if(collider.CompareTag("Enemy"))
+            if(collider.CompareTag("Enemy") && target == collider.transform)
             {
-                Damage(collider.transform);
+                if(collider.transform.GetComponent<Enemy>().health > 0)
+                    Damage(collider.transform);
             }
         }
     }
