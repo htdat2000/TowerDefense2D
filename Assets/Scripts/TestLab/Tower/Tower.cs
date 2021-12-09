@@ -158,15 +158,16 @@ public class Tower : MonoBehaviour
         switch (towerType)
         {
             case 0:
-                damage = Mathf.Round(Mathf.Pow(2, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
+                damage = Mathf.Round(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
                 range += 0.5f;
                 break; 
             case 1:
-                damage = Mathf.Round(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 19,level - 1));
+                damage = Mathf.Round(Mathf.Pow(3, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 19,level - 1));
                 range += 0.2f;
                 break;
             case 2:
-                damage = Mathf.Round(Mathf.Pow(1, level - 1) + Mathf.Pow(3, level) + defaultDmg + Mathf.Pow(defaultDmg - 7,level - 1)); 
+                damage = Mathf.Round(Mathf.Pow(1, level - 1) + Mathf.Pow(3, level) + defaultDmg + Mathf.Pow(defaultDmg - 7,level - 1));
+                range += 0.1f; 
                 break;
             default:
                 Debug.Log("No Stats Equation");
@@ -184,6 +185,7 @@ public class Tower : MonoBehaviour
             float tan = (target.position.x - this.transform.position.x) / (this.transform.position.y - target.position.y);
             GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * Mathf.Rad2Deg));
             Bullet bullet = bulletGO.GetComponent<Bullet>();
+            bullet.parent = gameObject;
             if(bullet != null)
             {
                 bullet.seekTarget(target);

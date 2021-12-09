@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed = 3f;
     //public GameObject impactEffect;
     public GameObject hitEffect;
+    public GameObject parent;
 
     public float damage;
 

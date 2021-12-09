@@ -21,7 +21,7 @@ public class WaveSystem : MonoBehaviour
 
     public static int thisWaveEnemiesCount = 0;
 
-    public static int maxWave = 2;
+    public static int maxWave = 50;
 
     SceneStats sceneStats;
     AudioManager audioGO;
