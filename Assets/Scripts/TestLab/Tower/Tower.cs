@@ -68,7 +68,7 @@ public class Tower : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
     public void TargetLock()
-    {
+    {   
         target = null;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
@@ -158,7 +158,7 @@ public class Tower : MonoBehaviour
         switch (towerType)
         {
             case 0:
-                damage = Mathf.Round(Mathf.Pow(4, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
+                damage = Mathf.Round(Mathf.Pow(5, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
                 range += 0.5f;
                 break; 
             case 1:
