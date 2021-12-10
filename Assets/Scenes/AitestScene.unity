@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6711,6 +6711,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
         type: 3}
+      propertyPath: sounds.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4661a95594e7ad449bf7a63da7976003, type: 3}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[13].name
+      value: Tictac
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0621d86dc33bf4840a9c64122760c1b6, type: 3}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[14].name
+      value: Ting
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[13].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[14].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
       propertyPath: sounds.Array.data[2].volume
       value: 0.7
       objectReference: {fileID: 0}
@@ -6718,6 +6753,16 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[3].volume
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[13].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920983422976223689, guid: f6856642277a38f4f9ce57fac56733a8,
+        type: 3}
+      propertyPath: sounds.Array.data[14].volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8920983422976223690, guid: f6856642277a38f4f9ce57fac56733a8,
         type: 3}

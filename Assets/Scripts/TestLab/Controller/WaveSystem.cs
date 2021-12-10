@@ -25,6 +25,8 @@ public class WaveSystem : MonoBehaviour
 
     SceneStats sceneStats;
     AudioManager audioGO;
+
+    private bool ticTacSoundPlaying = false;
     
     void Awake()
     {
@@ -44,6 +46,9 @@ public class WaveSystem : MonoBehaviour
         //Debug.Log("EnemyCount: " + thisWaveEnemiesCount);
         if (countdown <= 0f)                 //Create enemy
         {
+            audioGO.Play("Ting");
+            audioGO.Stop("Tictac");
+            ticTacSoundPlaying = false;
             spawning = true;
             if(waveCount < maxWave)
                 ChooseEnemyToSpawn();
@@ -56,6 +61,11 @@ public class WaveSystem : MonoBehaviour
         if (!spawning && thisWaveEnemiesCount <= 0 && !GameManager.gameOver) //&& thisWaveEnemiesCount == 0
         {
             countdown -= Time.deltaTime;            
+        }
+        if (countdown <= 4f && !ticTacSoundPlaying)
+        {
+            ticTacSoundPlaying = true;
+            audioGO.Play("Tictac");
         }
     }
 
