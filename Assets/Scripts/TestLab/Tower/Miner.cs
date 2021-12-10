@@ -34,6 +34,8 @@ public class Miner : Tower
     }
     void Mine()
     {
-        SceneStats.Money += (int)damage; 
+        //SceneStats.Money += (int)damage;
+        SceneStats.Money += (int)Mathf.Pow(2, level - 1); 
+        Debug.Log(Mathf.Pow(2, level - 1));
     }
 }
