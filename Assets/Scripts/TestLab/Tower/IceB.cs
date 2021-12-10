@@ -12,7 +12,6 @@ public class IceB : Bullet
     {
         parentLevel = parent.GetComponent<Tower>().level;
         slowPercentage = 0.1f + 0.05f * parentLevel; 
-        Debug.Log(slowPercentage);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
