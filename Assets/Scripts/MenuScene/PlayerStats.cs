@@ -5,13 +5,13 @@ public class PlayerStats : MonoBehaviour
 {       //O: archer; 1: fire; 2: ice; 3:miner; 4: poison
     public static PlayerStats playerStats;
     [Header("TowerStat")]
-    public float[] towerDamage;
-    public float[] towerRange;
-    public float[] towerRate;
-    public int[] towerUpgradeCost;
-    public int[] towerStar = {0,0,0,0,0};
+    public float[] towerDamage = {12,20,9,1,10};
+    public float[] towerRange = {2f, 1.5f, 1.5f, 0f, 1.5f};
+    public float[] towerRate = {1.5f, 0.4f, 1, 0.05f, 0};
+    //public int[] towerUpgradeCost;
+    //public int[] towerStar = {0,0,0,0,0};
 
-    public bool[] towerStatus = {true, true, true, false, false};
+    public bool[] towerStatus = {true, true, true, true, true};
 
     [Header("Map")]
     public int map;
