@@ -10,12 +10,12 @@ public class WaveSystem : MonoBehaviour
         // với spawnPositon
     public GameObject[] enemyPrefabs;
 
-    private float countdown = 10f; //đếm để spawn
+    public float countdown = 10f; //đếm để spawn
     public float timeBetweenWaves = 15f;
     public float timeBetweenSpawn = 0.5f;
 
     public int waveCount = 1;
-    private bool spawning = false;
+    public bool spawning = false;
 
     private float enemiesTypeRange = 4f;
 
@@ -25,6 +25,8 @@ public class WaveSystem : MonoBehaviour
 
     SceneStats sceneStats;
     AudioManager audioGO;
+
+    private bool ticTacSoundPlaying = false;
     
     void Awake()
     {
@@ -44,6 +46,9 @@ public class WaveSystem : MonoBehaviour
         //Debug.Log("EnemyCount: " + thisWaveEnemiesCount);
         if (countdown <= 0f)                 //Create enemy
         {
+            audioGO.Play("Ting");
+            audioGO.Stop("Tictac");
+            ticTacSoundPlaying = false;
             spawning = true;
             if(waveCount < maxWave)
                 ChooseEnemyToSpawn();
@@ -56,6 +61,11 @@ public class WaveSystem : MonoBehaviour
         if (!spawning && thisWaveEnemiesCount <= 0 && !GameManager.gameOver) //&& thisWaveEnemiesCount == 0
         {
             countdown -= Time.deltaTime;            
+        }
+        if (countdown <= 4f && !ticTacSoundPlaying)
+        {
+            ticTacSoundPlaying = true;
+            audioGO.Play("Tictac");
         }
     }
 

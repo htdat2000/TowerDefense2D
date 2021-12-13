@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed = 3f;
     //public GameObject impactEffect;
     public GameObject hitEffect;
+    public GameObject parent;
 
     public float damage;
 
@@ -42,7 +43,8 @@ public class Bullet : MonoBehaviour
 
         if (e != null)
         {  
-            e.TakeDamage(damage);
+            if(e.health > 0)
+                e.TakeDamage(damage);
         }
     }
 
