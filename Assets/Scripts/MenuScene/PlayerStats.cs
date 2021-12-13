@@ -5,18 +5,10 @@ public class PlayerStats : MonoBehaviour
 {       //O: archer; 1: fire; 2: ice; 3:miner; 4: poison
     public static PlayerStats playerStats;
     [Header("TowerStat")]
-    public float[] towerDamage;
-    public float[] towerRange;
-    public float[] towerRate;
-    public int[] towerUpgradeCost;
-    public int[] towerStar = {0,0,0,0,0};
-
+    public float[] towerDamage  = {12,20,9,1,10};
+    public float[] towerRange = {2f, 1.5f, 1.5f, 0f, 1.5f};
+    public float[] towerRate = {1.5f, 0.4f, 1, 0.05f, 0};
     public bool[] towerStatus = {true, true, true, true, true};
-
-    [Header("DefaultValue")]
-    private float[] towerDefaultDmg = {12,20,9,1,10};
-    private float[] towerDefaultRange = {2f, 1.5f, 1.5f, 0f, 1.5f};
-    private float[] towerDefaultRate = {1.5f, 0.4f, 1, 0.05f, 0};
 
     [Header("Map")]
     public int map;
@@ -57,27 +49,7 @@ public class PlayerStats : MonoBehaviour
             isLoaded = true;
         }    
 
-        GetStatsRebuild();
         GetMapSet();
-    }
-
-
-    public void GetStatsRebuild()
-    {
-        int numberOfTower = towerArray.Length;
-
-        towerDamage = new float[numberOfTower];
-        towerRange = new float[numberOfTower];
-        towerRate = new float[numberOfTower];
-        towerUpgradeCost = new int[numberOfTower];
-
-        for (int i = 0; i < numberOfTower; i++)
-        {        
-            towerDamage[i] = towerDefaultDmg[i] + towerStar[i] ;
-            towerRange[i] = towerDefaultRange[i];
-            towerRate[i] = towerDefaultRate[i] + towerStar[i] * 0.1f;
-            towerUpgradeCost[i] = 500 + towerStar[i] * 1000 + towerStar[i] * 500;
-        }
     }
 
     public void GetMapSet()
@@ -108,7 +80,6 @@ public class PlayerStats : MonoBehaviour
         
         for(int i = 0; i < numberOfTower; i++)
       {
-        towerStar[i] = data.towerStar[i];
         towerStatus[i] = data.towerStatus[i];           
       }   
     }
