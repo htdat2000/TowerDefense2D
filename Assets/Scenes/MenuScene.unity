@@ -4119,7 +4119,7 @@ MonoBehaviour:
   towerRate: []
   towerUpgradeCost: 
   towerStar: 0000000000000000000000000000000000000000
-  towerStatus: 0101010101
+  towerStatus: 0101010000
   map: 0
   mapStatus: 0100
   mapSet: []

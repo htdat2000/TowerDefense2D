@@ -944,6 +944,7 @@ GameObject:
   - component: {fileID: 322624296}
   - component: {fileID: 322624295}
   - component: {fileID: 322624298}
+  - component: {fileID: 322624299}
   m_Layer: 5
   m_Name: ArcherTowerButton
   m_TagString: Untagged
@@ -1075,6 +1076,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3545019589981822270, guid: a95ac08cc06f3b94388a5d80ab06d221, type: 3}
   cost: 3
+--- !u!114 &322624299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322624293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2922d5bd8d92f354586863796c54bc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPanel: {fileID: 1979550830}
 --- !u!1 &323526682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,8 +1349,9 @@ GameObject:
   - component: {fileID: 367874136}
   - component: {fileID: 367874135}
   - component: {fileID: 367874134}
+  - component: {fileID: 367874138}
   m_Layer: 5
-  m_Name: ArcherTowerButton
+  m_Name: FireTowerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1466,6 +1481,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367874132}
   m_CullTransparentMesh: 0
+--- !u!114 &367874138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367874132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2922d5bd8d92f354586863796c54bc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPanel: {fileID: 1979550830}
 --- !u!1 &424334610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4387,8 +4415,9 @@ GameObject:
   - component: {fileID: 1604940035}
   - component: {fileID: 1604940034}
   - component: {fileID: 1604940033}
+  - component: {fileID: 1604940037}
   m_Layer: 5
-  m_Name: ArcherTowerButton
+  m_Name: IceTowerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4406,7 +4435,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1979550828}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4425,8 +4454,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6015e713d68672409296f9c299af3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5321448126448197643, guid: 873ff3f6a76373846be5fc4c5cce356a, type: 3}
-  cost: 4
+  prefab: {fileID: 4242273939398054615, guid: 42b16d92444988e4aad2cece5243053c, type: 3}
+  cost: 5
 --- !u!114 &1604940034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4500,7 +4529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4762b48fa781e484bb5c72d38378830e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4fd38650a4c98db4dabc731738bea42b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4518,6 +4547,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604940031}
   m_CullTransparentMesh: 0
+--- !u!114 &1604940037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604940031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2922d5bd8d92f354586863796c54bc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPanel: {fileID: 1979550830}
 --- !u!1 &1638494877
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,8 +4925,9 @@ GameObject:
   - component: {fileID: 1907583147}
   - component: {fileID: 1907583146}
   - component: {fileID: 1907583145}
+  - component: {fileID: 1907583149}
   m_Layer: 5
-  m_Name: ArcherTowerButton
+  m_Name: MinerTowerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4902,7 +4945,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1979550828}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4921,8 +4964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6015e713d68672409296f9c299af3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4242273939398054615, guid: 42b16d92444988e4aad2cece5243053c, type: 3}
-  cost: 5
+  prefab: {fileID: 5321448126448197643, guid: 873ff3f6a76373846be5fc4c5cce356a, type: 3}
+  cost: 4
 --- !u!114 &1907583146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4996,7 +5039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4fd38650a4c98db4dabc731738bea42b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4762b48fa781e484bb5c72d38378830e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5014,6 +5057,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907583143}
   m_CullTransparentMesh: 0
+--- !u!114 &1907583149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907583143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2922d5bd8d92f354586863796c54bc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPanel: {fileID: 1979550830}
 --- !u!1 &1919490215
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,6 +5543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979550828}
   - component: {fileID: 1979550829}
+  - component: {fileID: 1979550830}
   m_Layer: 5
   m_Name: RightContents
   m_TagString: Untagged
@@ -5507,8 +5564,8 @@ RectTransform:
   m_Children:
   - {fileID: 322624294}
   - {fileID: 367874133}
-  - {fileID: 1907583144}
   - {fileID: 1604940032}
+  - {fileID: 1907583144}
   m_Father: {fileID: 353309550}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5541,6 +5598,19 @@ MonoBehaviour:
   m_Spacing: {x: 8, y: 8}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1979550830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979550827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20d562a1cece7a48ac23fc2ad41e122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerButtons: []
 --- !u!4 &2037840797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1911037813562702425, guid: ec40b3b38d14c9b449f72fc0be86371f,

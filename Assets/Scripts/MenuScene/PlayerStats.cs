@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     public int[] towerUpgradeCost;
     public int[] towerStar = {0,0,0,0,0};
 
-    public bool[] towerStatus = {true, true, true, true, true};
+    public bool[] towerStatus = {true, true, true, false, false};
 
     [Header("DefaultValue")]
     private float[] towerDefaultDmg = {12,20,9,1,10};
