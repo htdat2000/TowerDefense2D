@@ -4114,25 +4114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8701db623d57364389f253f507ab7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerDamage:
-  - 12
-  - 20
-  - 9
-  - 1
-  - 10
-  towerRange:
-  - 2
-  - 1.5
-  - 1.5
-  - 0
-  - 1.5
-  towerRate:
-  - 1.5
-  - 0.4
-  - 1
-  - 0.05
-  - 0
-  towerStatus: 0101010101
+  towerDamage: []
+  towerRange: []
+  towerRate: []
+  towerUpgradeCost: 
+  towerStar: 0000000000000000000000000000000000000000
+  towerStatus: 0101010000
   map: 0
   mapStatus: 0100
   mapSet: []
