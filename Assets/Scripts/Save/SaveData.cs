@@ -24,14 +24,13 @@ public class SaveData
 
     void GetTowerData(PlayerStats _playerStats)
     {
-        int numberOfTower = _playerStats.towerArray.Length;
+        int numberOfTower = _playerStats.towerArray.Length;      
         
-        towerStar = new int[numberOfTower];
         towerStatus = new bool[numberOfTower];
 
         for(int i = 0; i < numberOfTower; i++)
         {
-            towerStar[i] = _playerStats.towerStar[i];
+            
             towerStatus[i] = _playerStats.towerStatus[i];        
         }
     }

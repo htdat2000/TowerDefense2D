@@ -13,10 +13,6 @@ public class UpgradePageController : MonoBehaviour
     PlayerStats instance;
 
     //chổ này đem lên chưa biết để header là gì
-    private int towerStar;
-    private int towerUpgradeCost;
-
-    private string towerStarString;
     private int towerType;
 
     private AudioManager audioGO;
@@ -34,11 +30,7 @@ public class UpgradePageController : MonoBehaviour
         towerRange.text = instance.towerRange[_towerType].ToString();
         towerFireRate.text = instance.towerRate[_towerType].ToString();
         specialEffect.text = null;
-
-        towerStar = instance.towerStar[_towerType];
-        towerUpgradeCost = instance.towerUpgradeCost[_towerType];
-
-        towerStarString = instance.towerArray[_towerType]; 
+ 
         towerType = _towerType;
 
         if(btn.gameObject.activeSelf != true)
@@ -60,35 +52,12 @@ public class UpgradePageController : MonoBehaviour
         else
         {
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(UpgradeButton);
-        }
-    }
-
-    public void UpgradeButton()
-    {
-        if (towerStar < 3 && (instance.gem >= towerUpgradeCost))
-        {   
-            audioGO.Play("Click");
-
-            towerStar++;
-            instance.towerStar[towerType] = towerStar;      
-
-            instance.gem -= towerUpgradeCost;
-        
-            Save();
-
-            instance.GetStatsRebuild();
-            ResetUpgradeTab();
-        }
-        else
-        {
-            audioGO.Play("Error");
         }
     }
 
     public void UnlockButton()
     {
-        if (instance.gem >= towerUpgradeCost)
+        if (instance.gem >= 4000)
         {      
             audioGO.Play("Click");
 
@@ -97,8 +66,6 @@ public class UpgradePageController : MonoBehaviour
             instance.gem -= 4000; //unlock cost 
     
             Save();
-
-            instance.GetStatsRebuild();
             ResetUpgradeTab();
         }
         else
