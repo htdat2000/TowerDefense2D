@@ -20,6 +20,7 @@ public class Knot : MonoBehaviour
     private TowerStatusUI sUI;
 
     private AudioManager audioGO;
+    NodeImage nodeImage;
 
     void Start()
     {
@@ -27,7 +28,8 @@ public class Knot : MonoBehaviour
         if (rand < 1 && (xindex != 0 && yindex != 0 && yindex != KnotsManager.noOfRow-1 && xindex != KnotsManager.noOfRow-1))
         {
             status = "Obstacle";
-            GetComponent<NodeImage>().SetObstacle();
+            nodeImage = GetComponent<NodeImage>();
+            nodeImage.SetObstacle();
             knotValue = 90;
         }
 
@@ -53,6 +55,11 @@ public class Knot : MonoBehaviour
         {
             audioGO.Play("Click");
             SelectTower();
+        }
+        else if(status == "Obstacle")
+        {
+            audioGO.Play("Click");
+            SelectObstacle(this);
         }
         else
         {
@@ -129,5 +136,18 @@ public class Knot : MonoBehaviour
             GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
             sUI = sUIGO.GetComponent<TowerStatusUI>();
         }
+    }
+
+    void SelectObstacle(Knot _knot)
+    {
+        GetStatusUIComponent();
+        sUI.SetToNonOutlineSelected();
+        sUI.UpdateSelectedObstacle(_knot);
+    }
+
+    public void DestroyObstacle()
+    {
+        nodeImage.SetSprite();
+        UpdateStatus();
     }
 }

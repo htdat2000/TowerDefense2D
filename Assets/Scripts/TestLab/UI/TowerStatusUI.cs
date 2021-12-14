@@ -100,6 +100,9 @@ public class TowerStatusUI : MonoBehaviour
             }
             else
             {
+                upgradeTowerLevelBtn.onClick.RemoveAllListeners();
+                sellTowerBtn.onClick.RemoveAllListeners();
+                AddButtonErrorSound();
                 SetEnemyStatus();
             }
         }
@@ -169,4 +172,20 @@ public class TowerStatusUI : MonoBehaviour
     {
         audioGO.Play("Error");
     }
+
+    public void UpdateSelectedObstacle(Knot _knot)
+    {
+        AddButtonDestroyObstacle(_knot);
+    }
+        
+    void AddButtonDestroyObstacle(Knot _knot)
+    {
+  
+        upgradeTowerLevelBtn.onClick.RemoveAllListeners();
+        sellTowerBtn.onClick.RemoveAllListeners();
+
+        upgradeTowerLevelBtn.onClick.AddListener(_knot.DestroyObstacle);
+        sellTowerBtn.onClick.AddListener(PlayErrorSound);
+    }
+
 }

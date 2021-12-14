@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4114,12 +4114,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8701db623d57364389f253f507ab7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerDamage: []
-  towerRange: []
-  towerRate: []
-  towerUpgradeCost: 
-  towerStar: 0000000000000000000000000000000000000000
-  towerStatus: 0101010000
+  towerDamage:
+  - 12
+  - 20
+  - 9
+  - 1
+  - 10
+  towerRange:
+  - 2
+  - 1.5
+  - 1.5
+  - 0
+  - 1.5
+  towerRate:
+  - 1.5
+  - 0.4
+  - 1
+  - 0.05
+  - 0
+  towerStatus: 0101010101
   map: 0
   mapStatus: 0100
   mapSet: []
