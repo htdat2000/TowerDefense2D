@@ -142,7 +142,7 @@ public class Tower : MonoBehaviour
         audioGO.Play("Click");
         SceneStats.Money += sellValue;
     
-        myStand.UpdateStatus();
+        myStand.SetObstacleStatus();
         Destroy(this.gameObject);
     }
     public void GetCostUpgrade()

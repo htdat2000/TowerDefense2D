@@ -20,7 +20,7 @@ public class Knot : MonoBehaviour
     private TowerStatusUI sUI;
 
     private AudioManager audioGO;
-    NodeImage nodeImage;
+    private NodeImage nodeImage;
 
     void Start()
     {
@@ -149,5 +149,15 @@ public class Knot : MonoBehaviour
     {
         nodeImage.SetSprite();
         UpdateStatus();
+    }
+
+    public void SetObstacleStatus()
+    {
+        if(!nodeImage)
+        nodeImage = GetComponent<NodeImage>();
+
+        nodeImage.SetObstacle();
+        status = "Obstacle";
+        knotValue = 90;
     }
 }
