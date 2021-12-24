@@ -8,11 +8,17 @@ public class WalkingAi : MonoBehaviour
     public GameObject nextKnot;
     public GameObject currentKnot;
     private AudioManager audioGO;
+
+    private int x_endpoint;
+    private int y_endpoint;
     void Awake()
     {
         audioGO = FindObjectOfType<AudioManager>();
         currentKnot = KnotsManager.KnotArray[8,8];
         UpdateNextKnot();
+
+        x_endpoint = KnotsManager.x_endPoint;
+        y_endpoint = KnotsManager.y_endPoint;
     }
     void Update()
     {
@@ -24,7 +30,7 @@ public class WalkingAi : MonoBehaviour
         transform.Translate(dir.normalized * speed/10 * Time.deltaTime, Space.World);
         if(Vector2.Distance(transform.position, nextKnot.transform.position) <= 0.1f)
         {
-            if(Vector2.Distance(transform.position, KnotsManager.KnotArray[0,0].transform.position) <= 0.1f)
+            if(Vector2.Distance(transform.position, KnotsManager.KnotArray[y_endpoint,x_endpoint].transform.position) <= 0.1f)
             {
                 audioGO.Play("EndPoint");
                 SceneStats.Lives -= 1;
@@ -39,6 +45,7 @@ public class WalkingAi : MonoBehaviour
     {
         int xOfNextKnot = currentKnot.GetComponent<Knot>().nextXindex;
         int yOfNextKnot = currentKnot.GetComponent<Knot>().nextYindex;
+        Debug.Log("next dir: " + xOfNextKnot + yOfNextKnot);
         nextKnot = KnotsManager.KnotArray[xOfNextKnot,yOfNextKnot];
     }
     public void SetCurrentKnot(GameObject setKnot)

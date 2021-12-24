@@ -7,8 +7,14 @@ public class KnotsManager : MonoBehaviour
     public static GameObject[,] KnotArray; //Mảng 2 chiều để mô phỏng lại map
     private int noOfChild;
     public static int noOfRow;
+
+    public Vector2 endPoint;
+    public static int x_endPoint;
+    public static int y_endPoint;
     void Awake()
     {
+        x_endPoint = (int)endPoint.x;
+        y_endPoint = (int)endPoint.y;
         noOfChild = transform.childCount;
         noOfRow = (int)Math.Sqrt(noOfChild);
         KnotArray = new GameObject[noOfRow,noOfRow];
@@ -39,8 +45,8 @@ public class KnotsManager : MonoBehaviour
     void InitKnot(GameObject Knot)
     {
         Knot.GetComponent<Knot>().distanceValue = 999;
-        Knot.GetComponent<Knot>().nextXindex = -1;
-        Knot.GetComponent<Knot>().nextYindex = -1;
+        //Knot.GetComponent<Knot>().nextXindex = -1;
+        //Knot.GetComponent<Knot>().nextYindex = -1;
         Knot.GetComponent<Knot>().isAccept = false;
     }
     void CalculateMapRoute()
@@ -52,11 +58,12 @@ public class KnotsManager : MonoBehaviour
                 InitKnot(KnotArray[i,j]);
             }        
         }
-        
-        //Tạo nút gốc, do đặt nút gốc là [0,0]
-        KnotArray[0,0].GetComponent<Knot>().distanceValue = KnotArray[0,0].GetComponent<Knot>().knotValue;
 
-        GameObject currentKnot = KnotArray[0,0];
+        Debug.Log("endpoint is: [" + y_endPoint + "," + x_endPoint + "]");
+        //Tạo nút gốc, do đặt nút gốc là [y_endpoint,x_endpoint]
+        KnotArray[y_endPoint,x_endPoint].GetComponent<Knot>().distanceValue = KnotArray[y_endPoint,x_endPoint].GetComponent<Knot>().knotValue;
+
+        GameObject currentKnot = KnotArray[y_endPoint,x_endPoint];
         for(int i = 0; i < noOfChild - 1; i++)
             {
                 currentKnot = WhoIsNext(); //chọn ra knot có distanceValue thấp nhất nhưng chưa có isAccept
@@ -131,4 +138,9 @@ public class KnotsManager : MonoBehaviour
         CalculateMapRoute();
     }
 
+    public void setEndPoint(int x, int y){
+        endPoint = new Vector2(x, y);
+        x_endPoint = x;
+        y_endPoint = y;
+    }
 }
