@@ -193,14 +193,14 @@ public class Tower : MonoBehaviour
             }
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    /*private void OnTriggerStay2D(Collider2D collision)  //Enemy destroy tower when contact
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             myStand.SetObstacleStatus();
             Destroy(gameObject);
         }
-    }
+    }*/
 
     public void DrawRange()
     {

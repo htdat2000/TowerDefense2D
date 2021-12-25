@@ -8,14 +8,17 @@ public class WalkingAi : MonoBehaviour
     public GameObject nextKnot;
     public GameObject currentKnot;
     private AudioManager audioGO;
+    private bool isWalking = true;
+
     void Awake()
     {
         audioGO = FindObjectOfType<AudioManager>();
         currentKnot = KnotsManager.KnotArray[8,8];
         UpdateNextKnot();
     }
-    void Update()
+    void FixedUpdate()
     {
+        if(isWalking)
         Walk();
     }
     void Walk()
@@ -44,5 +47,37 @@ public class WalkingAi : MonoBehaviour
     public void SetCurrentKnot(GameObject setKnot)
     {
         nextKnot = setKnot;
+    }
+    void ControllWalking()
+    {
+        Vector2 aiPosition = new Vector2(transform.position.x, transform.position.y);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(aiPosition, 1);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if(collider.CompareTag("Tower"))
+            {
+                return;
+            }
+            else
+            {
+                Walk();   
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Tower"))
+        {
+            isWalking = false;
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Tower"))
+        {
+            isWalking = true;
+        }
     }
 }
