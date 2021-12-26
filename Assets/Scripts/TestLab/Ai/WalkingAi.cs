@@ -48,24 +48,7 @@ public class WalkingAi : MonoBehaviour
     {
         nextKnot = setKnot;
     }
-    void ControllWalking()
-    {
-        Vector2 aiPosition = new Vector2(transform.position.x, transform.position.y);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(aiPosition, 1);
-
-        foreach (Collider2D collider in colliders)
-        {
-            if(collider.CompareTag("Tower"))
-            {
-                return;
-            }
-            else
-            {
-                Walk();   
-            }
-        }
-    }
-
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Tower"))

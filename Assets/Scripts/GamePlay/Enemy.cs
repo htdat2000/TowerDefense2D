@@ -14,12 +14,18 @@ public class Enemy : MonoBehaviour
     public int value;
     public float startSpeed;
     public Image healthBar;
+    
+    private int damage = 50;
+    private float attackSpeed = 1;
+    private float attackCooldown = 1;
+    private Tower target;
 
     public GameObject deadEffect;
     private AudioManager audioGO;
 
     private float slowTimeCount;
     private bool wasDead = false;
+
     void Start()
     {
         health = healthRatio * SceneStats.equationValue;
@@ -37,6 +43,7 @@ public class Enemy : MonoBehaviour
                 SetMySpeed();
             }
         }
+        AttackTower();  
     }
     public void TakeDamage(float amount)
     {
@@ -108,6 +115,10 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage(collision.GetComponent<Bullet>().damage);
         }
+        else if(collision.CompareTag("Tower"))
+        {
+            target = collision.GetComponent<Tower>();
+        }
     }
     void OnMouseDown()
     {
@@ -145,5 +156,19 @@ public class Enemy : MonoBehaviour
 
         sUI.UpdateStatusUI(statsArray);
         sUI.UpdateSelectedTower(gameObject, null);
+    }
+
+    void AttackTower()
+    {
+        if(target != null)
+        {
+            if(attackCooldown <= 0)
+            {
+                target.TowerTakeDamage(damage);
+                attackCooldown = 1/attackSpeed;
+            }
+            else
+                attackCooldown -= Time.deltaTime;
+        }
     }
 }
