@@ -27,7 +27,6 @@ public class TowerPanel : MonoBehaviour
         {
             towerButtons[i].gameObject.SetActive(PlayerStats.playerStats.towerStatus[i]);
             string status = PlayerStats.playerStats.towerStatus[i].ToString();
-            Debug.Log(i + status );
         }
     }
 }

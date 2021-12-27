@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     public float[] towerDamage = {12,20,9,1,10};
     public float[] towerRange = {2f, 1.5f, 1.5f, 0f, 1.5f};
     public float[] towerRate = {1.5f, 0.4f, 1, 0.05f, 0};
+    public float[] towerHealth = {100, 100, 100, 100, 100};
     //public int[] towerUpgradeCost;
     //public int[] towerStar = {0,0,0,0,0};
 

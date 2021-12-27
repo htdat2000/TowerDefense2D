@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
     public float damage;
     public float range;
     public float fireRate;
+    private float health;
     
     public int level = 1;
     public float costRatio;
@@ -100,6 +101,7 @@ public class Tower : MonoBehaviour
         damage = instance.towerDamage[towerType];
         fireRate = instance.towerRate[towerType];
         range = instance.towerRange[towerType];
+        health = instance.towerHealth[towerType];
     }
     public void OnMouseDown()
     {
@@ -193,13 +195,10 @@ public class Tower : MonoBehaviour
             }
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void DestroyTower()  //destroy tower 
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            myStand.SetObstacleStatus();
-            Destroy(gameObject);
-        }
+        myStand.SetObstacleStatus();
+        Destroy(gameObject);  
     }
 
     public void DrawRange()
@@ -221,5 +220,14 @@ public class Tower : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public void TowerTakeDamage(int _damage)
+    {
+        health -= _damage;
+        if(health < 0)
+        {
+            DestroyTower();
+        }
     }
 }
