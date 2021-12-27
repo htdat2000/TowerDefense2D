@@ -15,9 +15,11 @@ public class Enemy : MonoBehaviour
     public float startSpeed;
     public Image healthBar;
     
-    private int damage = 50;
+    private int damage = 100;
     private float attackSpeed = 1;
-    private float attackCooldown = 1;
+    private float attackCooldown = 0;
+    
+    private GameObject targetGO;
     private Tower target;
 
     public GameObject deadEffect;
@@ -43,7 +45,6 @@ public class Enemy : MonoBehaviour
                 SetMySpeed();
             }
         }
-        AttackTower();  
     }
     public void TakeDamage(float amount)
     {
@@ -115,11 +116,23 @@ public class Enemy : MonoBehaviour
         {
             TakeDamage(collision.GetComponent<Bullet>().damage);
         }
-        else if(collision.CompareTag("Tower"))
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Tower"))
         {
-            target = collision.GetComponent<Tower>();
+            if(targetGO != collision.gameObject)
+            {
+                targetGO = collision.gameObject;
+                target = collision.GetComponent<Tower>();
+            }
+            else
+            AttackTower();
+            Debug.Log(attackCooldown);
         }
     }
+
     void OnMouseDown()
     {
         selectMe();
