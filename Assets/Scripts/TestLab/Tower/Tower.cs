@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tower : MonoBehaviour
 {
@@ -105,6 +106,8 @@ public class Tower : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+			return;
         myStand.selectMe();
         audioGO.Play("Click");
     }
