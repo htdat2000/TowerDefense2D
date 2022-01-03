@@ -48,7 +48,7 @@ public class WalkingAi : MonoBehaviour
     {
         int xOfNextKnot = currentKnot.GetComponent<Knot>().nextXindex;
         int yOfNextKnot = currentKnot.GetComponent<Knot>().nextYindex;
-        Debug.Log("next dir: " + xOfNextKnot + yOfNextKnot);
+        //Debug.Log("next dir: " + xOfNextKnot + yOfNextKnot);
         nextKnot = KnotsManager.KnotArray[xOfNextKnot,yOfNextKnot];
     }
     public void SetCurrentKnot(GameObject setKnot)

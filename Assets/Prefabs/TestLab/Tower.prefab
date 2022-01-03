@@ -131,13 +131,17 @@ MonoBehaviour:
   costRatio: 0
   costUpgrade: 0
   sellValue: 0
+  defaultDmg: 0
   enemyTag: Enemy
   bulletPrefab: {fileID: 4963621235461401478, guid: 0bcf9a85b75705e4b952da6435528a12,
     type: 3}
   firePoint: {fileID: 1946493770875708975}
   towerRangePrefab: {fileID: 0}
+  towerRangeGO: {fileID: 0}
+  fireCountdown: 1
   anim: {fileID: 0}
   myStand: {fileID: 0}
+  audioGO: {fileID: 0}
 --- !u!50 &7937827518136582242
 Rigidbody2D:
   serializedVersion: 4
@@ -156,7 +160,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!1 &6031019285033743206

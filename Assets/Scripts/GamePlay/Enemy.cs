@@ -47,9 +47,11 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    #region enemy default function region
     public void TakeDamage(float amount)
     {
-        Debug.Log("Get hit");
+        //Debug.Log("Get hit");
         audioGO.Play("Hit");
         health -= amount;
         healthBar.fillAmount = health / startHealth;
@@ -69,12 +71,12 @@ public class Enemy : MonoBehaviour
             return;
         }
     }
-    public void Heal(float amount)
+
+    void SetMySpeed()
     {
-        health += amount;
-        health = Mathf.Clamp(health, 0, startHealth);
-        healthBar.fillAmount = health / startHealth;
+        gameObject.GetComponent<WalkingAi>().speed = startSpeed;
     }
+
     public void Die()
     {
         wasDead = true;
@@ -84,20 +86,28 @@ public class Enemy : MonoBehaviour
         WaveSystem.thisWaveEnemiesCount--;
         Destroy(gameObject);
     }
+    #endregion
+
+    #region Enemy special effect(buff or debuff)
+    public void Heal(float amount)
+    {
+        health += amount;
+        health = Mathf.Clamp(health, 0, startHealth);
+        healthBar.fillAmount = health / startHealth;
+    }
+    
     public void SetSlowValue(float percentage, float slowTime)
     {
         //slowdown
         gameObject.GetComponent<WalkingAi>().speed = startSpeed - startSpeed * percentage;
         slowTimeCount = slowTime;
     }
+
     public void Poisoned(float percentage)
     {
         health -= health * percentage;
     }
-    void SetMySpeed()
-    {
-        gameObject.GetComponent<WalkingAi>().speed = startSpeed;
-    }
+    
     void ChangeTag()
     {
         if(transform.gameObject.tag == enemyTag)
@@ -111,36 +121,7 @@ public class Enemy : MonoBehaviour
             this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            TakeDamage(collision.GetComponent<Bullet>().damage);
-        }
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Tower"))
-        {
-            if(targetGO != collision.gameObject)
-            {
-                targetGO = collision.gameObject;
-                target = collision.GetComponent<Tower>();
-            }
-            else
-            AttackTower();
-            Debug.Log(attackCooldown);
-        }
-    }
-
-    void OnMouseDown()
-    {
-        if (EventSystem.current.IsPointerOverGameObject())
-			return;
-        selectMe();
-        audioGO.Play("Click");
-    }
     void CheckRavenAround()
     {
         GameObject[] ravens = GameObject.FindGameObjectsWithTag("Enemy");
@@ -156,6 +137,56 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Collision Interaction
+    private void OnTriggerEnter2D(Collider2D collision) //Detect bullet collision
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(collision.GetComponent<Bullet>().damage);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) //Detect tower collision
+    {
+        if(collision.CompareTag("Tower"))
+        {
+            if(targetGO != collision.gameObject)
+            {
+                targetGO = collision.gameObject;
+                target = collision.GetComponent<Tower>();
+            }
+            else
+            AttackTower();
+            //Debug.Log(attackCooldown);
+        }
+    }
+
+    void AttackTower()
+    {
+        if(target != null)
+        {
+            if(attackCooldown <= 0)
+            {
+                target.TowerTakeDamage(damage);
+                attackCooldown = 1/attackSpeed;
+            }
+            else
+                attackCooldown -= Time.deltaTime;
+        }
+    }
+    #endregion
+
+    #region Interactable function
+    void OnMouseDown()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+			return;
+        selectMe();
+        audioGO.Play("Click");
+    }
+    
     void selectMe()
     {
         GameObject sUIGO =  GameObject.FindGameObjectWithTag("StatusUI");
@@ -173,18 +204,7 @@ public class Enemy : MonoBehaviour
         sUI.UpdateStatusUI(statsArray);
         sUI.UpdateSelectedTower(gameObject, null);
     }
+    #endregion
 
-    void AttackTower()
-    {
-        if(target != null)
-        {
-            if(attackCooldown <= 0)
-            {
-                target.TowerTakeDamage(damage);
-                attackCooldown = 1/attackSpeed;
-            }
-            else
-                attackCooldown -= Time.deltaTime;
-        }
-    }
+    
 }
