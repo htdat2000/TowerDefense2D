@@ -81,10 +81,12 @@ public class PlayerStats : MonoBehaviour
     void LoadTowerData(SaveData data)
     {
         int numberOfTower = data.towerStatus.Length;
-        
+        Debug.Log(numberOfTower);
         for(int i = 0; i < numberOfTower; i++)
       {
-        towerStatus[i] = data.towerStatus[i];           
+          if(data.towerStatus[i] != null)
+        towerStatus[i] = data.towerStatus[i]; 
+                  
       }   
     }
 
