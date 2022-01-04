@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tower : MonoBehaviour
 {
@@ -68,6 +69,8 @@ public class Tower : MonoBehaviour
         }
         fireCountdown -= Time.deltaTime;
     }
+
+    #region default tower function
     public void TargetLock()
     {   
         target = null;
@@ -96,15 +99,44 @@ public class Tower : MonoBehaviour
         Invoke("SpawnBullet", 0.2f);
         audioGO.Play(shootSFX[towerType]);
     }
-    public void GetStats()
+
+    public void SpawnBullet()
     {
-        damage = instance.towerDamage[towerType];
-        fireRate = instance.towerRate[towerType];
-        range = instance.towerRange[towerType];
-        health = instance.towerHealth[towerType];
+        if(target)
+        {
+            float tan = (target.position.x - this.transform.position.x) / (this.transform.position.y - target.position.y);
+            GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * Mathf.Rad2Deg));
+            Bullet bullet = bulletGO.GetComponent<Bullet>();
+            bullet.parent = gameObject;
+            if(bullet != null)
+            {
+                bullet.seekTarget(target);
+                bullet.GetDamageValue(damage);
+            }
+        }
     }
+
+    public void BackToIdle()
+    {
+        anim.Play("Idle", 0, 0f);
+    }
+
+    public void DrawRange()
+    {
+        if (towerRangeGO == null)
+        {
+            towerRangeGO = (GameObject)Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
+            towerRangeGO.transform.SetParent(gameObject.transform);
+        }  
+        towerRangeGO.transform.localScale = new Vector3 (range * 2, range * 2, 0); // diameter = radius multiply 2 
+    }
+    #endregion
+
+    #region Interactable Function (Click event)
     public void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+			return;
         myStand.selectMe();
         audioGO.Play("Click");
     }
@@ -147,14 +179,38 @@ public class Tower : MonoBehaviour
         myStand.SetObstacleStatus();
         Destroy(this.gameObject);
     }
+
+    public void ToggleRangeSprite()
+    {
+        towerRangeGO.SetActive(!towerRangeGO.activeSelf);
+    }
+
+    public void OnDrawGizmosSelected()     //To check the range
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+    #endregion
+
+    #region Tower Stats and Equation (Use to get data)
+    public void GetStats()
+    {
+        damage = instance.towerDamage[towerType];
+        fireRate = instance.towerRate[towerType];
+        range = instance.towerRange[towerType];
+        health = instance.towerHealth[towerType];
+    }
+
     public void GetCostUpgrade()
     {
         costUpgrade = (int)Mathf.Round(costRatio * Mathf.Pow(3, level+1));
     }
+
     public void GetSellValue()
     {
         sellValue += (int)Mathf.Round(costRatio * Mathf.Pow(3, level)/2);
     }
+
     public void TowerStatsEquation()
     {
         switch (towerType)
@@ -176,58 +232,22 @@ public class Tower : MonoBehaviour
                 break;           
         }
     }
-    public void BackToIdle()
-    {
-        anim.Play("Idle", 0, 0f);
-    }
-    public void SpawnBullet()
-    {
-        if(target)
-        {
-            float tan = (target.position.x - this.transform.position.x) / (this.transform.position.y - target.position.y);
-            GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, Mathf.Atan(tan) * Mathf.Rad2Deg));
-            Bullet bullet = bulletGO.GetComponent<Bullet>();
-            bullet.parent = gameObject;
-            if(bullet != null)
-            {
-                bullet.seekTarget(target);
-                bullet.GetDamageValue(damage);
-            }
-        }
-    }
+    #endregion
+    
+    #region Tower collision enemy function
     private void DestroyTower()  //destroy tower 
     {
         myStand.SetObstacleStatus();
         Destroy(gameObject);  
     }
 
-    public void DrawRange()
-    {
-        if (towerRangeGO == null)
-        {
-            towerRangeGO = (GameObject)Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
-            towerRangeGO.transform.SetParent(gameObject.transform);
-        }  
-        towerRangeGO.transform.localScale = new Vector3 (range * 2, range * 2, 0); // diameter = radius multiply 2 
-    }
-
-    public void ToggleRangeSprite()
-    {
-        towerRangeGO.SetActive(!towerRangeGO.activeSelf);
-    }
-
-    public void OnDrawGizmosSelected()     //To check the range
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
-
     public void TowerTakeDamage(int _damage)
     {
         health -= _damage;
-        if(health < 0)
+        if(health <= 0)
         {
             DestroyTower();
         }
     }
+    #endregion
 }

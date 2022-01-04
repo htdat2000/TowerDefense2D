@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Knot : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class Knot : MonoBehaviour
     }
     void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+			return;
         selectMe();      
     }
 
