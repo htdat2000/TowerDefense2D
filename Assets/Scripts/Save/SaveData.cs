@@ -4,7 +4,6 @@
 public class SaveData
 {
     [Header("TowerData")]
-    public int[] towerStar;
     public bool[] towerStatus;
 
     [Header("MapData")]
@@ -24,7 +23,7 @@ public class SaveData
 
     void GetTowerData(PlayerStats _playerStats)
     {
-        int numberOfTower = _playerStats.towerArray.Length;      
+        int numberOfTower = _playerStats.towerStatus.Length;      
         
         towerStatus = new bool[numberOfTower];
 
