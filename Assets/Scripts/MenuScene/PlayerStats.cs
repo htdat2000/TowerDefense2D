@@ -80,7 +80,16 @@ public class PlayerStats : MonoBehaviour
 
     void LoadTowerData(SaveData data)
     {
-        int numberOfTower = data.towerStatus.Length;
+        int playerTowerNumber = towerStatus.Length;
+        int dataTowerNumber = data.towerStatus.Length;
+        int numberOfTower = 0;
+        
+        if(playerTowerNumber < dataTowerNumber)
+        {
+            numberOfTower = playerTowerNumber;
+        }
+        else numberOfTower = dataTowerNumber;
+        
         //Debug.Log(numberOfTower);
         for(int i = 0; i < numberOfTower; i++)
       {
@@ -98,9 +107,15 @@ public class PlayerStats : MonoBehaviour
 
     void LoadMapData(SaveData data)
     {
-        int numberOfMap = data.mapStatus.Length;
-
-        mapStatus = new bool[numberOfMap];
+        int playerMapNumber = mapStatus.Length;
+        int dataMapNumber = data.mapStatus.Length;
+        int numberOfMap = 0;
+        
+        if(playerMapNumber < dataMapNumber)
+        {
+            numberOfMap = playerMapNumber;
+        }
+        else numberOfMap = dataMapNumber;
 
         for(int i = 0; i < numberOfMap; i++)
         {
