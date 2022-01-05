@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+
 public class Enemy : MonoBehaviour
 {
     public string enemyTag = "Enemy";
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     private float slowTimeCount;
     private bool wasDead = false;
+    public bool WasDead{get { return wasDead;} }
 
     void Start()
     {
@@ -82,9 +84,8 @@ public class Enemy : MonoBehaviour
         wasDead = true;
         Instantiate(deadEffect, transform.position, transform.rotation);
         SceneStats.Money += value; 
-        CheckRavenAround();
         WaveSystem.thisWaveEnemiesCount--;
-        Destroy(gameObject);
+        Destroy(gameObject, 0.05f);
     }
     #endregion
 
@@ -119,22 +120,6 @@ public class Enemy : MonoBehaviour
         {
             transform.gameObject.tag = enemyTag;
             this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
-        }
-    }
-
-    void CheckRavenAround()
-    {
-        GameObject[] ravens = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject raven in ravens)
-        {
-            if(raven.GetComponent<Raven>() != null)
-            {
-                float distanceToRaven = Vector3.Distance(transform.position, raven.transform.position);
-                if(distanceToRaven < raven.GetComponent<Raven>().skillRange)
-                {
-                    raven.GetComponent<Enemy>().Heal(raven.GetComponent<Raven>().skillValue);
-                }
-            }
         }
     }
     #endregion
