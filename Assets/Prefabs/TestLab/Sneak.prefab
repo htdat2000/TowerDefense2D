@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1997881997459661676}
   - component: {fileID: 1997881997459661665}
   - component: {fileID: 2251641932476053579}
-  - component: {fileID: 8095696832608880772}
+  - component: {fileID: 6158284937300119050}
   m_Layer: 0
   m_Name: Sneak
   m_TagString: Enemy
@@ -146,7 +146,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8095696832608880772
+--- !u!114 &6158284937300119050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,12 +155,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1997881997459661677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64fdb25431670241b4760bd0af3645d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bec7cf8dd31ea64587d2654210a8fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTag: Enemy
-  invisibleTag: Invisible
-  special: Invisible
+  special: 
   healthRatio: 0.8
   health: 0
   value: 3
@@ -168,6 +167,7 @@ MonoBehaviour:
   healthBar: {fileID: 8212795347347854717}
   deadEffect: {fileID: 4868360996752368055, guid: 48c0a73a4f3a3c44fa5364d0c0a288a1,
     type: 3}
+  invisibleTag: Invisible
 --- !u!1001 &2058302620333656650
 PrefabInstance:
   m_ObjectHideFlags: 0

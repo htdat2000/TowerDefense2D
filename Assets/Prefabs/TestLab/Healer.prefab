@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5805655217712058367}
   - component: {fileID: 5805655217712058366}
   - component: {fileID: 5805655217712058353}
-  - component: {fileID: 8447656371969308639}
   - component: {fileID: 5805655217712058364}
   - component: {fileID: 6059386410844951766}
   - component: {fileID: -4224660388515637410}
@@ -102,28 +101,6 @@ MonoBehaviour:
   speed: 10
   nextKnot: {fileID: 0}
   currentKnot: {fileID: 0}
---- !u!114 &8447656371969308639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5805655217712058352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64fdb25431670241b4760bd0af3645d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyTag: Enemy
-  invisibleTag: Invisible
-  special: 
-  healthRatio: 3
-  health: 30
-  value: 3
-  startSpeed: 5
-  healthBar: {fileID: 3508367029844023546}
-  deadEffect: {fileID: 4868360996752368055, guid: 48c0a73a4f3a3c44fa5364d0c0a288a1,
-    type: 3}
 --- !u!61 &5805655217712058364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,6 +158,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66724a292d712e04d92e4ce110a4bc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTag: Enemy
+  special: 
+  healthRatio: 3
+  health: 0
+  value: 3
+  startSpeed: 5
+  healthBar: {fileID: 3508367029844023546}
+  deadEffect: {fileID: 4868360996752368055, guid: 48c0a73a4f3a3c44fa5364d0c0a288a1,
+    type: 3}
   healValue: 3
   healRadius: 10
 --- !u!1001 &6762440373094811597

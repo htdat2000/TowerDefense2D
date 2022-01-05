@@ -14,19 +14,11 @@ public class IceB : Bullet
         slowPercentage = 0.1f + 0.05f * parentLevel; 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void HitTarget()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            HitTarget();
-        }
-    }
-    void HitTarget()
-    {
-        Instantiate(hitEffect, transform.position, Quaternion.identity);
+        base.HitTarget();
         Slow();
         Damage(target);    
-        Destroy(gameObject);
     }
     void Slow()
     {

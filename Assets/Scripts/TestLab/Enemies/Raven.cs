@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 
-public class Raven : MonoBehaviour
+public class Raven : Enemy
 {
     public float skillRange;
     public float skillValue;
-    Enemy thisRaven;
     
-    void Start()
-    {
-        thisRaven = GetComponent<Enemy>();
-    }
     void FixedUpdate()
     {
         
@@ -28,7 +23,7 @@ public class Raven : MonoBehaviour
                 Enemy e = c.GetComponent<Enemy>();
                 if(e.WasDead)
                 {
-                    thisRaven.Heal(skillValue);
+                    Heal(skillValue);
                     Destroy(e.gameObject);
                 }
             }

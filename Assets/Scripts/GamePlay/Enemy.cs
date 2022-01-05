@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 public class Enemy : MonoBehaviour
 {
     public string enemyTag = "Enemy";
-    public string invisibleTag = "Invisible";
-
     public string special = "";
     public float healthRatio;
     [HideInInspector]
@@ -31,7 +29,7 @@ public class Enemy : MonoBehaviour
     private bool wasDead = false;
     public bool WasDead{get { return wasDead;} }
 
-    void Start()
+    protected virtual void Start()
     {
         health = healthRatio * SceneStats.equationValue;
         startHealth = healthRatio * SceneStats.equationValue;
@@ -51,7 +49,7 @@ public class Enemy : MonoBehaviour
     }
 
     #region enemy default function region
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         //Debug.Log("Get hit");
         audioGO.Play("Hit");
@@ -65,12 +63,6 @@ public class Enemy : MonoBehaviour
                 audioGO.Play("Die");
                 return;
             }
-        }
-        if(special == "Invisible")
-        {
-            ChangeTag();
-            Invoke("ChangeTag", 2f);
-            return;
         }
     }
 
@@ -107,20 +99,6 @@ public class Enemy : MonoBehaviour
     public void Poisoned(float percentage)
     {
         health -= health * percentage;
-    }
-    
-    void ChangeTag()
-    {
-        if(transform.gameObject.tag == enemyTag)
-        {
-            transform.gameObject.tag = invisibleTag;
-            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.5f);
-        }
-        else
-        {
-            transform.gameObject.tag = enemyTag;
-            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
-        }
     }
     #endregion
 
