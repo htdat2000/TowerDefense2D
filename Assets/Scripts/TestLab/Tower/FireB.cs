@@ -6,19 +6,10 @@ public class FireB : Bullet
 {
     private float explosionRadius = 1f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void HitTarget()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            HitTarget();
-        }
-    }
-
-    void HitTarget()
-    {
-        Instantiate(hitEffect, transform.position, Quaternion.identity); 
+        base.HitTarget();
         Explode(target);   
-        Destroy(gameObject);
     }
 
     void Explode(Transform target)

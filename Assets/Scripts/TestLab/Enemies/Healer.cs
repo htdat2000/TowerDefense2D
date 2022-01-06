@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Healer : MonoBehaviour
+public class Healer : Enemy
 {
     // Start is called before the first frame update
-    public float healValue ;
+    public float healValue;
     public float healRadius;
-    void Start()
+
+    protected override void Start()
     {
+        base.Start();
         InvokeRepeating("Heal", 1f, 6f);
     }
 

@@ -30,10 +30,10 @@ public class Bullet : MonoBehaviour
         target = _target;
     }
 
-    void HitTarget()
+    protected virtual void HitTarget()
     {
-        Instantiate(hitEffect, transform.position, Quaternion.identity); 
-        Destroy(gameObject);
+        Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject); 
     }
 
     public void Damage(Transform enemy)
@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Invisible") || collision.gameObject.CompareTag("Raven"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             HitTarget();
         }

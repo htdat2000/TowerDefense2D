@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7604498403453458937}
   - component: {fileID: 7604498403453458936}
   - component: {fileID: 7604498403453458935}
-  - component: {fileID: 5486885311294939609}
   - component: {fileID: 7604498403453458938}
   - component: {fileID: 7858232139207049936}
   - component: {fileID: 5702471628050736738}
@@ -102,28 +101,6 @@ MonoBehaviour:
   speed: 10
   nextKnot: {fileID: 0}
   currentKnot: {fileID: 0}
---- !u!114 &5486885311294939609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7604498403453458934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64fdb25431670241b4760bd0af3645d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyTag: Enemy
-  invisibleTag: Invisible
-  special: 
-  healthRatio: 2
-  health: 30
-  value: 3
-  startSpeed: 4
-  healthBar: {fileID: 696217984280760060}
-  deadEffect: {fileID: 4868360996752368055, guid: 48c0a73a4f3a3c44fa5364d0c0a288a1,
-    type: 3}
 --- !u!61 &7604498403453458938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,6 +158,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad4782bd1606bc48b63692f7c859c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTag: Enemy
+  invisibleTag: Invisible
+  special: 
+  healthRatio: 2
+  health: 0
+  value: 3
+  startSpeed: 4
+  healthBar: {fileID: 696217984280760060}
+  deadEffect: {fileID: 4868360996752368055, guid: 48c0a73a4f3a3c44fa5364d0c0a288a1,
+    type: 3}
   skillRange: 10
   skillValue: 10
 --- !u!1001 &7259886266925388235
