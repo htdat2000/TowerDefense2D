@@ -14,9 +14,9 @@ public class Tower : MonoBehaviour
     public float costRatio;
     public int costUpgrade;
     public int sellValue;
+    public TowerCard towerCard;
 
     [Header("Unity Setup")]
-    public float defaultDmg;
     private Transform target;
     public string enemyTag = "Enemy";
 
@@ -26,9 +26,8 @@ public class Tower : MonoBehaviour
     public GameObject towerRangeGO;
     
     public float fireCountdown = 0f;
-    
     public Animator anim;
-    PlayerStats instance;
+    
     public Knot myStand;
 
 
@@ -37,13 +36,11 @@ public class Tower : MonoBehaviour
 
     void Awake()
     {
-        instance = PlayerStats.playerStats;
         GetStats();
     }
     void Start()
     {
-        defaultDmg = damage;
-        
+   
         InvokeRepeating("TargetLock", 0.2f, 0.2f);
         
         GetCostUpgrade();
@@ -195,10 +192,10 @@ public class Tower : MonoBehaviour
     #region Tower Stats and Equation (Use to get data)
     public void GetStats()
     {
-        damage = instance.towerDamage[towerType];
-        fireRate = instance.towerRate[towerType];
-        range = instance.towerRange[towerType];
-        health = instance.towerHealth[towerType];
+        damage = towerCard.defaultDmg;
+        fireRate = towerCard.fireRate;
+        range = towerCard.defaultRange;
+        health = towerCard.health;
     }
 
     public void GetCostUpgrade()
@@ -211,26 +208,11 @@ public class Tower : MonoBehaviour
         sellValue += (int)Mathf.Round(costRatio * Mathf.Pow(3, level)/2);
     }
 
-    public void TowerStatsEquation()
+    void TowerStatsEquation()
     {
-        switch (towerType)
-        {
-            case 0:
-                damage = Mathf.Round(Mathf.Pow(5, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 11,level - 1));
-                range += 0.5f;
-                break; 
-            case 1:
-                damage = Mathf.Round(Mathf.Pow(3, level - 1) + Mathf.Pow(4, level) + defaultDmg + Mathf.Pow(defaultDmg - 19,level - 1));
-                range += 0.2f;
-                break;
-            case 2:
-                damage = Mathf.Round(Mathf.Pow(1, level - 1) + Mathf.Pow(3, level) + defaultDmg + Mathf.Pow(defaultDmg - 7,level - 1));
-                range += 0.1f; 
-                break;
-            default:
-                Debug.Log("No Stats Equation");
-                break;           
-        }
+        towerCard.UpdateTowerCardData(level);
+        damage = towerCard.damage;
+        range = towerCard.range;
     }
     #endregion
     

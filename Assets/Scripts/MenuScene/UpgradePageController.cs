@@ -27,8 +27,8 @@ public class UpgradePageController : MonoBehaviour
         audioGO.Play("Click");
 
         towerCard = _towerCard;
-        towerDamage.text = _towerCard.damage.ToString();
-        towerRange.text = _towerCard.range.ToString();
+        towerDamage.text = _towerCard.defaultDmg.ToString();
+        towerRange.text = _towerCard.defaultRange.ToString();
         towerFireRate.text = _towerCard.fireRate.ToString();
         specialEffect.text = _towerCard.specialEffect;
  

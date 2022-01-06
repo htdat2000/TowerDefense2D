@@ -15,8 +15,10 @@ MonoBehaviour:
   name: Ice
   icon: {fileID: 0}
   towerIndex: 2
-  damage: 9
-  range: 1.5
+  defaultDmg: 9
+  defaultRange: 1.5
   fireRate: 1
   health: 100
   specialEffect: Slow enemies
+  damage: 9
+  range: 1.5

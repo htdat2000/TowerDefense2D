@@ -132,6 +132,7 @@ MonoBehaviour:
   costRatio: 1
   costUpgrade: 0
   sellValue: 0
+  towerCard: {fileID: 11400000, guid: 21d96a45cad84fc4a9a9a4005f734680, type: 2}
   defaultDmg: 0
   enemyTag: Enemy
   bulletPrefab: {fileID: 5785482194725269460, guid: 05addf5a1aa2d684ead9b46a57a6ccba,

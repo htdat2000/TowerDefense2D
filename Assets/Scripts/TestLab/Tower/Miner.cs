@@ -6,9 +6,7 @@ public class Miner : Tower
 {
     // Start is called before the first frame update
     void Start()
-    {
-        defaultDmg = damage;
-        
+    {   
         //InvokeRepeating("TargetLock", 0.2f, 0.2f);
         
         GetCostUpgrade();

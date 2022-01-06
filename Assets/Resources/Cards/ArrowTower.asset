@@ -15,8 +15,10 @@ MonoBehaviour:
   name: Arrow
   icon: {fileID: 0}
   towerIndex: 0
-  damage: 12
-  range: 2
+  defaultDmg: 12
+  defaultRange: 2
   fireRate: 1.5
   health: 100
   specialEffect: Shoot very fast
+  damage: 12
+  range: 2

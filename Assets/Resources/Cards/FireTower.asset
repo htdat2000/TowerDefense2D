@@ -15,8 +15,10 @@ MonoBehaviour:
   name: Fire
   icon: {fileID: 0}
   towerIndex: 1
-  damage: 20
-  range: 1.5
+  defaultDmg: 20
+  defaultRange: 1.5
   fireRate: 0.4
   health: 100
   specialEffect: AoE damage
+  damage: 20
+  range: 1.5
