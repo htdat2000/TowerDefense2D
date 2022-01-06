@@ -9,7 +9,7 @@ public class Raven : Enemy
     {
         
         CheckEnemyDie();
-        
+
     }
 
     void CheckEnemyDie()
