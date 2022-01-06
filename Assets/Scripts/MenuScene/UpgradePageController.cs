@@ -13,7 +13,7 @@ public class UpgradePageController : MonoBehaviour
     PlayerStats instance;
 
     //chổ này đem lên chưa biết để header là gì
-    private int towerType;
+    private TowerCard towerCard;
 
     private AudioManager audioGO;
     
@@ -22,24 +22,23 @@ public class UpgradePageController : MonoBehaviour
         instance = PlayerStats.playerStats;
         audioGO = FindObjectOfType<AudioManager>();
     }
-    public void OpenTowerUpgradeTab(int _towerType)
+    public void OpenTowerUpgradeTab(TowerCard _towerCard)
     {
         audioGO.Play("Click");
 
-        towerDamage.text = instance.towerDamage[_towerType].ToString();
-        towerRange.text = instance.towerRange[_towerType].ToString();
-        towerFireRate.text = instance.towerRate[_towerType].ToString();
-        specialEffect.text = null;
+        towerCard = _towerCard;
+        towerDamage.text = _towerCard.damage.ToString();
+        towerRange.text = _towerCard.range.ToString();
+        towerFireRate.text = _towerCard.fireRate.ToString();
+        specialEffect.text = _towerCard.specialEffect;
  
-        towerType = _towerType;
-
         if(btn.gameObject.activeSelf != true)
         {
             btn.gameObject.SetActive(true);
         }
 
-        CheckTowerStatus(_towerType);
-        Debug.Log(_towerType);
+        CheckTowerStatus(_towerCard.towerIndex);
+        Debug.Log(_towerCard.towerIndex);
     }
 
     void CheckTowerStatus(int _towerType) //check tower unlock status, if false => player can unlock 
@@ -61,7 +60,7 @@ public class UpgradePageController : MonoBehaviour
         {      
             audioGO.Play("Click");
 
-            instance.towerStatus[towerType] = true;
+            instance.towerStatus[towerCard.towerIndex] = true;
 
             instance.gem -= 4000; //unlock cost 
     
@@ -76,31 +75,7 @@ public class UpgradePageController : MonoBehaviour
 
     void ResetUpgradeTab()
     {
-        switch (towerType)
-        {
-            case 4:
-                OpenTowerUpgradeTab(4);
-                break;
-
-            case 3:
-                OpenTowerUpgradeTab(3);
-                break;
-
-            case 2:
-                OpenTowerUpgradeTab(2);
-                break;
-
-            case 0:
-                OpenTowerUpgradeTab(0);
-                break;
-
-            case 1:
-                OpenTowerUpgradeTab(1);
-                break;
-            case 5:
-                OpenTowerUpgradeTab(5);
-                break;
-        }
+        OpenTowerUpgradeTab(towerCard);
     }
 
     void Save()
