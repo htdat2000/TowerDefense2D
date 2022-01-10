@@ -109,7 +109,7 @@ public class WaveSystem : MonoBehaviour
         countdown += 40f;
     }
 
-    private void MinusEnemy(int value)
+    public void MinusEnemy(int value)
     {
         thisWaveEnemiesCount--;
         Debug.Log("Minus Enemy");  

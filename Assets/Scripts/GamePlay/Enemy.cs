@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public GameEvent gameEvent;
     public string enemyTag = "Enemy";
     public string invisibleTag = "Invisible";
 
@@ -70,7 +71,8 @@ public class Enemy : MonoBehaviour
     {
         wasDead = true;
         Instantiate(deadEffect, transform.position, transform.rotation);
-        EventController.instance.TriggerDieEvent(value);
+        gameEvent.Invoke();
+        //EventController.instance.TriggerDieEvent(value);
         //SceneStats.Money += value; 
         CheckRavenAround();
         //WaveSystem.thisWaveEnemiesCount--;

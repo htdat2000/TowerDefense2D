@@ -42,7 +42,7 @@ public class SceneStats : MonoBehaviour
         equationValue = 10 + 4 * wavesNumber + wavesNumber * wavesNumber;
     }
 
-    private void AddMoney(int value)
+    public void AddMoney(int value)
     {
         Money += value;
         Debug.Log("Add money");

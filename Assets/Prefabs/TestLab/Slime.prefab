@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64fdb25431670241b4760bd0af3645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 5e01bd9974a08664b8a96b15c971128c, type: 2}
   enemyTag: Enemy
   invisibleTag: Invisible
   special: 
