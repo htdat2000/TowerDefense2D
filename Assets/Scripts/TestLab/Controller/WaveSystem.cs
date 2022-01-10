@@ -10,17 +10,15 @@ public class WaveSystem : MonoBehaviour
         // với spawnPositon
     public GameObject[] enemyPrefabs;
 
+    public static int thisWaveEnemiesCount = 0;
     public float countdown = 10f; //đếm để spawn
-    public float timeBetweenWaves = 15f;
-    public float timeBetweenSpawn = 0.5f;
+    private float timeBetweenWaves = 15f;
+    private float timeBetweenSpawn = 0.5f;
 
     public int waveCount = 1;
-    public bool spawning = false;
+    private bool spawning = false;
 
     private float enemiesTypeRange = 4f;
-
-    public static int thisWaveEnemiesCount = 0;
-
     public static int maxWave = 50;
 
     SceneStats sceneStats;
@@ -29,10 +27,12 @@ public class WaveSystem : MonoBehaviour
     void Awake()
     {
         sceneStats = GetComponent<SceneStats>();
+        
     }
 
     void Start()
     {
+        EventController.instance.OnEnemyDieEvent += MinusEnemy;
         thisWaveEnemiesCount = 0;
         sceneStats.HealthEquation();
 
@@ -41,6 +41,7 @@ public class WaveSystem : MonoBehaviour
   
     void Update()
     {
+        Debug.Log(thisWaveEnemiesCount);
         //Debug.Log("EnemyCount: " + thisWaveEnemiesCount);
         if (countdown <= 0f)                 //Create enemy
         {
@@ -108,4 +109,9 @@ public class WaveSystem : MonoBehaviour
         countdown += 40f;
     }
 
+    private void MinusEnemy(int value)
+    {
+        thisWaveEnemiesCount--;
+        Debug.Log("Minus Enemy");  
+    }
 }

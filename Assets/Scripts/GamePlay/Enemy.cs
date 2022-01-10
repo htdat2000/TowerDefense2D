@@ -70,9 +70,10 @@ public class Enemy : MonoBehaviour
     {
         wasDead = true;
         Instantiate(deadEffect, transform.position, transform.rotation);
-        SceneStats.Money += value; 
+        EventController.instance.TriggerDieEvent(value);
+        //SceneStats.Money += value; 
         CheckRavenAround();
-        WaveSystem.thisWaveEnemiesCount--;
+        //WaveSystem.thisWaveEnemiesCount--;
         Destroy(gameObject);
     }
     public void SetSlowValue(float percentage, float slowTime)

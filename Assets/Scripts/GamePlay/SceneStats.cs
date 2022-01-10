@@ -19,6 +19,7 @@ public class SceneStats : MonoBehaviour
 
     void Start()
     {
+        EventController.instance.OnEnemyDieEvent += AddMoney;
         Money = startMoney;
         Lives = startLives;
         wavesNumber = 0;      
@@ -39,5 +40,16 @@ public class SceneStats : MonoBehaviour
     public void HealthEquation()
     {
         equationValue = 10 + 4 * wavesNumber + wavesNumber * wavesNumber;
+    }
+
+    private void AddMoney(int value)
+    {
+        Money += value;
+        Debug.Log("Add money");
+    }
+
+    private void OnDestroy()
+    {
+        EventController.instance.OnEnemyDieEvent -= AddMoney;
     }
 }
